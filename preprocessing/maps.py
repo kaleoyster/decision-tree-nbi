@@ -246,3 +246,62 @@ from_to_matrix = {
                    ('1', '2'):'Repair'
 
                   }
+
+"""
+Note:
+ - All the one condition improvement are inspection variance.   Expect, a condition improvement from 2 to 3.
+
+ - All improvement in condition from condition 1 to
+   any other condition rating is not applicable.
+
+ - Kent Miller's version contains "Not applicable"
+   and "Inspection variance" in addition to Repair, Replace,    and Rehab. Also, Kent Miller's removes ambiguity between other types of interventions.
+"""
+
+# Kent Miller's version:
+from_to_matrix_kent = {
+                   ('8', '9'):'Insp. Variance',
+                   ('7', '9'):'Repair',
+                   ('6', '9'):'Repair',
+                   ('5', '9'):'Rehab',
+                   ('4', '9'):'Replace',
+                   ('3', '9'):'Replace',
+                   ('2', '9'):'Replace',
+                   ('1', '9'):'Not applicable',
+
+                   ('7', '8'):'Insp. Variance',
+                   ('6', '8'):'Repair',
+                   ('5', '8'):'Repair',
+                   ('4', '8'):'Replace',
+                   ('3', '8'):'Replace',
+                   ('2', '8'):'Replace',
+                   ('1', '8'):'Not applicable',
+
+                   ('6', '7'):'Insp. Variance',
+                   ('5', '7'):'Repair',
+                   ('4', '7'):'Rehab',
+                   ('3', '7'):'Rehab',
+                   ('2', '7'):'Rehab',
+                   ('1', '7'):'Not applicable',
+
+                   ('5', '6'):'Insp. Variance',
+                   ('4', '6'):'Repair',
+                   ('3', '6'):'Repair',
+                   ('2', '6'):'Repair',
+                   ('1', '6'):'Not applicable',
+
+                   ('4', '5'):'Insp. Variance',
+                   ('3', '5'):'Repair',
+                   ('2', '5'):'Repair',
+                   ('1', '5'):'Not applicable',
+
+                   ('3', '4'):'Insp. Variance',
+                   ('2', '4'):'Repair',
+                   ('1', '4'):'Not applicable',
+
+                   ('2', '3'):'Repair',
+                   ('1', '3'):'Not applicable',
+
+                   ('1', '2'):'Not applicable'
+
+                  }

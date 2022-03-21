@@ -2,10 +2,6 @@
 description: functions to query NBI mongodb
 author: Akshay Kale
 Data: Nov 28, 2020
-
-# Todo:
-    1. Computation of the deterioration slope [Done]
-    2. Compuation of the baseline difference score [Done]
 -------------------------------------------------"""
 
 __author__ = 'Akshay Kale'
@@ -218,10 +214,14 @@ def divide_grouped_records(groupedRecords, fields, fr, to):
 
 def compute_intervention_utility(conditionRatings, interventionMap):
     """
-    Description: A utility function for computing possible intervention
-    by taking into consideration changes in condition rating. The function
-    implemented is based on Bridge Intervention Matrix by Tariq et al.
+    Description:
+        A utility function for computing possible intervention
+    by taking into consideration changes in condition rating. The function implemented is based on Bridge Intervention Matrix by Tariq et al.
 
+    Note:
+         Check for the representation of condition ratings.
+         Often the condition ratings are defined as a string,
+         Then, these condition rating have to be transformed into interger
     Args:
         conditionRatings (list)
         interventionMap (dictionary)

@@ -1,14 +1,16 @@
 """
-description: A custom script to create a dataset
+Description: A custom script to create a dataset
 for decision tree model for:
     1. deterioration
     2. maintenance
 
-author: Akshay Kale
-data: May 27th, 2020
+Author: Akshay Kale
+
+Date: May 27th, 2020
+Last Updated: February 16th, 2022
 
 TODO:
-        1. Create for deterioration and maintenance
+        1. Create for deterioration and maintenance?
         2. Monotonously decreasing condition ratings must have negative deterioration score
         3. Import precipitation and snowfall data into mongodb
         4. Investigate snowfall and freezethaw data for Nebraska
@@ -50,10 +52,10 @@ def main():
             }
 
     # select states:
-    states = ['55'] # Wisconsin
+    states = ['31'] # Nebraska
 
     # years:
-    years = [year for year in range(1992, 2017)]
+    years = [year for year in range(1992, 2020)]
 
     # process precipitation data
     structBdsMap, structPrecipMap = process_precipitation()
@@ -69,29 +71,38 @@ def main():
     groupedRecords = group_records(individualRecords, fields)
 
     # integrate baseline difference score, precipitation, freezethaw, and snowfall
-    individualRecords = integrate_ext_dataset_list(structBdsMap, individualRecords, 'baseDifferenceScore')
-    individualRecords = integrate_ext_dataset_list(structPrecipMap, individualRecords, 'precipitation')
-    individualRecords = integrate_ext_dataset_list(structSnowMap, individualRecords, 'snowfall')
-    individualRecords = integrate_ext_dataset_list(structFreezeMap, individualRecords, 'freezethaw')
+    individualRecords = integrate_ext_dataset_list(structBdsMap,
+                                                   individualRecords,
+                                                   'baseDifferenceScore')
+    individualRecords = integrate_ext_dataset_list(structPrecipMap,
+                                                   individualRecords,
+                                                   'precipitation')
+    individualRecords = integrate_ext_dataset_list(structSnowMap,
+                                                   individualRecords,
+                                                   'snowfall')
+    individualRecords = integrate_ext_dataset_list(structFreezeMap,
+                                                   individualRecords,
+                                                   'freezethaw')
 
-    # divide grouped records (works only for grouped records)
+    # Divide grouped records (works only for grouped records)
     groupedRecords = divide_grouped_records(groupedRecords, fields, 2010, 2017)
 
-    # remove records from specific years (works only for individual records)
+    # Remove records from specific years (works only for individual records)
     individualRecords = remove_records(individualRecords, 2010, 2017)
 
-    # compute intervention from (year: from and to) 
-    # Create a gaint for loop
-        # 1. Compute deterioration
-        # 2. Intervention
-        # 3. Scores
+    #TODO:
+        # Compute intervention from (year: from and to) 
+        # Create a for-loop (Although, this loop will be giant)
+            # 1. Compute deterioration
+            # 2. Intervention
+            # 3. Scores
 
     groupedRecords = compute_intervention(groupedRecords, from_to_matrix)
     groupedRecords = compute_intervention(groupedRecords, from_to_matrix, component='substructure')
     groupedRecords = compute_intervention(groupedRecords, from_to_matrix, component='superstructure')
     #print("\n printing grouped records: ", groupedRecords)
 
-    # compute deterioration
+    # Compute deterioration
     groupedRecords = compute_deterioration_slope(groupedRecords, component='deck')
     groupedRecords = compute_deterioration_slope(groupedRecords, component='substructure')
     groupedRecords = compute_deterioration_slope(groupedRecords, component='superstructure')
@@ -150,7 +161,7 @@ def main():
                                                    'supNumberIntervention')
 
     # save to the file
-    csvFile = 'wisconsin.csv'
+    csvFile = 'nebraska.csv'
     tocsv_list(individualRecords, csvFile)
 
 if __name__=='__main__':

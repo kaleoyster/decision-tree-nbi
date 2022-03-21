@@ -332,6 +332,11 @@ def maintenance_pipeline(state):
     dataScaled = df[columnsFinal]
     #dataScaled = dataScaled[columnsFinal]
     #print(dataScaled.columns)
+
+    # TODO: Do one hot encoding here
+    #columnsHotEncoded = ['material']
+    #oneHot(df, columnsHotEncoded)
+
     dataScaled = remove_null_values(dataScaled)
 
     # Apply recursive feature elimination
@@ -342,7 +347,8 @@ def maintenance_pipeline(state):
                 "deckNumberIntervention"]
 
     print("\nPrinting the labels")
-    # Clean data up until here:
+
+    #TODO: Clean data up until here:
     print(dataScaled.head())
     sLabels = semantic_labeling(dataScaled[features],
                                 name="")
@@ -390,7 +396,7 @@ def maintenance_pipeline(state):
     kappaValues = list()
     accValues = list()
     featImps = list()
-    models = list()
+    decisionModels = list()
 
     ## TODO: This loop takes into account defined labels
     for label in labels:
@@ -459,20 +465,25 @@ def maintenance_pipeline(state):
         print("\n Distribution of the clusters after oversampling: ", Counter(y))
 
         # Return to home directory:
-        kappaValue, accValue, featImp = decision_tree(X, y, columnsFinal)
+            # Overhere, if the model is passed here then we can print the trees
+            # in the following main function
+        kappaValue, accValue, featImp, models = decision_tree(X, y, columnsFinal)
         kappaValues.append(kappaValue)
         accValues.append(accValue)
         featImps.append(featImp)
-        #models.append(leaves) # models ->> change into leaves
+        decisionModels.append(models)
 
+
+        # TODO: working on the leaves
+        # models.append(leaves) # models ->> change into leaves 
+        # list of model is being is used to save models from decision tree
         # Find leaves first
-        # 
 
     #print(dataScaled.head())
     sys.stdout.close()
     os.chdir(currentDir)
 
-    return dataScaled, labels, kappaValues, accValues, featImps
+    return dataScaled, labels, kappaValues, accValues, featImps, decisionModels
 
 # Driver function
 def main():
@@ -490,6 +501,7 @@ def main():
 
     modelName = 'testing'
     csvfiles = ['nebraska']
+
     listOfKappaValues = list()
     listOfAccValues = list()
     listOfLabels = list()
@@ -497,10 +509,11 @@ def main():
     listOfCounts = list()
     listOfDataFrames = list()
     listOfFeatureImps = list()
+    listOfModels = list()
 
     for filename in csvfiles:
          filename = filename+'_deep'
-         dataScaled, sLabel, kappaValues, accValues, featImps = maintenance_pipeline(filename)
+         dataScaled, sLabel, kappaValues, accValues, featImps, decisionModels = maintenance_pipeline(filename)
          listOfLabels.append(sLabel)
          listOfStates.append([filename[:-5]]*3)
          listOfDataFrames.append(dataScaled)
@@ -543,7 +556,7 @@ def main():
     newlistofstates = list()
     newlistoffeatimps = list()
 
-    # TODO: Refactor
+    # TODO: Refactor the series of for loops
     for valuesperstate in listOfKappaValues:
         for values in valuesperstate:
             entropy, gini = values

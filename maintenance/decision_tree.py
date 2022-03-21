@@ -24,10 +24,12 @@ from tqdm import tqdm
 
 # Preprocessing
 from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import OneHotEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import KFold
 
 # Model
+import sklearn
 from sklearn import tree
 from sklearn.tree import DecisionTreeClassifier
 
@@ -44,6 +46,33 @@ import plotly.express as px
 import seaborn as sns
 import matplotlib.pyplot as plt
 #import graphviz
+
+# Function for one-hot-encoding
+def oneHot(df, columns):
+    """
+    Function for one-hot-encoding
+    args:
+        df: Dataframe
+        columns: all the columns
+        fields: specific fields to code one hot encoding
+
+    return:
+        columns: columns with one hot encoding
+    """
+    print("\n Printing columns")
+    print(columns)
+    enc = OneHotEncoder(handle_unknown='ignore')
+    enc.fit(df[columns])
+    print(enc.transform(df[columns]))
+    #print(enc.get_feature_names_out(['material']))
+    #print(enc.categories_)
+
+    #TODO: Next, we have to figure out how do we scale these to other makerials
+
+    # One-hot encoding categorial variable with high cardinality cause inefficieny in tree-based ensembles. Continuous variables will be given more importance than the dummy variables by the algorithm which will obscure the order of feature importance resulting in poorer performance.
+
+    # Further, we need to look at feature hasher and how it can help
+
 
 # Function for normalizing
 def normalize(df, columns):
@@ -338,7 +367,7 @@ def find_leaves(eBestModel):
 
 def print_decision_paths(clf, X_test, feature):
     """
-    Description;
+    Description:
     Args:
     Returns:
     """
@@ -473,7 +502,6 @@ def performance_summarizer(eKappaDict, gKappaDict,
 
     # Printing Node Counts
     # TODO: DELETE the create nNodes
-
     print("\nPrinting split-nodes")
     leaves, treeStructure = find_leaves(eBestModel)
     splitNodes = print_split_nodes(leaves, treeStructure, cols)
@@ -481,8 +509,12 @@ def performance_summarizer(eKappaDict, gKappaDict,
 
     # Print decision tree of the Best Model
     # Entropy
+    # TODO: Save a decision tree model for every run
+            # This function can be perhaps saved somewhere else.
+
     print("\n Saving decision trees \n")
     eTextRepresentation = tree.export_text(eBestModel)
+
     with open("models/entropy_decision_tree.log", "w") as fout:
         fout.write(eTextRepresentation)
 
@@ -496,6 +528,7 @@ def performance_summarizer(eKappaDict, gKappaDict,
     plot_decision_tree(eBestModel, filename='Entropy')
     plot_decision_tree(gBestModel, filename='Gini')
 
+    #TODO: What is this dangling function?
     #with open("models/splitnodes.log", "w") as fout:
     #    fout.write(splitNodes)
 
@@ -535,7 +568,7 @@ def tree_utility(trainX, trainy, testX, testy, cols, criteria='gini', maxDepth=7
 def decision_tree(X, y, features, nFold=5):
     """
     Description:
-        Performs training testing split
+        Performs training-testing split
         Train model for various depth level
         Train model for both Entropy and GiniIndex
 
@@ -672,7 +705,7 @@ def decision_tree(X, y, features, nFold=5):
     eBestModel, gBestModel = models
     #leaves = find_leaves(eBestModel)
     #splitNodes = print_split_nodes(leaves, eBestModel, features)
-    return kappaVals, accVals, featImps
+    return kappaVals, accVals, featImps, models
 
 def plot_centroids(states, centroidDf, metricName):
     """

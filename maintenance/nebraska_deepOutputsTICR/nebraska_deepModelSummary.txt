@@ -108,17 +108,17 @@ Index and length of the rows
             
 
 
- Best Kappa Values:  0.9013889378031062
+ Best Kappa Values:  0.895732400997627
 
- Best Accuracy:  0.948943661971831
+ Best Accuracy:  0.9453521126760561
 
- Best Depth:  22
+ Best Depth:  18
 
  Classification Report: 
                precision    recall  f1-score   support
 
-    negative       0.95      0.95      0.95      1401
-    positive       0.95      0.95      0.95      1439
+    negative       0.95      0.94      0.95      1401
+    positive       0.94      0.96      0.95      1439
 
     accuracy                           0.95      2840
    macro avg       0.95      0.95      0.95      2840
@@ -126,116 +126,22 @@ weighted avg       0.95      0.95      0.95      2840
 
 
  Confusion Matrix: 
- [[1330   71]
- [  69 1370]]
+ [[1315   86]
+ [  62 1377]]
 
  Feature Importance: 
- {'snowfall': 0.0, 'freezethaw': 0.0, 'toll': 0.0, 'designatedInspectionFrequency': 0.005718395656412802, 'numberOfSpansInMainUnit': 0.006259215667264119, 'skew': 0.007717107654600823, 'material': 0.009733115585975711, 'avgDailyTruckTraffic': 0.0109567263148818, 'lanesOnStructure': 0.013378788801861965, 'lengthOfMaximumSpan': 0.0194504626161883, 'designLoad': 0.023968009497910895, 'typeOfDesign': 0.024058652153911463, 'operatingRating': 0.027027470799809373, 'structureLength': 0.0364757083634411, 'latitude': 0.03732784174299765, 'averageDailyTraffic': 0.05447967631389156, 'bridgeRoadwayWithCurbToCurb': 0.05845284942915503, 'longitude': 0.0705345897028831, 'scourCriticalBridges': 0.12171124228563358, 'deckStructureType': 0.19776038758912062, 'yearBuilt': 0.27498975982406004}
+ {'snowfall': 0.0, 'freezethaw': 0.0, 'toll': 0.0, 'designatedInspectionFrequency': 0.0034527972270879596, 'skew': 0.003565238177025848, 'avgDailyTruckTraffic': 0.008125827571504169, 'material': 0.009284703244028091, 'numberOfSpansInMainUnit': 0.01799564837731958, 'lanesOnStructure': 0.019090748101228246, 'designLoad': 0.021023987984877122, 'typeOfDesign': 0.0287750889158022, 'lengthOfMaximumSpan': 0.03010999835674027, 'scourCriticalBridges': 0.03501410167243475, 'operatingRating': 0.039975830871812494, 'averageDailyTraffic': 0.04215128187157464, 'latitude': 0.04837041064304253, 'bridgeRoadwayWithCurbToCurb': 0.04882566442769213, 'structureLength': 0.05347337836064018, 'longitude': 0.0845915088692497, 'deckStructureType': 0.2365925330862359, 'yearBuilt': 0.2695812522417041}
 
 
              ----------- Performance with GiniIndex ------------
              
 
 
- Best Kappa Values:  0.8936439328630427
+ Best Kappa Values:  0.8886872929569261
 
- Best Accuracy:  0.9425352112676055
+ Best Accuracy:  0.9430281690140845
 
- Best Depth:  15
-
- Classification Report: 
-               precision    recall  f1-score   support
-
-    negative       0.95      0.95      0.95      1401
-    positive       0.95      0.95      0.95      1439
-
-    accuracy                           0.95      2840
-   macro avg       0.95      0.95      0.95      2840
-weighted avg       0.95      0.95      0.95      2840
-
-
- Confusion Matrix: 
- [[1326   75]
- [  76 1363]]
-
- Feature Importance: 
- {'snowfall': 0.0, 'freezethaw': 0.0, 'toll': 0.0, 'designatedInspectionFrequency': 0.005718395656412802, 'numberOfSpansInMainUnit': 0.006259215667264119, 'skew': 0.007717107654600823, 'material': 0.009733115585975711, 'avgDailyTruckTraffic': 0.0109567263148818, 'lanesOnStructure': 0.013378788801861965, 'lengthOfMaximumSpan': 0.0194504626161883, 'designLoad': 0.023968009497910895, 'typeOfDesign': 0.024058652153911463, 'operatingRating': 0.027027470799809373, 'structureLength': 0.0364757083634411, 'latitude': 0.03732784174299765, 'averageDailyTraffic': 0.05447967631389156, 'bridgeRoadwayWithCurbToCurb': 0.05845284942915503, 'longitude': 0.0705345897028831, 'scourCriticalBridges': 0.12171124228563358, 'deckStructureType': 0.19776038758912062, 'yearBuilt': 0.27498975982406004}
-
-Printing split-nodes
-Rules used to predict sample 0:
-
-decision node 0 : (X_test[0, 0] = 1962) <= 1969.5)
-decision node 1 : (X_test[0, 19] = 1.0) <= 1.002825140953064)
-decision node 2 : (X_test[0, 1] = 285) <= 16083.0)
-decision node 3 : (X_test[0, 15] = 3.0) <= 7.9995903968811035)
-decision node 4 : (X_test[0, 15] = 3.0) <= 5.0156166553497314)
-decision node 5 : (X_test[0, 15] = 3.0) <= 4.994394302368164)
-decision node 6 : (X_test[0, 15] = 3.0) <= 4.000058889389038)
-decision node 7 : (X_test[0, 15] = 3.0) <= 3.9965683221817017)
-decision node 8 : (X_test[0, 15] = 3.0) <= 3.000612497329712)
-decision node 9 : (X_test[0, 12] = 27.4) > 9.599999904632568)
-decision node 11 : (X_test[0, 7] = 40252400) <= 42066200.0)
-decision node 12 : (X_test[0, 13] = 7.4) > 6.3153300285339355)
-decision node 36 : (X_test[0, 13] = 7.4) > 7.252711534500122)
-decision node 42 : (X_test[0, 1] = 285) <= 1597.5)
-
-The following samples [0, 1] share the node(s) [0 1] in the tree.
-This is 0.2176278563656148% of all nodes.
-
- Saving decision trees 
-
-
- Plotting decision trees 
-
-
-Category (Positive Class):  All intervention
---------------------------------------------------
-Using this function
-
- Distribution of the clusters before oversampling:  Counter({'negative': 7100, 'positive': 314})
-Index and length of the rows
-
- Distribution of the clusters after oversampling:  Counter({'positive': 7100, 'negative': 7100})
-
-
-            -------------- Performance of Entropy ---------------
-            
-
-
- Best Kappa Values:  0.9063027127860134
-
- Best Accuracy:  0.9491549295774648
-
- Best Depth:  17
-
- Classification Report: 
-               precision    recall  f1-score   support
-
-    negative       0.96      0.95      0.95      1401
-    positive       0.95      0.96      0.95      1439
-
-    accuracy                           0.95      2840
-   macro avg       0.95      0.95      0.95      2840
-weighted avg       0.95      0.95      0.95      2840
-
-
- Confusion Matrix: 
- [[1324   77]
- [  56 1383]]
-
- Feature Importance: 
- {'snowfall': 0.0, 'freezethaw': 0.0, 'toll': 0.0, 'skew': 0.0015341560852667618, 'designatedInspectionFrequency': 0.005153878945002585, 'material': 0.006401300426537849, 'avgDailyTruckTraffic': 0.010926781472819135, 'lanesOnStructure': 0.011310567603652122, 'numberOfSpansInMainUnit': 0.011867631385367255, 'designLoad': 0.02016713274838572, 'lengthOfMaximumSpan': 0.020586436676553646, 'operatingRating': 0.023190314137283334, 'typeOfDesign': 0.028715974622068357, 'averageDailyTraffic': 0.033773880455254944, 'latitude': 0.04733015122175153, 'structureLength': 0.05111565277625987, 'bridgeRoadwayWithCurbToCurb': 0.07438347607086458, 'scourCriticalBridges': 0.07701918377456125, 'longitude': 0.08527800172401537, 'deckStructureType': 0.22707602459668683, 'yearBuilt': 0.2641694552776688}
-
-
-             ----------- Performance with GiniIndex ------------
-             
-
-
- Best Kappa Values:  0.8894116106399781
-
- Best Accuracy:  0.9432394366197183
-
- Best Depth:  17
+ Best Depth:  29
 
  Classification Report: 
                precision    recall  f1-score   support
@@ -249,33 +155,29 @@ weighted avg       0.94      0.94      0.94      2840
 
 
  Confusion Matrix: 
- [[1320   81]
- [  76 1363]]
+ [[1310   91]
+ [  67 1372]]
 
  Feature Importance: 
- {'snowfall': 0.0, 'freezethaw': 0.0, 'toll': 0.0, 'skew': 0.0015341560852667618, 'designatedInspectionFrequency': 0.005153878945002585, 'material': 0.006401300426537849, 'avgDailyTruckTraffic': 0.010926781472819135, 'lanesOnStructure': 0.011310567603652122, 'numberOfSpansInMainUnit': 0.011867631385367255, 'designLoad': 0.02016713274838572, 'lengthOfMaximumSpan': 0.020586436676553646, 'operatingRating': 0.023190314137283334, 'typeOfDesign': 0.028715974622068357, 'averageDailyTraffic': 0.033773880455254944, 'latitude': 0.04733015122175153, 'structureLength': 0.05111565277625987, 'bridgeRoadwayWithCurbToCurb': 0.07438347607086458, 'scourCriticalBridges': 0.07701918377456125, 'longitude': 0.08527800172401537, 'deckStructureType': 0.22707602459668683, 'yearBuilt': 0.2641694552776688}
+ {'snowfall': 0.0, 'freezethaw': 0.0, 'toll': 0.0, 'designatedInspectionFrequency': 0.0034527972270879596, 'skew': 0.003565238177025848, 'avgDailyTruckTraffic': 0.008125827571504169, 'material': 0.009284703244028091, 'numberOfSpansInMainUnit': 0.01799564837731958, 'lanesOnStructure': 0.019090748101228246, 'designLoad': 0.021023987984877122, 'typeOfDesign': 0.0287750889158022, 'lengthOfMaximumSpan': 0.03010999835674027, 'scourCriticalBridges': 0.03501410167243475, 'operatingRating': 0.039975830871812494, 'averageDailyTraffic': 0.04215128187157464, 'latitude': 0.04837041064304253, 'bridgeRoadwayWithCurbToCurb': 0.04882566442769213, 'structureLength': 0.05347337836064018, 'longitude': 0.0845915088692497, 'deckStructureType': 0.2365925330862359, 'yearBuilt': 0.2695812522417041}
 
 Printing split-nodes
 Rules used to predict sample 0:
 
 decision node 0 : (X_test[0, 0] = 1962) <= 1969.5)
-decision node 1 : (X_test[0, 19] = 1.0) <= 1.0004032254219055)
-decision node 2 : (X_test[0, 12] = 27.4) > 12.55431604385376)
-decision node 44 : (X_test[0, 8] = 98382400) > 96360840.0)
-decision node 126 : (X_test[0, 4] = 2) <= 4.5)
-decision node 127 : (X_test[0, 15] = 3.0) <= 7.999078273773193)
-decision node 128 : (X_test[0, 15] = 3.0) <= 6.004013776779175)
-decision node 129 : (X_test[0, 15] = 3.0) <= 5.990604400634766)
-decision node 130 : (X_test[0, 15] = 3.0) <= 5.004358291625977)
-decision node 131 : (X_test[0, 15] = 3.0) <= 4.991272211074829)
-decision node 132 : (X_test[0, 15] = 3.0) <= 4.018361568450928)
-decision node 133 : (X_test[0, 13] = 7.4) > 4.6499998569488525)
-decision node 137 : (X_test[0, 15] = 3.0) <= 3.002055287361145)
-decision node 138 : (X_test[0, 14] = 46.8) > 39.60000038146973)
-decision node 140 : (X_test[0, 7] = 40252400) <= 40511800.0)
+decision node 1 : (X_test[0, 19] = 1.0) <= 1.0002037286758423)
+decision node 2 : (X_test[0, 12] = 27.4) > 12.513540744781494)
+decision node 56 : (X_test[0, 8] = 98382400) > 96360880.0)
+decision node 146 : (X_test[0, 4] = 2) <= 4.5)
+decision node 147 : (X_test[0, 14] = 46.8) > 36.87959098815918)
+decision node 273 : (X_test[0, 8] = 98382400) > 97049288.0)
+decision node 277 : (X_test[0, 15] = 3.0) <= 4.911162614822388)
+decision node 278 : (X_test[0, 7] = 40252400) <= 40506484.0)
+decision node 279 : (X_test[0, 12] = 27.4) <= 35.442461013793945)
+decision node 280 : (X_test[0, 11] = 11.0) <= 14.47698450088501)
 
 The following samples [0, 1] share the node(s) [0 1] in the tree.
-This is 0.2296211251435132% of all nodes.
+This is 0.20768431983385255% of all nodes.
 
  Saving decision trees 
 
@@ -297,16 +199,16 @@ Index and length of the rows
             
 
 
- Best Kappa Values:  0.892202733880771
+ Best Kappa Values:  0.902066536009328
 
- Best Accuracy:  0.9490140845070423
+ Best Accuracy:  0.9472535211267605
 
- Best Depth:  22
+ Best Depth:  21
 
  Classification Report: 
                precision    recall  f1-score   support
 
-    negative       0.96      0.93      0.94      1401
+    negative       0.96      0.94      0.95      1401
     positive       0.94      0.96      0.95      1439
 
     accuracy                           0.95      2840
@@ -315,28 +217,95 @@ weighted avg       0.95      0.95      0.95      2840
 
 
  Confusion Matrix: 
- [[1309   92]
- [  61 1378]]
+ [[1316   85]
+ [  54 1385]]
 
  Feature Importance: 
- {'snowfall': 0.0, 'freezethaw': 0.0, 'toll': 0.0, 'designatedInspectionFrequency': 0.006817487251719338, 'material': 0.008166048116085293, 'numberOfSpansInMainUnit': 0.009696563095289108, 'skew': 0.010194867972495905, 'lanesOnStructure': 0.01093584399180024, 'avgDailyTruckTraffic': 0.013520104008684515, 'designLoad': 0.018426695982136466, 'typeOfDesign': 0.026109744119061452, 'lengthOfMaximumSpan': 0.028589526999205583, 'structureLength': 0.03869487658247061, 'operatingRating': 0.03954418802154384, 'averageDailyTraffic': 0.04359015576906818, 'bridgeRoadwayWithCurbToCurb': 0.046438683077197444, 'latitude': 0.05852110505263893, 'longitude': 0.07672438005924725, 'scourCriticalBridges': 0.07977523758574802, 'deckStructureType': 0.22946331406081025, 'yearBuilt': 0.25479117825479747}
+ {'snowfall': 0.0, 'freezethaw': 0.0, 'toll': 0.0, 'material': 0.005215458787409251, 'designatedInspectionFrequency': 0.006456306813855397, 'skew': 0.00803473526462689, 'avgDailyTruckTraffic': 0.013012653714114456, 'lanesOnStructure': 0.013266770734252248, 'numberOfSpansInMainUnit': 0.013533183197065996, 'lengthOfMaximumSpan': 0.01772187635912608, 'designLoad': 0.029450449857868984, 'operatingRating': 0.030190179169258532, 'typeOfDesign': 0.03108070001300672, 'averageDailyTraffic': 0.04302323401257133, 'latitude': 0.04627374506622489, 'scourCriticalBridges': 0.05680427444012576, 'bridgeRoadwayWithCurbToCurb': 0.05892302469105723, 'structureLength': 0.060756338273074376, 'longitude': 0.07480460895665451, 'deckStructureType': 0.2296264987948502, 'yearBuilt': 0.26182596185485707}
 
 
              ----------- Performance with GiniIndex ------------
              
 
 
- Best Kappa Values:  0.8950407524444026
+ Best Kappa Values:  0.887979614254542
 
- Best Accuracy:  0.9461971830985917
+ Best Accuracy:  0.9425352112676055
 
- Best Depth:  24
+ Best Depth:  23
 
  Classification Report: 
                precision    recall  f1-score   support
 
-    negative       0.95      0.94      0.95      1401
+    negative       0.95      0.93      0.94      1401
     positive       0.94      0.95      0.95      1439
+
+    accuracy                           0.94      2840
+   macro avg       0.94      0.94      0.94      2840
+weighted avg       0.94      0.94      0.94      2840
+
+
+ Confusion Matrix: 
+ [[1308   93]
+ [  66 1373]]
+
+ Feature Importance: 
+ {'snowfall': 0.0, 'freezethaw': 0.0, 'toll': 0.0, 'material': 0.005215458787409251, 'designatedInspectionFrequency': 0.006456306813855397, 'skew': 0.00803473526462689, 'avgDailyTruckTraffic': 0.013012653714114456, 'lanesOnStructure': 0.013266770734252248, 'numberOfSpansInMainUnit': 0.013533183197065996, 'lengthOfMaximumSpan': 0.01772187635912608, 'designLoad': 0.029450449857868984, 'operatingRating': 0.030190179169258532, 'typeOfDesign': 0.03108070001300672, 'averageDailyTraffic': 0.04302323401257133, 'latitude': 0.04627374506622489, 'scourCriticalBridges': 0.05680427444012576, 'bridgeRoadwayWithCurbToCurb': 0.05892302469105723, 'structureLength': 0.060756338273074376, 'longitude': 0.07480460895665451, 'deckStructureType': 0.2296264987948502, 'yearBuilt': 0.26182596185485707}
+
+Printing split-nodes
+Rules used to predict sample 0:
+
+decision node 0 : (X_test[0, 0] = 1962) <= 1973.5)
+decision node 1 : (X_test[0, 19] = 1.0) <= 1.0005847215652466)
+decision node 2 : (X_test[0, 12] = 27.4) > 12.50775146484375)
+decision node 60 : (X_test[0, 8] = 98382400) > 96360600.0)
+decision node 150 : (X_test[0, 4] = 2) <= 4.5)
+decision node 151 : (X_test[0, 15] = 3.0) <= 7.964309453964233)
+decision node 152 : (X_test[0, 15] = 3.0) <= 6.001935720443726)
+decision node 153 : (X_test[0, 8] = 98382400) > 97241928.0)
+decision node 177 : (X_test[0, 15] = 3.0) <= 5.979805946350098)
+decision node 178 : (X_test[0, 15] = 3.0) <= 5.004621267318726)
+decision node 179 : (X_test[0, 15] = 3.0) <= 4.997095108032227)
+decision node 180 : (X_test[0, 15] = 3.0) <= 4.006255865097046)
+decision node 181 : (X_test[0, 15] = 3.0) <= 3.0051923990249634)
+decision node 182 : (X_test[0, 13] = 7.4) > 4.6499998569488525)
+decision node 184 : (X_test[0, 7] = 40252400) <= 40491800.0)
+decision node 185 : (X_test[0, 14] = 46.8) > 37.79999923706055)
+
+The following samples [0, 1] share the node(s) [0 1] in the tree.
+This is 0.20682523267838676% of all nodes.
+
+ Saving decision trees 
+
+
+ Plotting decision trees 
+
+
+Category (Positive Class):  All intervention
+--------------------------------------------------
+Using this function
+
+ Distribution of the clusters before oversampling:  Counter({'negative': 7100, 'positive': 314})
+Index and length of the rows
+
+ Distribution of the clusters after oversampling:  Counter({'positive': 7100, 'negative': 7100})
+
+
+            -------------- Performance of Entropy ---------------
+            
+
+
+ Best Kappa Values:  0.9077047345357551
+
+ Best Accuracy:  0.9499295774647887
+
+ Best Depth:  25
+
+ Classification Report: 
+               precision    recall  f1-score   support
+
+    negative       0.96      0.94      0.95      1401
+    positive       0.95      0.96      0.95      1439
 
     accuracy                           0.95      2840
    macro avg       0.95      0.95      0.95      2840
@@ -345,30 +314,57 @@ weighted avg       0.95      0.95      0.95      2840
 
  Confusion Matrix: 
  [[1321   80]
- [  69 1370]]
+ [  51 1388]]
 
  Feature Importance: 
- {'snowfall': 0.0, 'freezethaw': 0.0, 'toll': 0.0, 'designatedInspectionFrequency': 0.006817487251719338, 'material': 0.008166048116085293, 'numberOfSpansInMainUnit': 0.009696563095289108, 'skew': 0.010194867972495905, 'lanesOnStructure': 0.01093584399180024, 'avgDailyTruckTraffic': 0.013520104008684515, 'designLoad': 0.018426695982136466, 'typeOfDesign': 0.026109744119061452, 'lengthOfMaximumSpan': 0.028589526999205583, 'structureLength': 0.03869487658247061, 'operatingRating': 0.03954418802154384, 'averageDailyTraffic': 0.04359015576906818, 'bridgeRoadwayWithCurbToCurb': 0.046438683077197444, 'latitude': 0.05852110505263893, 'longitude': 0.07672438005924725, 'scourCriticalBridges': 0.07977523758574802, 'deckStructureType': 0.22946331406081025, 'yearBuilt': 0.25479117825479747}
+ {'snowfall': 0.0, 'freezethaw': 0.0, 'toll': 0.0, 'avgDailyTruckTraffic': 0.009298902754962004, 'skew': 0.010357890205764176, 'designatedInspectionFrequency': 0.010817867559117296, 'material': 0.010971122376912681, 'designLoad': 0.01815971536634007, 'numberOfSpansInMainUnit': 0.01933733901927462, 'lengthOfMaximumSpan': 0.019359512365186998, 'lanesOnStructure': 0.020539350156210872, 'typeOfDesign': 0.026896163073918008, 'scourCriticalBridges': 0.03598052183480559, 'averageDailyTraffic': 0.044293967318440576, 'operatingRating': 0.04654637271150379, 'bridgeRoadwayWithCurbToCurb': 0.0494238445158067, 'latitude': 0.0495075366503116, 'structureLength': 0.054964986990433604, 'longitude': 0.07138151491995723, 'deckStructureType': 0.23231993043525878, 'yearBuilt': 0.26984346174579543}
+
+
+             ----------- Performance with GiniIndex ------------
+             
+
+
+ Best Kappa Values:  0.8865791063850477
+
+ Best Accuracy:  0.9460563380281689
+
+ Best Depth:  29
+
+ Classification Report: 
+               precision    recall  f1-score   support
+
+    negative       0.95      0.94      0.94      1401
+    positive       0.94      0.95      0.94      1439
+
+    accuracy                           0.94      2840
+   macro avg       0.94      0.94      0.94      2840
+weighted avg       0.94      0.94      0.94      2840
+
+
+ Confusion Matrix: 
+ [[1311   90]
+ [  71 1368]]
+
+ Feature Importance: 
+ {'snowfall': 0.0, 'freezethaw': 0.0, 'toll': 0.0, 'avgDailyTruckTraffic': 0.009298902754962004, 'skew': 0.010357890205764176, 'designatedInspectionFrequency': 0.010817867559117296, 'material': 0.010971122376912681, 'designLoad': 0.01815971536634007, 'numberOfSpansInMainUnit': 0.01933733901927462, 'lengthOfMaximumSpan': 0.019359512365186998, 'lanesOnStructure': 0.020539350156210872, 'typeOfDesign': 0.026896163073918008, 'scourCriticalBridges': 0.03598052183480559, 'averageDailyTraffic': 0.044293967318440576, 'operatingRating': 0.04654637271150379, 'bridgeRoadwayWithCurbToCurb': 0.0494238445158067, 'latitude': 0.0495075366503116, 'structureLength': 0.054964986990433604, 'longitude': 0.07138151491995723, 'deckStructureType': 0.23231993043525878, 'yearBuilt': 0.26984346174579543}
 
 Printing split-nodes
 Rules used to predict sample 0:
 
-decision node 0 : (X_test[0, 0] = 1962) <= 1973.5)
-decision node 1 : (X_test[0, 19] = 1.0) <= 1.00092214345932)
-decision node 2 : (X_test[0, 8] = 98382400) > 96360928.0)
-decision node 112 : (X_test[0, 15] = 3.0) <= 7.988300800323486)
-decision node 113 : (X_test[0, 15] = 3.0) <= 5.011103391647339)
-decision node 114 : (X_test[0, 15] = 3.0) <= 4.998369455337524)
-decision node 115 : (X_test[0, 15] = 3.0) <= 4.002239227294922)
-decision node 116 : (X_test[0, 8] = 98382400) > 97254116.0)
-decision node 132 : (X_test[0, 13] = 7.4) > 4.6499998569488525)
-decision node 136 : (X_test[0, 15] = 3.0) <= 3.0135422945022583)
-decision node 137 : (X_test[0, 15] = 3.0) > 2.972461462020874)
-decision node 141 : (X_test[0, 11] = 11.0) > 5.349999904632568)
-decision node 143 : (X_test[0, 0] = 1962) > 1934.5)
+decision node 0 : (X_test[0, 0] = 1962) <= 1969.5)
+decision node 1 : (X_test[0, 19] = 1.0) <= 1.0012080073356628)
+decision node 2 : (X_test[0, 12] = 27.4) > 10.122514724731445)
+decision node 30 : (X_test[0, 8] = 98382400) > 96360864.0)
+decision node 134 : (X_test[0, 14] = 46.8) > 36.84230613708496)
+decision node 274 : (X_test[0, 10] = 3) <= 3.5)
+decision node 275 : (X_test[0, 4] = 2) <= 4.5)
+decision node 276 : (X_test[0, 1] = 285) <= 409.5)
+decision node 277 : (X_test[0, 15] = 3.0) <= 3.882514476776123)
+decision node 278 : (X_test[0, 15] = 3.0) <= 3.002866744995117)
+decision node 279 : (X_test[0, 2] = 0) <= 30.0)
 
 The following samples [0, 1] share the node(s) [0 1] in the tree.
-This is 0.20304568527918782% of all nodes.
+This is 0.19704433497536947% of all nodes.
 
  Saving decision trees 
 
