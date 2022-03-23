@@ -1,7 +1,13 @@
 """
 description: functions to process snwofall and freezethaw data
-    features include:
-        1. Creates structure number -> precipitation map
+
+TODO: Snowfall and Freeze thaw
+    # Create a function to insert snowfall data into mongodb
+    # Create a function to query freezethaw data from mongodb
+    # Cheat Code: use precipitation, snowfall, and freeze thaw from already preprocessed.
+
+    Features include:
+        1. Creates map: Structure number -> Precipitation
         2. Population and feteching of precipitation data into and from mongodb
 
     # Ideally the data has to be preprocessed and stores in to the mongodb
@@ -16,7 +22,7 @@ from collections import namedtuple
 from maps import *
 from nbi_data_chef import *
 
-# what can be stored as a JSON file can also be stored in MONGODB
+# What can be stored as a JSON file can also be stored in MONGODB
 def read_csv(filename):
     listOfPrecip = list()
     with open(filename, 'r') as csvFile:
@@ -31,18 +37,26 @@ def read_csv(filename):
         header = [col.replace(":", "") for col in header]
         header = [col.replace(".", "") for col in header]
         Record = namedtuple('Record', header)
+
         for row in tqdm(csvReader, desc='Reading file'):
             record = Record(*row)
             listOfPrecip.append(record)
     return listOfPrecip, header
 
 def reverse_dict(dictionary):
+    """
+    Description:
+    """
     newDict = defaultdict()
     for key, value in zip(dictionary.keys(), dictionary.values()):
         newDict[value] = key
     return newDict
 
 def make_fips_precp(listOfPrecip, state_code_mapping):
+    """
+    Description:
+    """
+    #TODO: Incomplete functions
     # query mongodb
     fips_precp_dict = defaultdict()
     #for record in listOfPrecip:
@@ -87,10 +101,6 @@ def generate_map(listOfRecords, value, key='structurenumber'):
     return generatedMap
 
 def process_snowfall():
-    # TODO: 
-        # create a function to insert snowfall data into mongodb
-        # Create a function to query freezethaw data from mongodb
-        # Cheat Code: use precipitation, snowfall, and freeze thaw from already preprocessed.
     #filename = 'precipitation-allstates-2011.csv'
     #state_code_mapping = reverse_dict(code_state_mapping)
     #listOfPrecip, header= read_csv(filename)

@@ -5,15 +5,14 @@ for decision tree model for:
     2. maintenance
 
 Author: Akshay Kale
-
 Date: May 27th, 2020
 Last Updated: February 16th, 2022
 
 TODO:
-        1. Create for deterioration and maintenance?
-        2. Monotonously decreasing condition ratings must have negative deterioration score
-        3. Import precipitation and snowfall data into mongodb
-        4. Investigate snowfall and freezethaw data for Nebraska
+    1. Create for deterioration and maintenance?
+    2. Monotonously decreasing condition ratings must have negative deterioration score
+    3. Import precipitation and snowfall data into mongodb
+    4. Investigate snowfall and freezethaw data for Nebraska
 
 NOTES:
 """
@@ -61,7 +60,7 @@ def main():
     structBdsMap, structPrecipMap = process_precipitation()
 
     # process snowfall and freezethaw data
-    structSnowMap, structFreezeMap = process_snowfall()
+    #structSnowMap, structFreezeMap = process_snowfall()
 
     # query
     individualRecords = query(fields, states, years, collection)
@@ -71,18 +70,19 @@ def main():
     groupedRecords = group_records(individualRecords, fields)
 
     # integrate baseline difference score, precipitation, freezethaw, and snowfall
+
     individualRecords = integrate_ext_dataset_list(structBdsMap,
                                                    individualRecords,
                                                    'baseDifferenceScore')
     individualRecords = integrate_ext_dataset_list(structPrecipMap,
                                                    individualRecords,
                                                    'precipitation')
-    individualRecords = integrate_ext_dataset_list(structSnowMap,
-                                                   individualRecords,
-                                                   'snowfall')
-    individualRecords = integrate_ext_dataset_list(structFreezeMap,
-                                                   individualRecords,
-                                                   'freezethaw')
+    #individualRecords = integrate_ext_dataset_list(structSnowMap,
+    #                                               individualRecords,
+    #                                               'snowfall')
+    #individualRecords = integrate_ext_dataset_list(structFreezeMap,
+    #                                               individualRecords,
+    #                                               'freezethaw')
 
     # Divide grouped records (works only for grouped records)
     groupedRecords = divide_grouped_records(groupedRecords, fields, 2010, 2017)
@@ -96,16 +96,25 @@ def main():
             # 1. Compute deterioration
             # 2. Intervention
             # 3. Scores
+    # Change
+    groupedRecords = compute_intervention(groupedRecords,
+                                          from_to_matrix_kent)
 
-    groupedRecords = compute_intervention(groupedRecords, from_to_matrix)
-    groupedRecords = compute_intervention(groupedRecords, from_to_matrix, component='substructure')
-    groupedRecords = compute_intervention(groupedRecords, from_to_matrix, component='superstructure')
+    groupedRecords = compute_intervention(groupedRecords,
+                                          from_to_matrix_kent,
+                                          component='substructure')
+    groupedRecords = compute_intervention(groupedRecords,
+                                          from_to_matrix_kent,
+                                          component='superstructure')
     #print("\n printing grouped records: ", groupedRecords)
 
     # Compute deterioration
-    groupedRecords = compute_deterioration_slope(groupedRecords, component='deck')
-    groupedRecords = compute_deterioration_slope(groupedRecords, component='substructure')
-    groupedRecords = compute_deterioration_slope(groupedRecords, component='superstructure')
+    groupedRecords = compute_deterioration_slope(groupedRecords,
+                                                 component='deck')
+    groupedRecords = compute_deterioration_slope(groupedRecords,
+                                                 component='substructure')
+    groupedRecords = compute_deterioration_slope(groupedRecords,
+                                                 component='superstructure')
 
     # compute deterioration
     # Incomplete function: 

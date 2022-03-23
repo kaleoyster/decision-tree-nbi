@@ -385,13 +385,14 @@ def maintenance_pipeline(state):
     #          'High Substructure - No Deck - No Superstructure',
     #          'No Substructure - No Deck - High Superstructure']
 
-    #labels = ['No Substructure - YesDeck - No Superstructure',
-    #          'YesSubstructure - No Deck - No Superstructure',
-    #          'No Substructure - No Deck - YesSuperstructure']
+    # Why do I have these label writen all intervention?
+    labels = ['No Substructure - YesDeck - No Superstructure',
+              'YesSubstructure - No Deck - No Superstructure',
+              'No Substructure - No Deck - YesSuperstructure']
 
-    labels = ['All intervention',
-              'All intervention',
-              'All intervention']
+    #labels = ['All intervention',
+    #          'All intervention',
+    #          'All intervention']
 
     kappaValues = list()
     accValues = list()
@@ -467,7 +468,10 @@ def maintenance_pipeline(state):
         # Return to home directory:
             # Overhere, if the model is passed here then we can print the trees
             # in the following main function
-        kappaValue, accValue, featImp, models = decision_tree(X, y, columnsFinal)
+        kappaValue, accValue, featImp, models = decision_tree(X,
+                                                              y,
+                                                              columnsFinal,
+                                                             label)
         kappaValues.append(kappaValue)
         accValues.append(accValue)
         featImps.append(featImp)

@@ -7,8 +7,8 @@ Date: May 11th, 2021
 
 TODO:
     1. Create Folders for the ouput [Done]
-    2. Create Random forest model [Done]
-    3. Complexity Parameters
+    2. Create Random forest model
+    3. Complexity Parameters: Shapley
     4. Select the important variables [Done]
     5. Characterization of the clusters [Done]
     6. Computing deterioration scores,
@@ -427,7 +427,7 @@ def performance_summarizer(eKappaDict, gKappaDict,
                           eAccDict, gAccDict,
                           #eRocsDict, gRocsDict,
                           eModelsDict, gModelsDict,
-                          eFeatureDict, gFeatureDict, testX, cols):
+                          eFeatureDict, gFeatureDict, testX, cols, label):
 
     """
     Description:
@@ -515,12 +515,16 @@ def performance_summarizer(eKappaDict, gKappaDict,
     print("\n Saving decision trees \n")
     eTextRepresentation = tree.export_text(eBestModel)
 
-    with open("models/entropy_decision_tree.log", "w") as fout:
+    # models / the type of decision tree model / entropy
+    saveLogFileEntropyName ="models/"+label+"_entropy_decision_tree.log"
+    saveLogFileGiniName ="models/"+label
+    "_gini_decision_tree.log"
+    with open(saveLogFileEntropyName, "w") as fout:
         fout.write(eTextRepresentation)
 
     # Gini
     gTextRepresentation = tree.export_text(gBestModel)
-    with open("models/gini_decision_tree.log", "w") as fout:
+    with open(saveLogFileGiniName, "w") as fout:
         fout.write(gTextRepresentation)
 
     print("\n Plotting decision trees \n")
@@ -565,7 +569,7 @@ def tree_utility(trainX, trainy, testX, testy, cols, criteria='gini', maxDepth=7
     return acc, cm, cr, kappa, model, fi# rocAuc, model
 
 # Decision Tree
-def decision_tree(X, y, features, nFold=5):
+def decision_tree(X, y, features, label, nFold=5):
     """
     Description:
         Performs training-testing split
@@ -699,7 +703,7 @@ def decision_tree(X, y, features, nFold=5):
                                            eScoreDict, gScoreDict,
                                            #eRocsDict, gRocsDict,
                                            eModelsDict, gModelsDict,
-                                           eFeatureDict, gFeatureDict, testX, cols)
+                                           eFeatureDict, gFeatureDict, testX, cols, label)
 
     # Return the average kappa value for state
     eBestModel, gBestModel = models
