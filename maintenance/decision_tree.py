@@ -13,6 +13,7 @@ TODO:
     5. Characterization of the clusters [Done]
     6. Computing deterioration scores,
         and intervention [Done]
+    7. Implement Recursive feature elimination
 -----------------------------------------------"""
 
 # Data structures
@@ -32,6 +33,10 @@ from sklearn.model_selection import KFold
 import sklearn
 from sklearn import tree
 from sklearn.tree import DecisionTreeClassifier
+#from sklearn.experimental import enable_hist_gradient_boosting
+#from sklearn.ensemble import HistGradientBoostingRegressor
+#TODO: from sklearn.ensemble import HistGradientBoostingRegressor
+#from sklearn.ensemble import HistGradientBoostingClassifier
 
 # Metrics and stats
 from sklearn.metrics import classification_report
@@ -73,6 +78,8 @@ def oneHot(df, columns):
 
     # Further, we need to look at feature hasher and how it can help
 
+
+# Categorical variables:    Material,  
 
 # Function for normalizing
 def normalize(df, columns):
@@ -538,7 +545,9 @@ def performance_summarizer(eKappaDict, gKappaDict,
 
     return (eBestKappa, gBestKappa),  (eBestAcc, gBestAcc), (efi, gfi), (eBestModel, gBestModel)
 
-def tree_utility(trainX, trainy, testX, testy, cols, criteria='gini', maxDepth=7):
+def tree_utility(trainX, trainy,
+                 testX, testy, cols,
+                 criteria='gini', maxDepth=7):
     """
     Description:
         Performs the modeling and returns performance metrics
@@ -556,8 +565,8 @@ def tree_utility(trainX, trainy, testX, testy, cols, criteria='gini', maxDepth=7
         kappa: Kappa Value
         model: Decision Tree Model
     """
-    # TODO: Implement Recursive feature elimination
     model = DecisionTreeClassifier(criterion=criteria, max_depth=maxDepth)
+    #model = HistGradientBoostingClassifier(categorical_features=[], max_depth=maxDepth)
     model.fit(trainX, trainy)
     prediction = model.predict(testX)
     acc = accuracy_score(testy, prediction)
@@ -565,7 +574,8 @@ def tree_utility(trainX, trainy, testX, testy, cols, criteria='gini', maxDepth=7
     cr = classification_report(testy, prediction, zero_division=0)
     fi = dict(zip(cols, model.feature_importances_))
     #rocAuc = roc_auc_score(testy, prediction, multi_class='ovr')
-    kappa = cohen_kappa_score(prediction, testy, weights='quadratic')
+    kappa = cohen_kappa_score(prediction, testy,
+                              weights='quadratic')
     return acc, cm, cr, kappa, model, fi# rocAuc, model
 
 # Decision Tree
@@ -685,7 +695,7 @@ def decision_tree(X, y, features, label, nFold=5):
     eScoreDict = dict(zip(scoresEntropy, depths))
     gScoreDict = dict(zip(scoresGini, depths))
 
-    # Scores (ROCs)
+    #TODO:  Scores (ROCs) doesn't work
     #eRocsDict = dict(zip(eRocs, depths))
     #gRocsDict = dict(zip(gRocs, depths))
 

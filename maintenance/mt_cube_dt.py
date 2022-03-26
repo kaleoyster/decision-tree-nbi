@@ -2,6 +2,9 @@
 Description: Maintenance Model
     This maintenance model only takes into account
     bridges all bridges in midwest.
+
+Notes: 
+    This whole idea of the decision tree
 Author: Akshay Kale
 Date: August 9th, 2021
 <------------------------------------------------"""
@@ -287,11 +290,15 @@ def maintenance_pipeline(state):
                         "scourCriticalBridges",
                         "lanesOnStructure",
 
+                        "freezethaw",
+                        "snowfall",
+                        "designatedInspectionFrequency",
+
                         "deckDeteriorationScore",
                         "subDeteriorationScore",
                         "supDeteriorationScore"
                         ]
-
+# 
 
     # Select final columns:
     columnsFinal = [
@@ -302,8 +309,8 @@ def maintenance_pipeline(state):
                     "yearBuilt",
                     "averageDailyTraffic",
                     "avgDailyTruckTraffic",
-                    "material",
-                    "designLoad",
+                    # "material",
+                    # "designLoad",
                     "snowfall",
                     "freezethaw",
                     "supNumberIntervention",
@@ -319,10 +326,10 @@ def maintenance_pipeline(state):
                     "operatingRating",
                     "scourCriticalBridges",
                     "lanesOnStructure",
-                    "toll",
-                    "designatedInspectionFrequency",
-                    "deckStructureType",
-                    "typeOfDesign",
+                    # "toll",
+                    # "designatedInspectionFrequency",
+                    # "deckStructureType",
+                    # "typeOfDesign",
     #               "deckDeteriorationScore",
     #               "subDeteriorationScore",
     #               "supDeteriorationScore"
@@ -347,9 +354,8 @@ def maintenance_pipeline(state):
                 "deckNumberIntervention"]
 
     print("\nPrinting the labels")
-
     #TODO: Clean data up until here:
-    print(dataScaled.head())
+    # print(dataScaled.head())
     sLabels = semantic_labeling(dataScaled[features],
                                 name="")
 
@@ -385,7 +391,7 @@ def maintenance_pipeline(state):
     #          'High Substructure - No Deck - No Superstructure',
     #          'No Substructure - No Deck - High Superstructure']
 
-    # Why do I have these label writen all intervention?
+    #TODO: Why do I have these label writen all intervention?
     labels = ['No Substructure - YesDeck - No Superstructure',
               'YesSubstructure - No Deck - No Superstructure',
               'No Substructure - No Deck - YesSuperstructure']
