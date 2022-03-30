@@ -3,8 +3,9 @@ Description: Maintenance Model
     This maintenance model only takes into account
     bridges all bridges in midwest.
 
-Notes: 
-    This whole idea of the decision tree
+Notes:
+    This whole idea of the decision tree??
+
 Author: Akshay Kale
 Date: August 9th, 2021
 <------------------------------------------------"""
