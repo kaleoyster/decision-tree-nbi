@@ -17,6 +17,7 @@ TODO:
 -----------------------------------------------"""
 
 # Data structures
+import sys
 import pandas as pd
 import numpy as np
 from numpy import array
@@ -91,13 +92,13 @@ def oneHot(df, columns):
 
         #TODO: Next, we have to figure out how do we scale these to other makerials
         # One-hot encoding categorial variable with high cardinality 
-        # cause inefficieny in tree-based ensembles. 
+        # Cause inefficieny in tree-based ensembles. 
         # Continuous variables will be given more importance 
         # than the dummy variables by the algorithm 
         # which will obscure the order of feature 
         # importance resulting in poorer performance.
         # Further, we need to look at feature hasher and how it can help
-        # Categorical variables:    Material,  
+        # Categorical variables: Material
     return df
 
 # Function for normalizing
@@ -214,7 +215,6 @@ def categorize_attribute(df, fieldname, category=2):
                 categories.append('Bad')
             else:
                 categories.append('Bad')
-
     elif category == 2:
         for value in df[fieldname]:
             if value > mean:
@@ -394,7 +394,7 @@ def find_leaves(eBestModel):
 
     return leaves, treeStructure
 
-def print_decision_paths(clf, X_test, feature):
+def print_decision_paths(clf, label, X_test, feature):
     """
     Description:
     Args:
@@ -412,41 +412,45 @@ def print_decision_paths(clf, X_test, feature):
         node_indicator.indptr[sample_id] : node_indicator.indptr[sample_id + 1]
     ]
 
-    print("Rules used to predict sample {id}:\n".format(id=sample_id))
-    for node_id in node_index:
-        # continue to the next node if it is a leaf node
-        if leaf_id[sample_id] == node_id:
-            continue
+    oStdout = sys.stdout
+    fileName = label + '_' +'paths.txt'
+    with open(fileName, 'w') as f:
+        sys.stdout = f
+        print("Rules used to predict sample {id}:\n".format(id=sample_id))
+        for node_id in node_index:
+            # continue to the next node if it is a leaf node
+            if leaf_id[sample_id] == node_id:
+                continue
+            # check if value of the split feature for sample 0 is below threshold
+            if X_test[sample_id, feature[node_id]] <= threshold[node_id]:
+                threshold_sign = "<="
+            else:
+                threshold_sign = ">"
+            print(
+                    "decision node {node} : (X_test[{sample}, {feature}] = {value}) "
+                    "{inequality} {threshold})".format(
+                    node=node_id,
+                    sample=sample_id,
+                    feature=feature[node_id],
+                    value=X_test[sample_id, feature[node_id]],
+                    inequality=threshold_sign,
+                    threshold=threshold[node_id],
+                    )
+                )
 
-        # check if value of the split feature for sample 0 is below threshold
-        if X_test[sample_id, feature[node_id]] <= threshold[node_id]:
-            threshold_sign = "<="
-        else:
-            threshold_sign = ">"
+        sample_ids = [0, 1, 2]
+        # boolean array indicating the nodes both samples go through
+        common_nodes = node_indicator.toarray()[sample_ids].sum(axis=0) == len(sample_ids)
+        # obtain node ids using position in array
+        common_node_id = np.arange(n_nodes)[common_nodes]
 
         print(
-            "decision node {node} : (X_test[{sample}, {feature}] = {value}) "
-            "{inequality} {threshold})".format(
-                node=node_id,
-                sample=sample_id,
-                feature=feature[node_id],
-                value=X_test[sample_id, feature[node_id]],
-                inequality=threshold_sign,
-                threshold=threshold[node_id],
-            )
-        )
-    sample_ids = [0, 1]
-    # boolean array indicating the nodes both samples go through
-    common_nodes = node_indicator.toarray()[sample_ids].sum(axis=0) == len(sample_ids)
-    # obtain node ids using position in array
-    common_node_id = np.arange(n_nodes)[common_nodes]
-
-    print(
-    "\nThe following samples {samples} share the node(s) {nodes} in the tree.".format(
-        samples=sample_ids, nodes=common_node_id
-    )
-    )
-    print("This is {prop}% of all nodes.".format(prop=100 * len(common_node_id) / n_nodes))
+        "\nThe following samples {samples} share the node(s) {nodes} in the tree".format(
+            samples=sample_ids,
+            nodes=common_node_id
+        ))
+        print("This is {prop}% of all nodes.".format(prop=100 * len(common_node_id) / n_nodes))
+    sys.stdout = oStdout
 #   return 
 
 # To summarize performance
@@ -534,7 +538,7 @@ def performance_summarizer(eKappaDict, gKappaDict,
     print("\nPrinting split-nodes")
     leaves, treeStructure = find_leaves(eBestModel)
     splitNodes = print_split_nodes(leaves, treeStructure, cols)
-    print_decision_paths(eBestModel, testX, cols)
+    print_decision_paths(eBestModel, label, testX, cols)
 
     # Print decision tree of the Best Model
     # Entropy

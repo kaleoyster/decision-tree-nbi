@@ -348,7 +348,6 @@ def maintenance_pipeline(state):
     columnsFinal.remove('material')
     columnsFinal.remove('toll')
 
-
     # Apply recursive feature elimination
     # Data Scaled
     features = ["structureNumber",
