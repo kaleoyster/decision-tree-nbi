@@ -66,7 +66,8 @@ def oneHot(df, columns):
     """
     print("\n Printing columns, one hot encoding:")
     for column in columns:
-        data = df[column].map(matMap)
+        colMap = mapDict[column]
+        data = df[column].map(colMap)
         values = array(data)
 
         # integer encode
@@ -82,12 +83,11 @@ def oneHot(df, columns):
         dictCol = defaultdict(list)
         for row in onehot_encoded:
             for index, value in zip(label_encoder.classes_, row):
-                index = column + '_' + index
+                index = column + index
                 dictCol[index].append(value)
 
         for key in dictCol.keys():
             df[key] = dictCol[key]
-    print(df.columns)
 
         #TODO: Next, we have to figure out how do we scale these to other makerials
         # One-hot encoding categorial variable with high cardinality 

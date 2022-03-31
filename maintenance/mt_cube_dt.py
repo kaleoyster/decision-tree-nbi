@@ -327,9 +327,9 @@ def maintenance_pipeline(state):
                     "scourCriticalBridges",
                     "lanesOnStructure",
                      "toll",
-                     "designatedInspectionFrequency",
-                     "deckStructureType",
-                     "typeOfDesign",
+                     #"designatedInspectionFrequency",
+                     #"deckStructureType",
+                     #"typeOfDesign",
     #               "deckDeteriorationScore",
     #               "subDeteriorationScore",
     #               "supDeteriorationScore"
@@ -341,11 +341,12 @@ def maintenance_pipeline(state):
     #print(dataScaled.columns)
 
     # TODO: Do one hot encoding here
-    columnsHotEncoded = ['material']
+    columnsHotEncoded = ['material', "toll"]
     dataScaled = oneHot(dataScaled, columnsHotEncoded)
     dataScaled = remove_null_values(dataScaled)
     columnsFinal = list(dataScaled.columns)
     columnsFinal.remove('material')
+    columnsFinal.remove('toll')
 
 
     # Apply recursive feature elimination

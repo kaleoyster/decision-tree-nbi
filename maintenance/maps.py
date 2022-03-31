@@ -1,13 +1,24 @@
 # Material map
-matMap = {
-            1:'concrete',
-            2:'concrete_continuous',
-            3:'steel',
-            4:'steel_conitnuous',
-            5:'prestreesed_concrete',
-            6:'prestreesed_concrete_cont',
-            7:'wood',
-            8:'masonry',
-            9:'aluminum',
-            0:'other',
-         }
+from collections import defaultdict
+
+mapDict = defaultdict()
+mapDict['material'] = {
+                         1:'Concrete',
+                         2:'ConcreteContinuous',
+                         3:'Steel',
+                         4:'SteelConitnuous',
+                         5:'PrestreesedConcrete',
+                         6:'PrestreesedConcreteContinuous',
+                         7:'Wood',
+                         8:'Masonry',
+                         9:'Aluminum',
+                         0:'Other',
+                    }
+
+mapDict['toll'] = {
+                         1:'TollBridge',
+                         2:'OnTollBridge',
+                         3:'OnFreeRoad',
+                         4:'OnInterstateToll',
+                         5:'TollBridgeSegementUnder',
+                    }
