@@ -16,8 +16,10 @@ TODO:
     7. Implement Recursive feature elimination
 -----------------------------------------------"""
 
-# Data structures
 import sys
+import csv
+
+# Data structures
 import pandas as pd
 import numpy as np
 from numpy import array
@@ -414,29 +416,48 @@ def print_decision_paths(clf, label, X_test, feature):
 
     oStdout = sys.stdout
     fileName = label + '_' +'paths.txt'
+    nodeList = list()
+    sampleIdList = list()
+    featureIdList = list()
+    valueList = list()
+    inequalityList = list()
+    thresholdList = list()
+    for record in X_test[:5]:
+        print("records")
+        print(record)
+
+    header = ['node', 'sample', 'feature', 'value', 'inequality', 'threshold']
     with open(fileName, 'w') as f:
         sys.stdout = f
-        print("Rules used to predict sample {id}:\n".format(id=sample_id))
-        for node_id in node_index:
-            # continue to the next node if it is a leaf node
-            if leaf_id[sample_id] == node_id:
-                continue
-            # check if value of the split feature for sample 0 is below threshold
-            if X_test[sample_id, feature[node_id]] <= threshold[node_id]:
-                threshold_sign = "<="
-            else:
-                threshold_sign = ">"
-            print(
-                    "decision node {node} : (X_test[{sample}, {feature}] = {value}) "
-                    "{inequality} {threshold})".format(
-                    node=node_id,
-                    sample=sample_id,
-                    feature=feature[node_id],
-                    value=X_test[sample_id, feature[node_id]],
-                    inequality=threshold_sign,
-                    threshold=threshold[node_id],
-                    )
-                )
+        #print("Rules used to predict sample {id}:\n".format(id=sample_id))
+        for record in X_test:
+            for node_id in node_index:
+                # continue to the next node if it is a leaf node
+                if leaf_id[sample_id] == node_id:
+                    continue
+                # check if value of the split feature for sample 0 is below threshold
+                if X_test[sample_id, feature[node_id]] <= threshold[node_id]:
+                    threshold_sign = "<="
+                else:
+                    threshold_sign = ">"
+               # print(
+               #         "decision node {node} : (X_test[{sample}, {feature}] = {value}) "
+               #         "{inequality} {threshold})".format(
+               #         node=node_id,
+               #         sample=sample_id,
+               #         feature=feature[node_id],
+               #         value=X_test[sample_id, feature[node_id]],
+               #         inequality=threshold_sign,
+               #         threshold=threshold[node_id],
+               #         )
+               #     )
+                    nodeList.append(node_id)
+                    sampleIdList.append(sample_id)
+                    featureIdList.append(feature[node_id])
+                    valueList.append(X_test[sample_id, feature[node_id]])
+                    inequalityList.append(threshold_sign)
+                    thresholdList.append(threshold[node_id])
+        sys.stdout = oStdout
 
         sample_ids = [0, 1, 2]
         # boolean array indicating the nodes both samples go through
@@ -444,13 +465,23 @@ def print_decision_paths(clf, label, X_test, feature):
         # obtain node ids using position in array
         common_node_id = np.arange(n_nodes)[common_nodes]
 
-        print(
-        "\nThe following samples {samples} share the node(s) {nodes} in the tree".format(
-            samples=sample_ids,
-            nodes=common_node_id
-        ))
-        print("This is {prop}% of all nodes.".format(prop=100 * len(common_node_id) / n_nodes))
-    sys.stdout = oStdout
+        #print(
+        #"\nThe following samples {samples} share the node(s) {nodes} in the tree".format(
+        #    samples=sample_ids,
+        #    nodes=common_node_id
+        #))
+        #print("This is {prop}% of all nodes.".format(prop=100 * len(common_node_id) / n_nodes))
+        data = pd.DataFrame({
+                     'node': nodeList,
+                     'sampleId': sampleIdList,
+                     'featureId': featureIdList,
+                     'valueId': valueList,
+                     'inequality': inequalityList,
+                     'threshold': thresholdList
+                    })
+
+        data.to_csv("path.csv")
+
 #   return 
 
 # To summarize performance
@@ -465,12 +496,10 @@ def performance_summarizer(eKappaDict, gKappaDict,
     """
     Description:
         Summarize the prformance of the decision
-
     Args:
         Kappa Values (list):
         Confusion Matrix (list):
         Accuracy Values (list):
-
     Returns:
         Prints a summary of Model performance with respect to
         Entropy and Kappa Value

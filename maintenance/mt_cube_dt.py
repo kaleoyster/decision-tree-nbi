@@ -327,8 +327,8 @@ def maintenance_pipeline(state):
                     "scourCriticalBridges",
                     "lanesOnStructure",
                      "toll",
-                     #"designatedInspectionFrequency",
-                     #"deckStructureType",
+                     "designatedInspectionFrequency",
+                     "deckStructureType",
                      #"typeOfDesign",
     #               "deckDeteriorationScore",
     #               "subDeteriorationScore",
@@ -360,7 +360,6 @@ def maintenance_pipeline(state):
     # print(dataScaled.head())
     sLabels = semantic_labeling(dataScaled[features],
                                 name="")
-
     columnsFinal.remove('structureNumber')
     features.remove('structureNumber')
     dataScaled = dataScaled[columnsFinal]
