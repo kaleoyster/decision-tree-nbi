@@ -151,7 +151,6 @@ def generate_sankey_data(listOfStates, listOfClusters, listOfFeatures):
     """
     Description:
         Generate data for sankey plot
-
     Args:
         states (list of list)
         clusters (list of list)
@@ -310,8 +309,8 @@ def maintenance_pipeline(state):
                     "yearBuilt",
                     "averageDailyTraffic",
                     "avgDailyTruckTraffic",
-                    # "material",
-                    # "designLoad",
+                     "material",
+                     "designLoad",
                     "snowfall",
                     "freezethaw",
                     "supNumberIntervention",
@@ -327,10 +326,10 @@ def maintenance_pipeline(state):
                     "operatingRating",
                     "scourCriticalBridges",
                     "lanesOnStructure",
-                    # "toll",
-                    # "designatedInspectionFrequency",
-                    # "deckStructureType",
-                    # "typeOfDesign",
+                     "toll",
+                     "designatedInspectionFrequency",
+                     "deckStructureType",
+                     "typeOfDesign",
     #               "deckDeteriorationScore",
     #               "subDeteriorationScore",
     #               "supDeteriorationScore"
@@ -342,10 +341,12 @@ def maintenance_pipeline(state):
     #print(dataScaled.columns)
 
     # TODO: Do one hot encoding here
-    #columnsHotEncoded = ['material']
-    #oneHot(df, columnsHotEncoded)
-
+    columnsHotEncoded = ['material']
+    dataScaled = oneHot(dataScaled, columnsHotEncoded)
     dataScaled = remove_null_values(dataScaled)
+    columnsFinal = list(dataScaled.columns)
+    columnsFinal.remove('material')
+
 
     # Apply recursive feature elimination
     # Data Scaled
@@ -478,7 +479,7 @@ def maintenance_pipeline(state):
         kappaValue, accValue, featImp, models = decision_tree(X,
                                                               y,
                                                               columnsFinal,
-                                                             label)
+                                                              label)
         kappaValues.append(kappaValue)
         accValues.append(accValue)
         featImps.append(featImp)

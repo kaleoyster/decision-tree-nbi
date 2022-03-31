@@ -19,12 +19,15 @@ TODO:
 # Data structures
 import pandas as pd
 import numpy as np
+from numpy import array
+from numpy import argmax
 from collections import Counter
 from collections import defaultdict
 from tqdm import tqdm
 
 # Preprocessing
 from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import KFold
@@ -33,10 +36,6 @@ from sklearn.model_selection import KFold
 import sklearn
 from sklearn import tree
 from sklearn.tree import DecisionTreeClassifier
-#from sklearn.experimental import enable_hist_gradient_boosting
-#from sklearn.ensemble import HistGradientBoostingRegressor
-#TODO: from sklearn.ensemble import HistGradientBoostingRegressor
-#from sklearn.ensemble import HistGradientBoostingClassifier
 
 # Metrics and stats
 from sklearn.metrics import classification_report
@@ -50,6 +49,7 @@ import plotly
 import plotly.express as px
 import seaborn as sns
 import matplotlib.pyplot as plt
+from maps import *
 #import graphviz
 
 # Function for one-hot-encoding
@@ -64,22 +64,41 @@ def oneHot(df, columns):
     return:
         columns: columns with one hot encoding
     """
-    print("\n Printing columns")
-    print(columns)
-    enc = OneHotEncoder(handle_unknown='ignore')
-    enc.fit(df[columns])
-    print(enc.transform(df[columns]))
-    #print(enc.get_feature_names_out(['material']))
-    #print(enc.categories_)
+    print("\n Printing columns, one hot encoding:")
+    for column in columns:
+        data = df[column].map(matMap)
+        values = array(data)
 
-    #TODO: Next, we have to figure out how do we scale these to other makerials
+        # integer encode
+        label_encoder = LabelEncoder()
+        integer_encoded = label_encoder.fit_transform(values)
 
-    # One-hot encoding categorial variable with high cardinality cause inefficieny in tree-based ensembles. Continuous variables will be given more importance than the dummy variables by the algorithm which will obscure the order of feature importance resulting in poorer performance.
+        # binary encoder
+        onehot_encoder = OneHotEncoder(sparse=False)
+        integer_encoded = integer_encoded.reshape(len(integer_encoded), 1)
+        onehot_encoded = onehot_encoder.fit_transform(integer_encoded)
 
-    # Further, we need to look at feature hasher and how it can help
+        # define a new dictionary
+        dictCol = defaultdict(list)
+        for row in onehot_encoded:
+            for index, value in zip(label_encoder.classes_, row):
+                index = column + '_' + index
+                dictCol[index].append(value)
 
+        for key in dictCol.keys():
+            df[key] = dictCol[key]
+    print(df.columns)
 
-# Categorical variables:    Material,  
+        #TODO: Next, we have to figure out how do we scale these to other makerials
+        # One-hot encoding categorial variable with high cardinality 
+        # cause inefficieny in tree-based ensembles. 
+        # Continuous variables will be given more importance 
+        # than the dummy variables by the algorithm 
+        # which will obscure the order of feature 
+        # importance resulting in poorer performance.
+        # Further, we need to look at feature hasher and how it can help
+        # Categorical variables:    Material,  
+    return df
 
 # Function for normalizing
 def normalize(df, columns):
@@ -135,7 +154,10 @@ def remove_null_values(df):
     """
     for feature in df:
         if feature != 'structureNumber':
-            df = df[~df[feature].isin([np.nan])]
+            try:
+                df = df[~df[feature].isin([np.nan])]
+            except:
+                print("Error: ", feature)
     return df
 
 def create_labels(df, label):
