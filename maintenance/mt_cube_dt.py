@@ -329,7 +329,7 @@ def maintenance_pipeline(state):
                      "toll",
                      "designatedInspectionFrequency",
                      "deckStructureType",
-                     #"typeOfDesign",
+                     "typeOfDesign",
     #               "deckDeteriorationScore",
     #               "subDeteriorationScore",
     #               "supDeteriorationScore"
@@ -341,12 +341,24 @@ def maintenance_pipeline(state):
     #print(dataScaled.columns)
 
     # TODO: Do one hot encoding here
-    columnsHotEncoded = ['material', "toll"]
+    columnsHotEncoded = ['material',
+                         "toll",
+                         "designLoad",
+                         "deckStructureType",
+                         "typeOfDesign"]
+
     dataScaled = oneHot(dataScaled, columnsHotEncoded)
     dataScaled = remove_null_values(dataScaled)
+    dataScaled = convert_geo_coordinates(dataScaled,
+                                         ['longitude',
+                                         'latitude'])
+
     columnsFinal = list(dataScaled.columns)
     columnsFinal.remove('material')
     columnsFinal.remove('toll')
+    columnsFinal.remove('designLoad')
+    columnsFinal.remove('deckStructureType')
+    columnsFinal.remove('typeOfDesign')
 
     # Apply recursive feature elimination
     # Data Scaled

@@ -47,17 +47,6 @@ mapDict['deckStructureType'] = {
                          9:'Other',
                         }
 
-mapDict['deckStructureType'] = {
-                         1:'ConcreteCastInPlace',
-                         2:'ConcretePrecastPanels',
-                         3:'OpenGrating',
-                         4:'CloseGrating',
-                         5:'SteelPlate',
-                         6:'CorrugatedSteel',
-                         7:'Aluminum',
-                         8:'Wood',
-                         9:'Other',
-                        }
 
 mapDict['typeOfDesign'] = {
                          1:'Slab',

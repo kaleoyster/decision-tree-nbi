@@ -6,14 +6,7 @@ Author: Akshay Kale
 Date: May 11th, 2021
 
 TODO:
-    1. Create Folders for the ouput [Done]
-    2. Create Random forest model
-    3. Complexity Parameters: Shapley
-    4. Select the important variables [Done]
-    5. Characterization of the clusters [Done]
-    6. Computing deterioration scores,
-        and intervention [Done]
-    7. Implement Recursive feature elimination
+    1. Map for columns, make sure there is validity test for it.
 -----------------------------------------------"""
 
 # Data structures
@@ -51,6 +44,7 @@ import plotly
 import plotly.express as px
 import seaborn as sns
 import matplotlib.pyplot as plt
+from collections import Counter
 from maps import *
 
 def read_csv_file(path):
@@ -58,7 +52,7 @@ def read_csv_file(path):
     Description:
     """
     df = pd.read_csv(path, index_col=None)
-    print(df.featureId.unique())
+    print(Counter(df.featureId))
     return df
 
 

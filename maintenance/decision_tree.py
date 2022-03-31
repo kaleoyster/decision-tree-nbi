@@ -55,7 +55,62 @@ import matplotlib.pyplot as plt
 from maps import *
 #import graphviz
 
-# Function for one-hot-encoding
+def geo_coor_utility(longitude, latitude):
+    """
+    Function for converting longitude and latitude
+    args:
+        df: Dataframe
+        columns: all the column
+
+    return:
+        df: dataframe with one hot encoding
+    """
+    try:
+         lat = latitude
+         latDegree = int(lat[:2])
+         latMin = int(lat[2:4])
+         latMin = (latMin/60)
+         latSec = int(lat[4:8])
+         latSec = (latSec/360000)
+         latDecimal = latDegree + latMin + latSec
+         long = longitude
+         longDegree = int(long[:3])
+         longMin = int(long[3:5])
+         longMin = (longMin/60)
+         longSec = int(long[5:9])
+         longSec = (longSec/360000)
+         longDecimal = -(longDegree + longMin + longSec)
+         return longDecimal, latDecimal
+    except:
+        return 0.00, 0.00
+
+def convert_geo_coordinates(df, columns):
+    """
+    Function for converting longitude and latitude
+    args:
+        df: Dataframe
+        columns: all the column
+
+    return:
+        df: dataframe with decimal longitude and latitude
+    """
+    longitudes = df['longitude']
+    latitudes = df['latitude']
+
+    transLongitudes = list()
+    transLatitudes = list()
+
+    for longitude, latitude in zip(longitudes, latitudes):
+        tLongitude, tLatitude = geo_coor_utility(longitude,
+                                                latitude)
+        transLongitudes.append(tLongitude)
+        transLatitudes.append(tLatitude)
+
+    df['longitude'] = transLongitudes
+    df['latitude'] = transLatitudes
+
+    return df
+
 def oneHot(df, columns):
     """
     Function for one-hot-encoding
@@ -86,9 +141,9 @@ def oneHot(df, columns):
         dictCol = defaultdict(list)
         for row in onehot_encoded:
             for index, value in zip(label_encoder.classes_, row):
-                index = column + index
+                print(index,)
+                index = column + str(index)
                 dictCol[index].append(value)
-
         for key in dictCol.keys():
             df[key] = dictCol[key]
 
@@ -422,11 +477,7 @@ def print_decision_paths(clf, label, X_test, feature):
     valueList = list()
     inequalityList = list()
     thresholdList = list()
-    for record in X_test[:5]:
-        print("records")
-        print(record)
 
-    header = ['node', 'sample', 'feature', 'value', 'inequality', 'threshold']
     with open(fileName, 'w') as f:
         sys.stdout = f
         #print("Rules used to predict sample {id}:\n".format(id=sample_id))
@@ -481,8 +532,6 @@ def print_decision_paths(clf, label, X_test, feature):
                     })
 
         data.to_csv("path.csv")
-
-#   return 
 
 # To summarize performance
 def performance_summarizer(eKappaDict, gKappaDict,
