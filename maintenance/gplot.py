@@ -81,8 +81,27 @@ def plot_scatterplot(df, name):
     fig.write_html(savefile)
     fig.show()
 
+def plot_barchart_sideway(df, title):
+    dataHeatMap = df
+    for num in range(len(df)):
+        yVal = df[num].index
+        xVal = list(df[num])
+        name = df[num].name
+        tTitle = title + ' ' + name
+        fig = go.Figure(data=go.Bar(
+                        x=xVal,
+                        y=yVal,
+                        orientation='h'))
+        fig.update_layout(title_text=tTitle,
+                          font_size=15,
+                          font=dict(size=15, color='black'),
+                          plot_bgcolor='white',
+                          paper_bgcolor='white')
+        savefile = title + '_barchart' + '.html'
+        fig.write_html(savefile)
+        fig.show()
+
 def plot_heatmap(df, title):
-    # dataHeatMap = df_to_plotly(df)
     dataHeatMap = df
     fig = go.Figure(data=go.Heatmap(dataHeatMap))
     fig.update_layout(title_text=title,

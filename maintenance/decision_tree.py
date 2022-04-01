@@ -53,7 +53,6 @@ import plotly.express as px
 import seaborn as sns
 import matplotlib.pyplot as plt
 from maps import *
-#import graphviz
 
 def geo_coor_utility(longitude, latitude):
     """
@@ -108,7 +107,6 @@ def convert_geo_coordinates(df, columns):
 
     df['longitude'] = transLongitudes
     df['latitude'] = transLatitudes
-
     return df
 
 def oneHot(df, columns):
@@ -141,7 +139,6 @@ def oneHot(df, columns):
         dictCol = defaultdict(list)
         for row in onehot_encoded:
             for index, value in zip(label_encoder.classes_, row):
-                print(index,)
                 index = column + str(index)
                 dictCol[index].append(value)
         for key in dictCol.keys():
@@ -549,6 +546,9 @@ def performance_summarizer(eKappaDict, gKappaDict,
         Kappa Values (list):
         Confusion Matrix (list):
         Accuracy Values (list):
+        Models Values (list):
+        Features Values (list):
+
     Returns:
         Prints a summary of Model performance with respect to
         Entropy and Kappa Value
@@ -618,11 +618,11 @@ def performance_summarizer(eKappaDict, gKappaDict,
     splitNodes = print_split_nodes(leaves, treeStructure, cols)
     print_decision_paths(eBestModel, label, testX, cols)
 
-    # Print decision tree of the Best Model
     # Entropy
     # TODO: Save a decision tree model for every run
             # This function can be perhaps saved somewhere else.
 
+    # Print decision tree of the Best Model
     print("\n Saving decision trees \n")
     eTextRepresentation = tree.export_text(eBestModel)
 
@@ -647,7 +647,7 @@ def performance_summarizer(eKappaDict, gKappaDict,
     #with open("models/splitnodes.log", "w") as fout:
     #    fout.write(splitNodes)
 
-    return (eBestKappa, gBestKappa),  (eBestAcc, gBestAcc), (efi, gfi), (eBestModel, gBestModel)
+    return (eBestKappa, gBestKappa), (eBestAcc, gBestAcc), (efi, gfi), (eBestModel, gBestModel)
 
 def tree_utility(trainX, trainy,
                  testX, testy, cols,
@@ -680,7 +680,7 @@ def tree_utility(trainX, trainy,
     #rocAuc = roc_auc_score(testy, prediction, multi_class='ovr')
     kappa = cohen_kappa_score(prediction, testy,
                               weights='quadratic')
-    return acc, cm, cr, kappa, model, fi# rocAuc, model
+    return acc, cm, cr, kappa, model, fi # rocAuc, model
 
 # Decision Tree
 def decision_tree(X, y, features, label, nFold=5):

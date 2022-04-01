@@ -70,43 +70,45 @@ def generate_dictionary(uniques):
        sankeyDict[label] = index
     return sankeyDict
 
-def generate_heat_map(listOfStates, listOfClusters, listOfFeatures):
-    """
-    Description:
-        Generate data for heatmap
-
-    Args:
-        states (list of list)
-        clusters (list of list)
-        features (list of dictionary)
-
-    Returns:
-        dataframe (a pandas dataframe)
-    """
-    data = list()
-    heatMapDict = defaultdict(list)
-    for clusters, features, states in zip(listOfClusters,
-                                       listOfFeatures,
-                                       listOfStates):
-        for clus, feat, state in zip(clusters,
-                                     features,
-                                     states):
-            heatMapDict[state].append((clus, feat))
-
-    states = heatMapDict.keys()
-    for state in states:
-        clusterVals = heatMapDict[state]
-        tempData = list()
-        for val in clusterVals:
-            clus, featMap = val
-            tempSeries = pd.Series(data=featMap,
-                                   index=featMap.keys(),
-                                   name=clus)
-            tempData.append(tempSeries)
-        tempDf = pd.concat(tempData, axis=1).reset_index()
-        tempDf.set_index('index', inplace=True)
-        data.append(tempDf)
-    return states, data
+# TODO: Number 1?
+#def generate_heat_map(listOfStates, listOfClusters, listOfFeatures):
+#    """
+#    Description:
+#        Generate data for heatmap
+#
+#    Args:
+#        states (list of list)
+#        clusters (list of list)
+#        features (list of dictionary)
+#
+#    Returns:
+#        dataframe (a pandas dataframe)
+#    """
+#    data = list()
+#    heatMapDict = defaultdict(list)
+#    for clusters, features, states in zip(listOfClusters,
+#                                       listOfFeatures,
+#                                       listOfStates):
+#        for clus, feat, state in zip(clusters,
+#                                     features,
+#                                     states):
+#            heatMapDict[state].append((clus, feat))
+#
+#    states = heatMapDict.keys()
+#    for state in states:
+#        clusterVals = heatMapDict[state]
+#        tempData = list()
+#        for val in clusterVals:
+#            clus, featMap = val
+#            tempSeries = pd.Series(data=featMap,
+#                                   index=featMap.keys(),
+#                                   name=clus)
+#            tempData.append(tempSeries)
+#        tempDf = pd.concat(tempData, axis=1).reset_index()
+#        tempDf.set_index('index', inplace=True)
+#        data.append(tempDf)
+#    return states, data
+#
 
 def generate_heat_map(listOfStates, listOfClusters, listOfFeatures):
     """
@@ -144,7 +146,7 @@ def generate_heat_map(listOfStates, listOfClusters, listOfFeatures):
         #tempDf = pd.concat(tempData, axis=1).reset_index()
         #tempDf.set_index('index', inplace=True)
         data.append(tempData)
-    print(data)
+    #print(data)
     return states, data
 
 def generate_sankey_data(listOfStates, listOfClusters, listOfFeatures):
@@ -610,11 +612,14 @@ def main():
 
     # Plot heatmap
     col, data = generate_heat_map(listOfStates, listOfLabels, oneListOfFeaturesImp)
-
     for col, val in zip(col, data):
         fname = col + '_heatmap.csv'
         #val.to_csv(fname)
         #print('\nCluster:', col)
+        # TODO: create barchart here
+        print("\n printing heatmap")
+        plot_barchart_sideway(val, col)
+        # Printing in testing.txt
         print(val)
         plot_heatmap(val, col)
 
