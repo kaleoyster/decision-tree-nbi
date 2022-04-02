@@ -524,7 +524,7 @@ def main():
                 "minnesota"
                 ]
 
-    modelName = 'testing'
+    modelName = 'modelNebraska'
     csvfiles = ['nebraska']
 
     listOfKappaValues = list()
@@ -612,14 +612,25 @@ def main():
 
     # Plot heatmap
     col, data = generate_heat_map(listOfStates, listOfLabels, oneListOfFeaturesImp)
+
+    # create a dictionary:
+    heatmapMap = defaultdict()
     for col, val in zip(col, data):
         fname = col + '_heatmap.csv'
         #val.to_csv(fname)
         #print('\nCluster:', col)
         # TODO: create barchart here
-        print("\n printing heatmap")
+
+        # For loop for printing testing col
+        tempMap = defaultdict() 
+        for values in val:
+            indx = values.index
+            dfName = values.name
+            dfVal = list(values)
+            tempMap[dfName] = dfVal
+        heatmapMap[name] = tempMap
         plot_barchart_sideway(val, col)
-        # Printing in testing.txt
+    #print
         print(val)
         plot_heatmap(val, col)
 

@@ -48,7 +48,6 @@ def df_to_plotly(df):
         newList.append({'z':zValues,
                         'x':[series.name],
                         'y':series.index.tolist()})
-
     return newList
 
 def plot_barchart1(df, name):
@@ -63,7 +62,6 @@ def plot_barchart1(df, name):
                  x=sort.keys(),
                  y=sort.values(),
                  barmode='group')
-
     savefile = name + '.html'
     fig.write_html(savefile)
     fig.show()
