@@ -615,23 +615,23 @@ def main():
 
     # create a dictionary:
     heatmapMap = defaultdict()
+
     for col, val in zip(col, data):
         fname = col + '_heatmap.csv'
         #val.to_csv(fname)
-        #print('\nCluster:', col)
         # TODO: create barchart here
-
         # For loop for printing testing col
-        tempMap = defaultdict() 
+        tempMap = defaultdict()
         for values in val:
             indx = values.index
             dfName = values.name
             dfVal = list(values)
-            tempMap[dfName] = dfVal
-        heatmapMap[name] = tempMap
+            tempMap[dfName] = values
+        heatmapMap[col] = tempMap
+
+        # Creating a horizontal barchart
         plot_barchart_sideway(val, col)
-    #print
-        print(val)
+        #print
         plot_heatmap(val, col)
 
     # Plot sankey
