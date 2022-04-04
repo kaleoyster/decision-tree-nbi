@@ -5,6 +5,7 @@ Description: Maintenance Model
 
 Notes:
     This whole idea of the decision tree??
+    1. Use gradia as gr, package for the feature importance
 
 Author: Akshay Kale
 Date: August 9th, 2021
@@ -525,7 +526,7 @@ def main():
                 ]
 
     modelName = 'modelNebraska'
-    csvfiles = ['nebraska']
+    csvfiles = ['minnesota']
 
     listOfKappaValues = list()
     listOfAccValues = list()
@@ -610,28 +611,25 @@ def main():
                               'accuracy': newlistofaccvalues,
                               'cluster': newlistoflabels})
 
-    # Plot heatmap
+    # Plot heatmap and generating csv files
     col, data = generate_heat_map(listOfStates, listOfLabels, oneListOfFeaturesImp)
-
-    # create a dictionary:
-    heatmapMap = defaultdict()
-
+    heatmapMap = defaultdict(list)
     for col, val in zip(col, data):
         fname = col + '_heatmap.csv'
-        #val.to_csv(fname)
-        # TODO: create barchart here
-        # For loop for printing testing col
         tempMap = defaultdict()
         for values in val:
             indx = values.index
             dfName = values.name
             dfVal = list(values)
-            tempMap[dfName] = values
-        heatmapMap[col] = tempMap
+            heatmapMap['category'].append(dfName)
+            for feat, valN in zip(indx, dfVal):
+                heatmapMap[feat].append(valN)
+        heatmapDf = pd.DataFrame(heatmapMap)
+        heatmapDf = heatmapDf.T
+        heatmapDf.to_csv(fname)
 
         # Creating a horizontal barchart
         plot_barchart_sideway(val, col)
-        #print
         plot_heatmap(val, col)
 
     # Plot sankey

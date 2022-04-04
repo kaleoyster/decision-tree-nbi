@@ -13,6 +13,7 @@ TODO:
     2. Monotonously decreasing condition ratings must have negative deterioration score
     3. Import precipitation and snowfall data into mongodb
     4. Investigate snowfall and freezethaw data for Nebraska
+    5. Create function to output multiple csv files
 
 NOTES:
 """
@@ -51,7 +52,7 @@ def main():
             }
 
     # select states:
-    states = ['31'] # Nebraska
+    states = ['29'] # Missouri 
 
     # years:
     years = [year for year in range(1992, 2020)]
@@ -85,10 +86,10 @@ def main():
     #                                               'freezethaw')
 
     # Divide grouped records (works only for grouped records)
-    groupedRecords = divide_grouped_records(groupedRecords, fields, 2010, 2017)
+    groupedRecords = divide_grouped_records(groupedRecords, fields, 2010, 2020)
 
     # Remove records from specific years (works only for individual records)
-    individualRecords = remove_records(individualRecords, 2010, 2017)
+    individualRecords = remove_records(individualRecords, 2010, 2019)
 
     #TODO:
         # Compute intervention from (year: from and to) 
@@ -170,7 +171,7 @@ def main():
                                                    'supNumberIntervention')
 
     # save to the file
-    csvFile = 'nebraska.csv'
+    csvFile = 'missouri.csv'
     tocsv_list(individualRecords, csvFile)
 
 if __name__=='__main__':

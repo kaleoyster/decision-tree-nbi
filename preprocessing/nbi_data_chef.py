@@ -530,8 +530,7 @@ def tocsv(groupedRecords, csvfile, header=None):
               'avgDailyTruckTraffic',
               'numberOfInterventions',
               'numberFutureOfInterventions',
-              'deteriorationScore'
-             ]
+              'deteriorationScore']
 
     with open(csvfile,'w') as csvFile:
         csvWriter = csv.writer(csvFile, delimiter=",")
