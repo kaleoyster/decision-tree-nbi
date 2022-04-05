@@ -92,6 +92,15 @@ def plot_barchart_sideway(df, title):
                         orientation='h'))
         fig.update_layout(title_text=tTitle,
                           font_size=15,
+                          yaxis=dict(
+                            title='Important features',
+                            titlefont_size=16,
+                            tickfont_size=14),
+                          xaxis=dict(
+                              title='Gini Index',
+                              titlefont_size=16,
+                              tickfont_size=14,
+                            ),
                           font=dict(size=15, color='black'),
                           plot_bgcolor='white',
                           paper_bgcolor='white')
