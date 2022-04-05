@@ -60,6 +60,7 @@ def main():
     #path = 'nebraska_deepOutputsTICR/No Substructure - No Deck - YesSuperstructure.txt'
     path = 'nebraska_deepOutputsTICR/path.csv'
     read_csv_file(path)
+    print(listOfColumns)
 
 if __name__=='__main__':
     main()

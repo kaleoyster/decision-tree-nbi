@@ -72,4 +72,22 @@ mapDict['typeOfDesign'] = {
                          21:'SegmentalBoxGirder',
                          22:'ChannelBeam',
                          0:'Other',
-                        }
+                    }
+listOfColumns = ['yearBuilt', 'averageDailyTraffic', 'avgDailyTruckTraffic',
+                 'snowfall', 'freezethaw',
+                 'latitude', 'longitude', 'skew', 'numberOfSpansInMainUnit',
+                 'lengthOfMaximumSpan', 'structureLength', 'bridgeRoadwayWithCurbToCurb',
+                 'operatingRating', 'scourCriticalBridges', 'lanesOnStructure',
+                 'designatedInspectionFrequency', 'materialAluminum', 'materialConcrete',
+                 'materialConcreteContinuous', 'materialPrestreesedConcrete',
+                 'materialPrestreesedConcreteContinuous', 'materialSteel',
+                 'materialSteelConitnuous', 'materialWood', 'tollOnFreeRoad', 'tollTollBridge',
+                 'designLoadH10', 'designLoadH15', 'designLoadH20', 'designLoadHS15', 'designLoadHS20',
+                 'designLoadHS20Mod', 'designLoadHS25', 'designLoadPedestrian',
+                 'designLoadRailroad', 'designLoadnan', 'deckStructureTypenan', 'typeOfDesignArchDeck',
+                 'typeOfDesignArchThru', 'typeOfDesignBoxBeamMultiple', 'typeOfDesignBoxBeamSingle',
+                 'typeOfDesignChannelBeam', 'typeOfDesignFrame',
+                 'typeOfDesignGirderAndFloor', 'typeOfDesignMovableBascule', 'typeOfDesignMovableLift',
+                 'typeOfDesignOther', 'typeOfDesignSegmentalBoxGirder',
+                 'typeOfDesignSlab', 'typeOfDesignStringerMultiBeam', 'typeOfDesignSuspension',
+                 'typeOfDesignTeeBeam', 'typeOfDesignTrussDeck', 'typeOfDesignTrussThru']

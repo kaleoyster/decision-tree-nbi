@@ -493,6 +493,7 @@ def maintenance_pipeline(state):
                                                               y,
                                                               columnsFinal,
                                                               label)
+        print("\n List of final columns", columnsFinal)
         kappaValues.append(kappaValue)
         accValues.append(accValue)
         featImps.append(featImp)
