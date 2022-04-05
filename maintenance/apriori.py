@@ -55,13 +55,11 @@ def read_csv_file(path):
     print(Counter(df.featureId))
     return df
 
-
 def main():
     # Read csvfile
     #path = 'nebraska_deepOutputsTICR/No Substructure - No Deck - YesSuperstructure.txt'
     path = 'nebraska_deepOutputsTICR/path.csv'
     read_csv_file(path)
-
 
 if __name__=='__main__':
     main()

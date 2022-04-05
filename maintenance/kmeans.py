@@ -434,16 +434,16 @@ def provide_label(sub, deck, sup):
             label = 'No ' + componentDict[num]
         elif is_low(value):
             #label = 'Low ' + componentDict[num]
-            label = 'Yes' + componentDict[num]
+            label = 'Yes ' + componentDict[num]
         elif is_negative(value):
             #label = 'No ' + componentDict[num]
-            label = 'Yes' + componentDict[num]
+            label = 'Yes ' + componentDict[num]
         elif is_medium(value):
             #label = 'Medium ' + componentDict[num]
             label = 'No ' + componentDict[num]
         elif is_high(value):
             #label = 'High ' + componentDict[num]
-            label = 'Yes' + componentDict[num]
+            label = 'Yes ' + componentDict[num]
         else:
             label = 'Error ' + componentDict[num]
         labels.append(label)

@@ -301,7 +301,6 @@ def maintenance_pipeline(state):
                         "subDeteriorationScore",
                         "supDeteriorationScore"
                         ]
-# 
 
     # Select final columns:
     columnsFinal = [
@@ -408,9 +407,9 @@ def maintenance_pipeline(state):
     #          'No Substructure - No Deck - High Superstructure']
 
     #TODO: Why do I have these label writen all intervention?
-    labels = ['No Substructure - YesDeck - No Superstructure',
-              'YesSubstructure - No Deck - No Superstructure',
-              'No Substructure - No Deck - YesSuperstructure']
+    labels = ['No Substructure - Yes Deck - No Superstructure',
+              'Yes Substructure - No Deck - No Superstructure',
+              'No Substructure - No Deck - Yes Superstructure']
 
     #labels = ['All intervention',
     #          'All intervention',
