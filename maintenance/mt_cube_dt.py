@@ -349,7 +349,7 @@ def maintenance_pipeline(state):
                          "deckStructureType",
                          "typeOfDesign"]
 
-    dataScaled = oneHot(dataScaled, columnsHotEncoded)
+    dataScaled = one_hot(dataScaled, columnsHotEncoded)
     dataScaled = remove_null_values(dataScaled)
     dataScaled = convert_geo_coordinates(dataScaled,
                                          ['longitude',
@@ -526,7 +526,7 @@ def main():
                 ]
 
     modelName = 'modelNebraska'
-    csvfiles = ['minnesota']
+    csvfiles = ['nebraska']
 
     listOfKappaValues = list()
     listOfAccValues = list()

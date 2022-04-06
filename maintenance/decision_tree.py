@@ -109,7 +109,7 @@ def convert_geo_coordinates(df, columns):
     df['latitude'] = transLatitudes
     return df
 
-def oneHot(df, columns):
+def one_hot(df, columns):
     """
     Function for one-hot-encoding
     args:

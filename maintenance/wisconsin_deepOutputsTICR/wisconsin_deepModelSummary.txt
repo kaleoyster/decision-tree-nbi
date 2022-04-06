@@ -1,18 +1,16 @@
 
  state:  wisconsin_deep
 
- Printing columns, one hot encoding:
-
 Printing the labels
 
 
-['No intervention' 'No Substructure - YesDeck - No Superstructure'
- 'YesSubstructure - No Deck - No Superstructure'
- 'No Substructure - YesDeck - YesSuperstructure'
- 'YesSubstructure - No Deck - YesSuperstructure'
- 'No Substructure - No Deck - YesSuperstructure' 'All intervention'
- 'YesSubstructure - YesDeck - YesSuperstructure'
- 'YesSubstructure - YesDeck - No Superstructure']
+['No intervention' 'No Substructure - Yes Deck - No Superstructure'
+ 'Yes Substructure - No Deck - No Superstructure'
+ 'No Substructure - Yes Deck - Yes Superstructure'
+ 'Yes Substructure - No Deck - Yes Superstructure'
+ 'No Substructure - No Deck - Yes Superstructure' 'All intervention'
+ 'Yes Substructure - Yes Deck - Yes Superstructure'
+ 'Yes Substructure - Yes Deck - No Superstructure']
 
 
 Cluster:  No intervention
@@ -23,7 +21,7 @@ Mean Median Maximums Minimums StdDev
 0.00 0.00   0.00     0.00     0.00
 
 
-Cluster:  No Substructure - YesDeck - No Superstructure
+Cluster:  No Substructure - Yes Deck - No Superstructure
 Mean Median Maximums Minimums StdDev  
 =====================================
 0.00 0.00   0.00     0.00     0.00
@@ -31,7 +29,7 @@ Mean Median Maximums Minimums StdDev
 1.01 1.00   2.00     1.00     1.01
 
 
-Cluster:  YesSubstructure - No Deck - No Superstructure
+Cluster:  Yes Substructure - No Deck - No Superstructure
 Mean Median Maximums Minimums StdDev  
 =====================================
 0.00 0.00   0.00     0.00     0.00
@@ -39,7 +37,7 @@ Mean Median Maximums Minimums StdDev
 0.00 0.00   0.00     0.00     0.00
 
 
-Cluster:  No Substructure - YesDeck - YesSuperstructure
+Cluster:  No Substructure - Yes Deck - Yes Superstructure
 Mean Median Maximums Minimums StdDev  
 =====================================
 1.04 1.00   2.00     1.00     1.04
@@ -47,7 +45,7 @@ Mean Median Maximums Minimums StdDev
 1.02 1.00   2.00     1.00     1.02
 
 
-Cluster:  YesSubstructure - No Deck - YesSuperstructure
+Cluster:  Yes Substructure - No Deck - Yes Superstructure
 Mean Median Maximums Minimums StdDev  
 =====================================
 1.03 1.00   2.00     1.00     1.03
@@ -55,7 +53,7 @@ Mean Median Maximums Minimums StdDev
 0.00 0.00   0.00     0.00     0.00
 
 
-Cluster:  No Substructure - No Deck - YesSuperstructure
+Cluster:  No Substructure - No Deck - Yes Superstructure
 Mean Median Maximums Minimums StdDev  
 =====================================
 1.03 1.00   3.00     1.00     1.03
@@ -71,7 +69,7 @@ Mean Median Maximums Minimums StdDev
 1.00 1.00   1.00     1.00     1.00
 
 
-Cluster:  YesSubstructure - YesDeck - YesSuperstructure
+Cluster:  Yes Substructure - Yes Deck - Yes Superstructure
 Mean Median Maximums Minimums StdDev  
 =====================================
 1.20 1.00   2.00     1.00     1.20
@@ -79,7 +77,7 @@ Mean Median Maximums Minimums StdDev
 1.67 2.00   2.00     1.00     1.67
 
 
-Cluster:  YesSubstructure - YesDeck - No Superstructure
+Cluster:  Yes Substructure - Yes Deck - No Superstructure
 Mean Median Maximums Minimums StdDev  
 =====================================
 0.00 0.00   0.00     0.00     0.00
@@ -88,7 +86,7 @@ Mean Median Maximums Minimums StdDev
 
 
 
-Category (Positive Class):  No Substructure - YesDeck - No Superstructure
+Category (Positive Class):  No Substructure - Yes Deck - No Superstructure
 --------------------------------------------------
 Using this function
 
@@ -102,17 +100,17 @@ Index and length of the rows
             
 
 
- Best Kappa Values:  0.978671142986624
+ Best Kappa Values:  0.973519490163648
 
- Best Accuracy:  0.991913953563785
+ Best Accuracy:  0.9850780422422553
 
- Best Depth:  29
+ Best Depth:  22
 
  Classification Report: 
                precision    recall  f1-score   support
 
-    negative       0.99      0.99      0.99      1339
-    positive       0.99      0.99      0.99      1381
+    negative       0.99      0.98      0.99      1339
+    positive       0.98      0.99      0.99      1381
 
     accuracy                           0.99      2720
    macro avg       0.99      0.99      0.99      2720
@@ -120,190 +118,117 @@ weighted avg       0.99      0.99      0.99      2720
 
 
  Confusion Matrix: 
- [[1324   15]
- [  14 1367]]
+ [[1315   24]
+ [  12 1369]]
 
  Feature Importance: 
- {'snowfall': 0.0, 'freezethaw': 0.0, 'latitude': 0.0, 'longitude': 0.0, 'numberOfSpansInMainUnit': 0.0, 'designatedInspectionFrequency': 0.0, 'materialAluminum': 0.0, 'materialMasonry': 0.0, 'materialOther': 0.0, 'materialWood': 0.0, 'tollOnFreeRoad': 0.0, 'designLoadH10': 0.0, 'designLoadHS15': 0.0, 'designLoadHS20Mod': 0.0, 'designLoadnan': 0.0, 'deckStructureTypenan': 0.0, 'typeOfDesignArchDeck': 0.0, 'typeOfDesignBoxBeamMultiple': 0.0, 'typeOfDesignCulvert': 0.0, 'typeOfDesignFrame': 0.0, 'typeOfDesignGirderAndFloor': 0.0, 'typeOfDesignMovableBascule': 0.0, 'typeOfDesignOther': 0.0, 'typeOfDesignTeeBeam': 0.0, 'typeOfDesignTrussDeck': 0.0, 'typeOfDesignTrussThru': 0.0, 'designLoadH20': 0.0002573553646899256, 'designLoadHS25': 0.0002774684439001935, 'typeOfDesignArchThru': 0.00033252335299008507, 'typeOfDesignMovableLift': 0.0005566412244611791, 'materialConcrete': 0.0005643541126685809, 'avgDailyTruckTraffic': 0.0008453180854720354, 'lanesOnStructure': 0.0031716638784258975, 'typeOfDesignChannelBeam': 0.003430952382676265, 'materialSteelConitnuous': 0.005890656091219836, 'typeOfDesignSlab': 0.006304013757315031, 'lengthOfMaximumSpan': 0.006328255874717156, 'materialPrestreesedConcreteContinuous': 0.007414863240606969, 'skew': 0.00796773437945348, 'materialSteel': 0.011282190915539258, 'operatingRating': 0.012158002225105066, 'bridgeRoadwayWithCurbToCurb': 0.014380991144534387, 'scourCriticalBridges': 0.015597842423538918, 'typeOfDesignStringerMultiBeam': 0.045240190447778814, 'designLoadH15': 0.04911349229134012, 'materialConcreteContinuous': 0.051173172130870116, 'structureLength': 0.054133365038482574, 'materialPrestreesedConcrete': 0.08866193348232919, 'averageDailyTraffic': 0.10715999759868762, 'designLoadHS20': 0.2444021371678427, 'yearBuilt': 0.2633548849453546}
+ {'snowfall': 0.0, 'freezethaw': 0.0, 'latitude': 0.0, 'longitude': 0.0, 'toll': 0.0, 'designatedInspectionFrequency': 0.0009309918985492005, 'lanesOnStructure': 0.006945355400481651, 'typeOfDesign': 0.009984957753128531, 'operatingRating': 0.016785626177466616, 'deckStructureType': 0.023979984520677816, 'avgDailyTruckTraffic': 0.028222055122067213, 'structureLength': 0.029947693362407306, 'numberOfSpansInMainUnit': 0.032282005323217206, 'lengthOfMaximumSpan': 0.036652905585642465, 'bridgeRoadwayWithCurbToCurb': 0.0428276946485871, 'skew': 0.056044350550256104, 'scourCriticalBridges': 0.06322439639359609, 'designLoad': 0.06350437662804105, 'material': 0.08058348849541248, 'averageDailyTraffic': 0.15884413556907828, 'yearBuilt': 0.34923998257139083}
 
 
              ----------- Performance with GiniIndex ------------
              
 
 
- Best Kappa Values:  0.9801407454359409
+ Best Kappa Values:  0.969839928775499
 
- Best Accuracy:  0.9919875099984866
+ Best Accuracy:  0.9833137687268954
 
  Best Depth:  27
 
  Classification Report: 
                precision    recall  f1-score   support
 
-    negative       0.99      0.99      0.99      1339
-    positive       0.99      0.99      0.99      1381
+    negative       0.99      0.98      0.98      1339
+    positive       0.98      0.99      0.99      1381
 
-    accuracy                           0.99      2720
-   macro avg       0.99      0.99      0.99      2720
-weighted avg       0.99      0.99      0.99      2720
-
-
- Confusion Matrix: 
- [[1322   17]
- [  10 1371]]
-
- Feature Importance: 
- {'snowfall': 0.0, 'freezethaw': 0.0, 'latitude': 0.0, 'longitude': 0.0, 'numberOfSpansInMainUnit': 0.0, 'designatedInspectionFrequency': 0.0, 'materialAluminum': 0.0, 'materialMasonry': 0.0, 'materialOther': 0.0, 'materialWood': 0.0, 'tollOnFreeRoad': 0.0, 'designLoadH10': 0.0, 'designLoadHS15': 0.0, 'designLoadHS20Mod': 0.0, 'designLoadnan': 0.0, 'deckStructureTypenan': 0.0, 'typeOfDesignArchDeck': 0.0, 'typeOfDesignBoxBeamMultiple': 0.0, 'typeOfDesignCulvert': 0.0, 'typeOfDesignFrame': 0.0, 'typeOfDesignGirderAndFloor': 0.0, 'typeOfDesignMovableBascule': 0.0, 'typeOfDesignOther': 0.0, 'typeOfDesignTeeBeam': 0.0, 'typeOfDesignTrussDeck': 0.0, 'typeOfDesignTrussThru': 0.0, 'designLoadH20': 0.0002573553646899256, 'designLoadHS25': 0.0002774684439001935, 'typeOfDesignArchThru': 0.00033252335299008507, 'typeOfDesignMovableLift': 0.0005566412244611791, 'materialConcrete': 0.0005643541126685809, 'avgDailyTruckTraffic': 0.0008453180854720354, 'lanesOnStructure': 0.0031716638784258975, 'typeOfDesignChannelBeam': 0.003430952382676265, 'materialSteelConitnuous': 0.005890656091219836, 'typeOfDesignSlab': 0.006304013757315031, 'lengthOfMaximumSpan': 0.006328255874717156, 'materialPrestreesedConcreteContinuous': 0.007414863240606969, 'skew': 0.00796773437945348, 'materialSteel': 0.011282190915539258, 'operatingRating': 0.012158002225105066, 'bridgeRoadwayWithCurbToCurb': 0.014380991144534387, 'scourCriticalBridges': 0.015597842423538918, 'typeOfDesignStringerMultiBeam': 0.045240190447778814, 'designLoadH15': 0.04911349229134012, 'materialConcreteContinuous': 0.051173172130870116, 'structureLength': 0.054133365038482574, 'materialPrestreesedConcrete': 0.08866193348232919, 'averageDailyTraffic': 0.10715999759868762, 'designLoadHS20': 0.2444021371678427, 'yearBuilt': 0.2633548849453546}
-
-Printing split-nodes
-
- Saving decision trees 
-
-
- Plotting decision trees 
-
-
-Category (Positive Class):  YesSubstructure - No Deck - No Superstructure
---------------------------------------------------
-Using this function
-
- Distribution of the clusters before oversampling:  Counter({'negative': 6802, 'positive': 61})
-Index and length of the rows
-
- Distribution of the clusters after oversampling:  Counter({'positive': 6802, 'negative': 6802})
-
-
-            -------------- Performance of Entropy ---------------
-            
-
-
- Best Kappa Values:  0.9801425496706648
-
- Best Accuracy:  0.9909584225090257
-
- Best Depth:  18
-
- Classification Report: 
-               precision    recall  f1-score   support
-
-    negative       0.99      0.99      0.99      1339
-    positive       0.99      0.99      0.99      1381
-
-    accuracy                           0.99      2720
-   macro avg       0.99      0.99      0.99      2720
-weighted avg       0.99      0.99      0.99      2720
+    accuracy                           0.98      2720
+   macro avg       0.99      0.98      0.98      2720
+weighted avg       0.98      0.98      0.98      2720
 
 
  Confusion Matrix: 
- [[1326   13]
- [  14 1367]]
-
- Feature Importance: 
- {'snowfall': 0.0, 'freezethaw': 0.0, 'latitude': 0.0, 'longitude': 0.0, 'numberOfSpansInMainUnit': 0.0, 'designatedInspectionFrequency': 0.0, 'materialAluminum': 0.0, 'materialMasonry': 0.0, 'materialOther': 0.0, 'materialWood': 0.0, 'tollOnFreeRoad': 0.0, 'designLoadH10': 0.0, 'designLoadH20': 0.0, 'designLoadHS15': 0.0, 'designLoadHS20Mod': 0.0, 'designLoadHS25': 0.0, 'designLoadnan': 0.0, 'deckStructureTypenan': 0.0, 'typeOfDesignArchDeck': 0.0, 'typeOfDesignArchThru': 0.0, 'typeOfDesignBoxBeamMultiple': 0.0, 'typeOfDesignCulvert': 0.0, 'typeOfDesignFrame': 0.0, 'typeOfDesignGirderAndFloor': 0.0, 'typeOfDesignMovableBascule': 0.0, 'typeOfDesignOther': 0.0, 'typeOfDesignTeeBeam': 0.0, 'typeOfDesignTrussDeck': 0.0, 'typeOfDesignTrussThru': 0.0, 'materialConcrete': 0.0002138112684961799, 'typeOfDesignMovableLift': 0.0005566412244611792, 'lanesOnStructure': 0.001850020744054882, 'avgDailyTruckTraffic': 0.004569691312512193, 'skew': 0.0051926452901626795, 'materialSteelConitnuous': 0.00550266754410559, 'lengthOfMaximumSpan': 0.007233482056331606, 'materialPrestreesedConcreteContinuous': 0.007449036028199459, 'typeOfDesignChannelBeam': 0.009755480301678512, 'operatingRating': 0.01171853716305844, 'bridgeRoadwayWithCurbToCurb': 0.015766035713645116, 'scourCriticalBridges': 0.01718898643900988, 'materialSteel': 0.02124813040616873, 'typeOfDesignSlab': 0.025323434239397036, 'typeOfDesignStringerMultiBeam': 0.037962435795445885, 'designLoadH15': 0.038662891253546584, 'structureLength': 0.05109916255781046, 'materialConcreteContinuous': 0.054436935891052175, 'materialPrestreesedConcrete': 0.07481860929107535, 'averageDailyTraffic': 0.1059316213687047, 'designLoadHS20': 0.24473768008681154, 'yearBuilt': 0.25878206402427184}
-
-
-             ----------- Performance with GiniIndex ------------
-             
-
-
- Best Kappa Values:  0.9816122190049614
-
- Best Accuracy:  0.9907379423654799
-
- Best Depth:  17
-
- Classification Report: 
-               precision    recall  f1-score   support
-
-    negative       0.99      0.99      0.99      1339
-    positive       0.99      0.99      0.99      1381
-
-    accuracy                           0.99      2720
-   macro avg       0.99      0.99      0.99      2720
-weighted avg       0.99      0.99      0.99      2720
-
-
- Confusion Matrix: 
- [[1324   15]
- [  10 1371]]
-
- Feature Importance: 
- {'snowfall': 0.0, 'freezethaw': 0.0, 'latitude': 0.0, 'longitude': 0.0, 'numberOfSpansInMainUnit': 0.0, 'designatedInspectionFrequency': 0.0, 'materialAluminum': 0.0, 'materialMasonry': 0.0, 'materialOther': 0.0, 'materialWood': 0.0, 'tollOnFreeRoad': 0.0, 'designLoadH10': 0.0, 'designLoadH20': 0.0, 'designLoadHS15': 0.0, 'designLoadHS20Mod': 0.0, 'designLoadHS25': 0.0, 'designLoadnan': 0.0, 'deckStructureTypenan': 0.0, 'typeOfDesignArchDeck': 0.0, 'typeOfDesignArchThru': 0.0, 'typeOfDesignBoxBeamMultiple': 0.0, 'typeOfDesignCulvert': 0.0, 'typeOfDesignFrame': 0.0, 'typeOfDesignGirderAndFloor': 0.0, 'typeOfDesignMovableBascule': 0.0, 'typeOfDesignOther': 0.0, 'typeOfDesignTeeBeam': 0.0, 'typeOfDesignTrussDeck': 0.0, 'typeOfDesignTrussThru': 0.0, 'materialConcrete': 0.0002138112684961799, 'typeOfDesignMovableLift': 0.0005566412244611792, 'lanesOnStructure': 0.001850020744054882, 'avgDailyTruckTraffic': 0.004569691312512193, 'skew': 0.0051926452901626795, 'materialSteelConitnuous': 0.00550266754410559, 'lengthOfMaximumSpan': 0.007233482056331606, 'materialPrestreesedConcreteContinuous': 0.007449036028199459, 'typeOfDesignChannelBeam': 0.009755480301678512, 'operatingRating': 0.01171853716305844, 'bridgeRoadwayWithCurbToCurb': 0.015766035713645116, 'scourCriticalBridges': 0.01718898643900988, 'materialSteel': 0.02124813040616873, 'typeOfDesignSlab': 0.025323434239397036, 'typeOfDesignStringerMultiBeam': 0.037962435795445885, 'designLoadH15': 0.038662891253546584, 'structureLength': 0.05109916255781046, 'materialConcreteContinuous': 0.054436935891052175, 'materialPrestreesedConcrete': 0.07481860929107535, 'averageDailyTraffic': 0.1059316213687047, 'designLoadHS20': 0.24473768008681154, 'yearBuilt': 0.25878206402427184}
-
-Printing split-nodes
-
- Saving decision trees 
-
-
- Plotting decision trees 
-
-
-Category (Positive Class):  No Substructure - No Deck - YesSuperstructure
---------------------------------------------------
-Using this function
-
- Distribution of the clusters before oversampling:  Counter({'negative': 6802, 'positive': 61})
-Index and length of the rows
-
- Distribution of the clusters after oversampling:  Counter({'positive': 6802, 'negative': 6802})
-
-
-            -------------- Performance of Entropy ---------------
-            
-
-
- Best Kappa Values:  0.9794059191758041
-
- Best Accuracy:  0.9922079631190955
-
- Best Depth:  21
-
- Classification Report: 
-               precision    recall  f1-score   support
-
-    negative       0.99      0.99      0.99      1339
-    positive       0.99      0.99      0.99      1381
-
-    accuracy                           0.99      2720
-   macro avg       0.99      0.99      0.99      2720
-weighted avg       0.99      0.99      0.99      2720
-
-
- Confusion Matrix: 
- [[1323   16]
+ [[1310   29]
  [  12 1369]]
 
  Feature Importance: 
- {'snowfall': 0.0, 'freezethaw': 0.0, 'latitude': 0.0, 'longitude': 0.0, 'designatedInspectionFrequency': 0.0, 'materialAluminum': 0.0, 'materialMasonry': 0.0, 'materialOther': 0.0, 'tollOnFreeRoad': 0.0, 'designLoadH20': 0.0, 'designLoadHS15': 0.0, 'designLoadHS20Mod': 0.0, 'designLoadHS25': 0.0, 'designLoadnan': 0.0, 'deckStructureTypenan': 0.0, 'typeOfDesignArchDeck': 0.0, 'typeOfDesignArchThru': 0.0, 'typeOfDesignBoxBeamMultiple': 0.0, 'typeOfDesignCulvert': 0.0, 'typeOfDesignGirderAndFloor': 0.0, 'typeOfDesignMovableBascule': 0.0, 'typeOfDesignMovableLift': 0.0, 'typeOfDesignOther': 0.0, 'typeOfDesignTeeBeam': 0.0, 'typeOfDesignTrussDeck': 0.0, 'scourCriticalBridges': 0.000608474978440321, 'materialConcrete': 0.0008404158489721097, 'numberOfSpansInMainUnit': 0.0022393686919799658, 'avgDailyTruckTraffic': 0.0031346519950788327, 'typeOfDesignTrussThru': 0.004494215659131498, 'lanesOnStructure': 0.005652269093301406, 'materialSteelConitnuous': 0.00590145491415874, 'materialConcreteContinuous': 0.006141749622198411, 'typeOfDesignChannelBeam': 0.006749340391449769, 'materialPrestreesedConcreteContinuous': 0.007783271178550496, 'lengthOfMaximumSpan': 0.008305604817227594, 'materialWood': 0.009700294649717132, 'designLoadH10': 0.013243492583528294, 'structureLength': 0.014069856926656799, 'bridgeRoadwayWithCurbToCurb': 0.014203985533325369, 'typeOfDesignStringerMultiBeam': 0.014255610615973349, 'typeOfDesignFrame': 0.016387418033774744, 'typeOfDesignSlab': 0.017546389542162085, 'operatingRating': 0.02381202888841561, 'designLoadH15': 0.024299003588098587, 'skew': 0.030314640270551314, 'materialPrestreesedConcrete': 0.07413916264113776, 'materialSteel': 0.07583554709899722, 'averageDailyTraffic': 0.09111614187476291, 'designLoadHS20': 0.21962500900834755, 'yearBuilt': 0.30960060155406227}
+ {'snowfall': 0.0, 'freezethaw': 0.0, 'latitude': 0.0, 'longitude': 0.0, 'toll': 0.0, 'designatedInspectionFrequency': 0.0009309918985492005, 'lanesOnStructure': 0.006945355400481651, 'typeOfDesign': 0.009984957753128531, 'operatingRating': 0.016785626177466616, 'deckStructureType': 0.023979984520677816, 'avgDailyTruckTraffic': 0.028222055122067213, 'structureLength': 0.029947693362407306, 'numberOfSpansInMainUnit': 0.032282005323217206, 'lengthOfMaximumSpan': 0.036652905585642465, 'bridgeRoadwayWithCurbToCurb': 0.0428276946485871, 'skew': 0.056044350550256104, 'scourCriticalBridges': 0.06322439639359609, 'designLoad': 0.06350437662804105, 'material': 0.08058348849541248, 'averageDailyTraffic': 0.15884413556907828, 'yearBuilt': 0.34923998257139083}
+
+Printing split-nodes
+
+ Saving decision trees 
 
 
-             ----------- Performance with GiniIndex ------------
-             
+ Plotting decision trees 
 
 
- Best Kappa Values:  0.9794049835829379
+ List of final columns ['yearBuilt', 'averageDailyTraffic', 'avgDailyTruckTraffic', 'material', 'designLoad', 'snowfall', 'freezethaw', 'latitude', 'longitude', 'skew', 'numberOfSpansInMainUnit', 'lengthOfMaximumSpan', 'structureLength', 'bridgeRoadwayWithCurbToCurb', 'operatingRating', 'scourCriticalBridges', 'lanesOnStructure', 'toll', 'designatedInspectionFrequency', 'deckStructureType', 'typeOfDesign']
 
- Best Accuracy:  0.9909584225090257
+Category (Positive Class):  Yes Substructure - No Deck - No Superstructure
+--------------------------------------------------
+Using this function
+
+ Distribution of the clusters before oversampling:  Counter({'negative': 6802, 'positive': 61})
+Index and length of the rows
+
+ Distribution of the clusters after oversampling:  Counter({'positive': 6802, 'negative': 6802})
+
+
+            -------------- Performance of Entropy ---------------
+            
+
+
+ Best Kappa Values:  0.9698392436011164
+
+ Best Accuracy:  0.9853718896599434
 
  Best Depth:  30
 
  Classification Report: 
                precision    recall  f1-score   support
 
-    negative       0.99      0.99      0.99      1339
-    positive       0.99      0.99      0.99      1381
+    negative       0.99      0.98      0.98      1339
+    positive       0.98      0.99      0.99      1381
 
-    accuracy                           0.99      2720
-   macro avg       0.99      0.99      0.99      2720
-weighted avg       0.99      0.99      0.99      2720
+    accuracy                           0.98      2720
+   macro avg       0.99      0.98      0.98      2720
+weighted avg       0.99      0.98      0.98      2720
 
 
  Confusion Matrix: 
- [[1321   18]
- [  10 1371]]
+ [[1309   30]
+ [  11 1370]]
 
  Feature Importance: 
- {'snowfall': 0.0, 'freezethaw': 0.0, 'latitude': 0.0, 'longitude': 0.0, 'designatedInspectionFrequency': 0.0, 'materialAluminum': 0.0, 'materialMasonry': 0.0, 'materialOther': 0.0, 'tollOnFreeRoad': 0.0, 'designLoadH20': 0.0, 'designLoadHS15': 0.0, 'designLoadHS20Mod': 0.0, 'designLoadHS25': 0.0, 'designLoadnan': 0.0, 'deckStructureTypenan': 0.0, 'typeOfDesignArchDeck': 0.0, 'typeOfDesignArchThru': 0.0, 'typeOfDesignBoxBeamMultiple': 0.0, 'typeOfDesignCulvert': 0.0, 'typeOfDesignGirderAndFloor': 0.0, 'typeOfDesignMovableBascule': 0.0, 'typeOfDesignMovableLift': 0.0, 'typeOfDesignOther': 0.0, 'typeOfDesignTeeBeam': 0.0, 'typeOfDesignTrussDeck': 0.0, 'scourCriticalBridges': 0.000608474978440321, 'materialConcrete': 0.0008404158489721097, 'numberOfSpansInMainUnit': 0.0022393686919799658, 'avgDailyTruckTraffic': 0.0031346519950788327, 'typeOfDesignTrussThru': 0.004494215659131498, 'lanesOnStructure': 0.005652269093301406, 'materialSteelConitnuous': 0.00590145491415874, 'materialConcreteContinuous': 0.006141749622198411, 'typeOfDesignChannelBeam': 0.006749340391449769, 'materialPrestreesedConcreteContinuous': 0.007783271178550496, 'lengthOfMaximumSpan': 0.008305604817227594, 'materialWood': 0.009700294649717132, 'designLoadH10': 0.013243492583528294, 'structureLength': 0.014069856926656799, 'bridgeRoadwayWithCurbToCurb': 0.014203985533325369, 'typeOfDesignStringerMultiBeam': 0.014255610615973349, 'typeOfDesignFrame': 0.016387418033774744, 'typeOfDesignSlab': 0.017546389542162085, 'operatingRating': 0.02381202888841561, 'designLoadH15': 0.024299003588098587, 'skew': 0.030314640270551314, 'materialPrestreesedConcrete': 0.07413916264113776, 'materialSteel': 0.07583554709899722, 'averageDailyTraffic': 0.09111614187476291, 'designLoadHS20': 0.21962500900834755, 'yearBuilt': 0.30960060155406227}
+ {'snowfall': 0.0, 'freezethaw': 0.0, 'latitude': 0.0, 'longitude': 0.0, 'toll': 0.0, 'designatedInspectionFrequency': 0.0, 'lanesOnStructure': 0.004309960269906537, 'numberOfSpansInMainUnit': 0.02300780939838657, 'avgDailyTruckTraffic': 0.025819469210851858, 'typeOfDesign': 0.02696300109801089, 'operatingRating': 0.02908999742706818, 'deckStructureType': 0.03634893604447624, 'lengthOfMaximumSpan': 0.03658936829960527, 'structureLength': 0.039997178442383194, 'skew': 0.047384596832499584, 'material': 0.06002469030495955, 'designLoad': 0.06776599940271968, 'scourCriticalBridges': 0.07422224640974377, 'bridgeRoadwayWithCurbToCurb': 0.0975934729858124, 'averageDailyTraffic': 0.11204799832517817, 'yearBuilt': 0.31883527554839836}
+
+
+             ----------- Performance with GiniIndex ------------
+             
+
+
+ Best Kappa Values:  0.9668989867412052
+
+ Best Accuracy:  0.9844162775363727
+
+ Best Depth:  30
+
+ Classification Report: 
+               precision    recall  f1-score   support
+
+    negative       0.99      0.98      0.98      1339
+    positive       0.98      0.99      0.98      1381
+
+    accuracy                           0.98      2720
+   macro avg       0.98      0.98      0.98      2720
+weighted avg       0.98      0.98      0.98      2720
+
+
+ Confusion Matrix: 
+ [[1310   29]
+ [  16 1365]]
+
+ Feature Importance: 
+ {'snowfall': 0.0, 'freezethaw': 0.0, 'latitude': 0.0, 'longitude': 0.0, 'toll': 0.0, 'designatedInspectionFrequency': 0.0, 'lanesOnStructure': 0.004309960269906537, 'numberOfSpansInMainUnit': 0.02300780939838657, 'avgDailyTruckTraffic': 0.025819469210851858, 'typeOfDesign': 0.02696300109801089, 'operatingRating': 0.02908999742706818, 'deckStructureType': 0.03634893604447624, 'lengthOfMaximumSpan': 0.03658936829960527, 'structureLength': 0.039997178442383194, 'skew': 0.047384596832499584, 'material': 0.06002469030495955, 'designLoad': 0.06776599940271968, 'scourCriticalBridges': 0.07422224640974377, 'bridgeRoadwayWithCurbToCurb': 0.0975934729858124, 'averageDailyTraffic': 0.11204799832517817, 'yearBuilt': 0.31883527554839836}
 
 Printing split-nodes
 
@@ -312,3 +237,82 @@ Printing split-nodes
 
  Plotting decision trees 
 
+
+ List of final columns ['yearBuilt', 'averageDailyTraffic', 'avgDailyTruckTraffic', 'material', 'designLoad', 'snowfall', 'freezethaw', 'latitude', 'longitude', 'skew', 'numberOfSpansInMainUnit', 'lengthOfMaximumSpan', 'structureLength', 'bridgeRoadwayWithCurbToCurb', 'operatingRating', 'scourCriticalBridges', 'lanesOnStructure', 'toll', 'designatedInspectionFrequency', 'deckStructureType', 'typeOfDesign']
+
+Category (Positive Class):  No Substructure - No Deck - Yes Superstructure
+--------------------------------------------------
+Using this function
+
+ Distribution of the clusters before oversampling:  Counter({'negative': 6802, 'positive': 61})
+Index and length of the rows
+
+ Distribution of the clusters after oversampling:  Counter({'positive': 6802, 'negative': 6802})
+
+
+            -------------- Performance of Entropy ---------------
+            
+
+
+ Best Kappa Values:  0.9705798845368631
+
+ Best Accuracy:  0.9854453650258339
+
+ Best Depth:  24
+
+ Classification Report: 
+               precision    recall  f1-score   support
+
+    negative       0.99      0.98      0.99      1339
+    positive       0.98      0.99      0.99      1381
+
+    accuracy                           0.99      2720
+   macro avg       0.99      0.99      0.99      2720
+weighted avg       0.99      0.99      0.99      2720
+
+
+ Confusion Matrix: 
+ [[1317   22]
+ [  18 1363]]
+
+ Feature Importance: 
+ {'snowfall': 0.0, 'freezethaw': 0.0, 'latitude': 0.0, 'longitude': 0.0, 'toll': 0.0, 'designatedInspectionFrequency': 0.0, 'lanesOnStructure': 0.005718279680522473, 'numberOfSpansInMainUnit': 0.013514905083813662, 'lengthOfMaximumSpan': 0.01947678135650183, 'typeOfDesign': 0.02176112779306829, 'bridgeRoadwayWithCurbToCurb': 0.02358755475212748, 'operatingRating': 0.027887061918882662, 'avgDailyTruckTraffic': 0.029837893520246718, 'deckStructureType': 0.030259275051491112, 'structureLength': 0.05052038266457165, 'material': 0.06208489460630151, 'scourCriticalBridges': 0.07257959068547036, 'designLoad': 0.07764226275396133, 'skew': 0.1106887926244341, 'averageDailyTraffic': 0.15867925889506598, 'yearBuilt': 0.2957619386135409}
+
+
+             ----------- Performance with GiniIndex ------------
+             
+
+
+ Best Kappa Values:  0.9646942575707508
+
+ Best Accuracy:  0.9835340326869446
+
+ Best Depth:  26
+
+ Classification Report: 
+               precision    recall  f1-score   support
+
+    negative       0.98      0.98      0.98      1339
+    positive       0.98      0.99      0.98      1381
+
+    accuracy                           0.98      2720
+   macro avg       0.98      0.98      0.98      2720
+weighted avg       0.98      0.98      0.98      2720
+
+
+ Confusion Matrix: 
+ [[1311   28]
+ [  20 1361]]
+
+ Feature Importance: 
+ {'snowfall': 0.0, 'freezethaw': 0.0, 'latitude': 0.0, 'longitude': 0.0, 'toll': 0.0, 'designatedInspectionFrequency': 0.0, 'lanesOnStructure': 0.005718279680522473, 'numberOfSpansInMainUnit': 0.013514905083813662, 'lengthOfMaximumSpan': 0.01947678135650183, 'typeOfDesign': 0.02176112779306829, 'bridgeRoadwayWithCurbToCurb': 0.02358755475212748, 'operatingRating': 0.027887061918882662, 'avgDailyTruckTraffic': 0.029837893520246718, 'deckStructureType': 0.030259275051491112, 'structureLength': 0.05052038266457165, 'material': 0.06208489460630151, 'scourCriticalBridges': 0.07257959068547036, 'designLoad': 0.07764226275396133, 'skew': 0.1106887926244341, 'averageDailyTraffic': 0.15867925889506598, 'yearBuilt': 0.2957619386135409}
+
+Printing split-nodes
+
+ Saving decision trees 
+
+
+ Plotting decision trees 
+
+
+ List of final columns ['yearBuilt', 'averageDailyTraffic', 'avgDailyTruckTraffic', 'material', 'designLoad', 'snowfall', 'freezethaw', 'latitude', 'longitude', 'skew', 'numberOfSpansInMainUnit', 'lengthOfMaximumSpan', 'structureLength', 'bridgeRoadwayWithCurbToCurb', 'operatingRating', 'scourCriticalBridges', 'lanesOnStructure', 'toll', 'designatedInspectionFrequency', 'deckStructureType', 'typeOfDesign']
