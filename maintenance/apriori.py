@@ -57,16 +57,19 @@ def read_csv_file(path):
 def create_map(listOfColumns):
     columnMap = defaultdict()
     for index, column in enumerate(listOfColumns):
-        columnMap[index+1] = column
+        #index = str(index + 1)
+        columnMap[index] = column
     return columnMap
 
 def main():
     # Read csvfile
     #path = 'nebraska_deepOutputsTICR/No Substructure - No Deck - YesSuperstructure.txt'
     path = 'nebraska_deepOutputsTICR/path.csv'
-    df=read_csv_file(path)
+    df = read_csv_file(path)
     columnMap = create_map(listOfColumns)
+    print(df['featureId'].unique())
     df['featureName'] = df['featureId'].map(columnMap)
     print(Counter(df.featureName))
+
 if __name__=='__main__':
     main()
