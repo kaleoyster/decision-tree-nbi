@@ -55,6 +55,10 @@ def read_csv_file(path):
     return df
 
 def create_map(listOfColumns):
+    """
+    Description:
+
+    """
     columnMap = defaultdict()
     for index, column in enumerate(listOfColumns):
         #index = str(index + 1)
@@ -67,9 +71,9 @@ def main():
     path = 'nebraska_deepOutputsTICR/path.csv'
     df = read_csv_file(path)
     columnMap = create_map(listOfColumns)
-    print(df['featureId'].unique())
     df['featureName'] = df['featureId'].map(columnMap)
-    print(Counter(df.featureName))
+    print(df['featureName'].unique())
+
 
 if __name__=='__main__':
     main()
