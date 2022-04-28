@@ -72,7 +72,8 @@ def main():
     df = read_csv_file(path)
     columnMap = create_map(listOfColumns)
     df['featureName'] = df['featureId'].map(columnMap)
-    print(df['featureName'].unique())
+
+    # 
 
 
 if __name__=='__main__':

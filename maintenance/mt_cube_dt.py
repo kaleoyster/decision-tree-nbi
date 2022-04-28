@@ -71,46 +71,6 @@ def generate_dictionary(uniques):
        sankeyDict[label] = index
     return sankeyDict
 
-# TODO: Number 1?
-#def generate_heat_map(listOfStates, listOfClusters, listOfFeatures):
-#    """
-#    Description:
-#        Generate data for heatmap
-#
-#    Args:
-#        states (list of list)
-#        clusters (list of list)
-#        features (list of dictionary)
-#
-#    Returns:
-#        dataframe (a pandas dataframe)
-#    """
-#    data = list()
-#    heatMapDict = defaultdict(list)
-#    for clusters, features, states in zip(listOfClusters,
-#                                       listOfFeatures,
-#                                       listOfStates):
-#        for clus, feat, state in zip(clusters,
-#                                     features,
-#                                     states):
-#            heatMapDict[state].append((clus, feat))
-#
-#    states = heatMapDict.keys()
-#    for state in states:
-#        clusterVals = heatMapDict[state]
-#        tempData = list()
-#        for val in clusterVals:
-#            clus, featMap = val
-#            tempSeries = pd.Series(data=featMap,
-#                                   index=featMap.keys(),
-#                                   name=clus)
-#            tempData.append(tempSeries)
-#        tempDf = pd.concat(tempData, axis=1).reset_index()
-#        tempDf.set_index('index', inplace=True)
-#        data.append(tempDf)
-#    return states, data
-#
-
 def generate_heat_map(listOfStates, listOfClusters, listOfFeatures):
     """
     Description:
@@ -129,6 +89,9 @@ def generate_heat_map(listOfStates, listOfClusters, listOfFeatures):
     for clusters, features, states in zip(listOfClusters,
                                        listOfFeatures,
                                        listOfStates):
+        print("\n Testing features")
+        print(features)
+
         for clus, feat, state in zip(clusters,
                                      features,
                                      states):
@@ -147,7 +110,6 @@ def generate_heat_map(listOfStates, listOfClusters, listOfFeatures):
         #tempDf = pd.concat(tempData, axis=1).reset_index()
         #tempDf.set_index('index', inplace=True)
         data.append(tempData)
-    #print(data)
     return states, data
 
 def generate_sankey_data(listOfStates, listOfClusters, listOfFeatures):
@@ -311,8 +273,8 @@ def maintenance_pipeline(state):
                     "yearBuilt",
                     "averageDailyTraffic",
                     "avgDailyTruckTraffic",
-                     "material",
-                     "designLoad",
+                    "material",
+                    "designLoad",
                     "snowfall",
                     "freezethaw",
                     "supNumberIntervention",
@@ -328,10 +290,10 @@ def maintenance_pipeline(state):
                     "operatingRating",
                     "scourCriticalBridges",
                     "lanesOnStructure",
-                     "toll",
-                     "designatedInspectionFrequency",
-                     "deckStructureType",
-                     "typeOfDesign",
+                    "toll",
+                    "designatedInspectionFrequency",
+                    "deckStructureType",
+                    "typeOfDesign",
     #               "deckDeteriorationScore",
     #               "subDeteriorationScore",
     #               "supDeteriorationScore"
@@ -339,7 +301,7 @@ def maintenance_pipeline(state):
 
     #dataScaled = normalize(df, columnsNormalize)
     dataScaled = df[columnsFinal]
-    #dataScaled = dataScaled[columnsFinal]
+    dataScaled = dataScaled[columnsFinal]
     #print(dataScaled.columns)
 
     # TODO: Do one hot encoding here
@@ -350,7 +312,9 @@ def maintenance_pipeline(state):
                          "typeOfDesign"]
 
     dataScaled = one_hot(dataScaled, columnsHotEncoded)
+    #TODO: Something went wrong over here, when you apply normalize
     dataScaled = remove_null_values(dataScaled)
+
     dataScaled = convert_geo_coordinates(dataScaled,
                                          ['longitude',
                                          'latitude'])
@@ -362,7 +326,7 @@ def maintenance_pipeline(state):
     columnsFinal.remove('deckStructureType')
     columnsFinal.remove('typeOfDesign')
 
-    # Apply recursive feature elimination
+    #TODO: Apply recursive feature elimination here.
     # Data Scaled
     features = ["structureNumber",
                 "supNumberIntervention",
@@ -525,8 +489,8 @@ def main():
                 "minnesota"
                 ]
 
-    modelName = 'modelNebraska'
-    csvfiles = ['nebraska']
+    modelName = 'modelMinnesota'
+    csvfiles = ['minnesota']
 
     listOfKappaValues = list()
     listOfAccValues = list()

@@ -72,6 +72,7 @@ def geo_coor_utility(longitude, latitude):
          latSec = int(lat[4:8])
          latSec = (latSec/360000)
          latDecimal = latDegree + latMin + latSec
+
          long = longitude
          longDegree = int(long[:3])
          longMin = int(long[3:5])
@@ -877,8 +878,11 @@ def plot_overall_performance(states, listOfMetricValues, metricName, state):
     # Make the plot
     plt.figure(figsize=(10, 8))
     plt.title("Overall Performance")
-    plt.bar(height, eMetricValues, color='#7f6d5f', width=0.25, label='gini')
-    plt.bar(height + 0.25, gMetricValues,color='#557f2d', width=0.25, label='entropy')
+    plt.bar(height, eMetricValues,
+            color='#7f6d5f', width=0.25, label='gini')
+    plt.bar(height + 0.25,
+            gMetricValues,color='#557f2d',
+            width=0.25, label='entropy')
     plt.xticks(height, states, rotation=45)
     plt.legend()
     plt.savefig(filename)
