@@ -12,19 +12,19 @@ Date: August 9th, 2021
 <------------------------------------------------"""
 
 # Data structures
-import pandas as pd
-import numpy as np
 from collections import Counter
 from collections import defaultdict
 from collections import OrderedDict
-
-# System Libraries
 import os
 import sys
+import pandas as pd
+import numpy as np
+
+# System Libraries
 
 # ML
 from imblearn.over_sampling import SMOTE
-from sklearn import preprocessing
+#from sklearn import preprocessing
 
 # Custom files
 from decision_tree import *
@@ -300,9 +300,9 @@ def maintenance_pipeline(state):
                 ]
 
     #dataScaled = normalize(df, columnsNormalize)
+    #print("Scaled features", dataScaled.columns)
     dataScaled = df[columnsFinal]
     dataScaled = dataScaled[columnsFinal]
-    #print(dataScaled.columns)
 
     # TODO: Do one hot encoding here
     columnsHotEncoded = ['material',
@@ -477,6 +477,9 @@ def maintenance_pipeline(state):
 
 # Driver function
 def main():
+    """
+    driver method
+    """
     # States
     csvfiles = [
                 "nebraska",
@@ -489,44 +492,44 @@ def main():
                 "minnesota"
                 ]
 
-    modelName = 'modelMinnesota'
-    csvfiles = ['minnesota']
+    modelName = 'modelNebraska'
+    csvfiles = ['nebraska']
 
-    listOfKappaValues = list()
-    listOfAccValues = list()
-    listOfLabels = list()
-    listOfStates = list()
-    listOfCounts = list()
-    listOfDataFrames = list()
-    listOfFeatureImps = list()
-    listOfModels = list()
+    listOfKappaValues = []
+    listOfAccValues = []
+    listOfLabels = []
+    listOfStates = []
+    listOfCounts = []
+    listOfDataFrames = []
+    listOfFeatureImps =[]
+    listOfModels = []
 
     for filename in csvfiles:
-         filename = filename+'_deep'
-         dataScaled, sLabel, kappaValues, accValues, featImps, decisionModels = maintenance_pipeline(filename)
-         listOfLabels.append(sLabel)
-         listOfStates.append([filename[:-5]]*3)
-         listOfDataFrames.append(dataScaled)
-         listOfKappaValues.append(kappaValues)
-         listOfAccValues.append(accValues)
-         listOfFeatureImps.append(featImps)
+        filename = filename+'_deep'
+        dataScaled, sLabel, kappaValues, accValues, featImps, decisionModels = maintenance_pipeline(filename)
+        listOfLabels.append(sLabel)
+        listOfStates.append([filename[:-5]]*3)
+        listOfDataFrames.append(dataScaled)
+        listOfKappaValues.append(kappaValues)
+        listOfAccValues.append(accValues)
+        listOfFeatureImps.append(featImps)
 
     summaryfilename = modelName + '.txt'
     sys.stdout = open(summaryfilename, "w")
 
     #TODO: Refactor
         # Simplfy the some of the hard coded segments of the program
-    oneListOfFeaturesImp = list()
+    oneListOfFeaturesImp = []
     for forStates in listOfFeatureImps:
-        maps = list()
+        maps = []
         for tempMap in forStates:
             maps.append(tempMap[0])
         oneListOfFeaturesImp.append(maps)
 
     # Change the orientation:
-    states = list()
-    clusternames = list()
-    countstemp = list()
+    states = []
+    clusternames = []
+    countstemp = []
 
     ## print the values:
     for  slabel, state, counts in zip(listOfLabels,
@@ -537,14 +540,14 @@ def main():
             states.append(state)
             clusternames.append(label)
             countstemp.append(count)
-    to_csv(listOfDataFrames)
+    #to_csv(listOfDataFrames)
 
     # printing acc, kappa, and labels
-    newlistofkappavalues = list()
-    newlistofaccvalues = list()
-    newlistoflabels = list()
-    newlistofstates = list()
-    newlistoffeatimps = list()
+    newlistofkappavalues = []
+    newlistofaccvalues = []
+    newlistoflabels = []
+    newlistofstates = []
+    newlistoffeatimps = []
 
     # TODO: Refactor the series of for loops
     for valuesperstate in listOfKappaValues:
@@ -569,7 +572,7 @@ def main():
         for value in valuesperstate:
             newlistoffeatimps.append(value)
 
-    # Create a new dataframe 
+    # Create a new dataframe
     metricsdf = pd.DataFrame({'state': newlistofstates,
                               'kappa': newlistofkappavalues,
                               'accuracy': newlistofaccvalues,

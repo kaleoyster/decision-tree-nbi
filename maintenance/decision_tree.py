@@ -20,23 +20,20 @@ import sys
 import csv
 
 # Data structures
-import pandas as pd
-import numpy as np
-from numpy import array
-from numpy import argmax
 from collections import Counter
 from collections import defaultdict
+from decimal import Decimal
+from numpy import array
+import pandas as pd
+import numpy as np
 from tqdm import tqdm
 
 # Preprocessing
-from sklearn.preprocessing import StandardScaler
 from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import OneHotEncoder
-from sklearn.model_selection import train_test_split
 from sklearn.model_selection import KFold
 
 # Model
-import sklearn
 from sklearn import tree
 from sklearn.tree import DecisionTreeClassifier
 
@@ -45,14 +42,15 @@ from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import cohen_kappa_score
-from sklearn.metrics import roc_auc_score
+#from sklearn.metrics import roc_auc_score
 
 # Visualization
 import plotly
 import plotly.express as px
+import plotly.graph_objects as go
 import seaborn as sns
 import matplotlib.pyplot as plt
-from maps import *
+from maps import mapDict
 
 def geo_coor_utility(longitude, latitude):
     """
@@ -64,25 +62,39 @@ def geo_coor_utility(longitude, latitude):
     return:
         df: dataframe with one hot encoding
     """
-    try:
-         lat = latitude
-         latDegree = int(lat[:2])
-         latMin = int(lat[2:4])
-         latMin = (latMin/60)
-         latSec = int(lat[4:8])
-         latSec = (latSec/360000)
-         latDecimal = latDegree + latMin + latSec
+    if latitude > 0 and longitude > 0:
+        lat = str(latitude)
 
-         long = longitude
-         longDegree = int(long[:3])
-         longMin = int(long[3:5])
-         longMin = (longMin/60)
-         longSec = int(long[5:9])
-         longSec = (longSec/360000)
-         longDecimal = -(longDegree + longMin + longSec)
-         return longDecimal, latDecimal
-    except:
+        lat_degree = Decimal(lat[:2])
+        print("printing degree:", lat_degree)
+        lat_min = Decimal(lat[2:4])
+        lat_min = (lat_min/60)
+        print("printing min:", lat_min)
+        lat_sec = Decimal(lat[4:8])
+        lat_sec = (lat_sec/360000)
+        print("printing sec:", lat_sec)
+        lat_decimal = lat_degree + lat_min + lat_sec
+
+        long = str(longitude)
+        if len(long) <= 9:
+            long  = long.zfill(9)
+        long_degree = Decimal(long[:3])
+        print("printing degree:", long_degree)
+        long_min = Decimal(long[3:5])
+        long_min = (long_min/60)
+        print("printing min:", long_min)
+        long_sec = Decimal(long[5:9])
+        long_sec = (long_sec/360000)
+        print("printing sec:", long_sec)
+        long_decimal = - (long_degree + long_min + long_sec)
+        print("-----------------------")
+        long_decimal =  format(long_decimal, '.6f')
+        lat_decimal =  format(lat_decimal, '.6f')
+        return long_decimal, lat_decimal
+    else:
         return 0.00, 0.00
+    #except:
+    #    return 0.00, 0.00
 
 def convert_geo_coordinates(df, columns):
     """
@@ -145,7 +157,7 @@ def one_hot(df, columns):
         for key in dictCol.keys():
             df[key] = dictCol[key]
 
-        #TODO: Next, we have to figure out how do we scale these to other makerials
+        #TODO: Next, we have to figure out how do we scale these to other material
         # One-hot encoding categorial variable with high cardinality 
         # Cause inefficieny in tree-based ensembles. 
         # Continuous variables will be given more importance 
@@ -161,7 +173,9 @@ def normalize(df, columns):
     """
     Function for normalizing the data
     """
+    print("Accessed the feature!")
     for feature in columns:
+        print("printing the feature", feature)
         df[feature] = df[feature].astype(int)
         maxValue = df[feature].max()
         minValue = df[feature].min()
@@ -312,7 +326,7 @@ def box_plot(scores, filename='', col='accuracy'):
     Boxplot of training accuracy
     """
     filename = 'results/' + filename + 'AccuracyBoxPlot.png'
-    dfScore = pd.Series(scores)
+    df_score = pd.Series(scores)
 
     font = {'weight': 'bold',
             'size': 25
@@ -320,23 +334,24 @@ def box_plot(scores, filename='', col='accuracy'):
 
     plt.figure(figsize=(10, 10))
     plt.title("Performance: Accuracy", **font)
-    sns.boxplot(y=dfScore, orient='v')
+    sns.boxplot(y=df_score, orient='v')
     plt.savefig(filename)
 
 # Line plot
-def line_plot(scores, filename='', col='accuracy'):
+def line_plot(scores, filename=''):
     """
     lineplot of training accuracy
     """
     filename = "results/" + filename + 'AccuracyLinePlot.png'
-    dfScore = pd.Series(scores)
+    df_score = pd.Series(scores)
 
     font = {'weight': 'bold',
             'size': 25
             }
+
     plt.figure(figsize=(10, 10))
     plt.title("Performance: Accuracy", **font)
-    sns.lineplot(data=dfScore)
+    sns.lineplot(data=df_score)
     plt.savefig(filename)
 
 # Plot decision trees
@@ -351,7 +366,7 @@ def plot_decision_tree(model, filename=''):
     fig.savefig(filename)
 
 # Print splitnodes
-def print_split_nodes(leaves, treeStructure, features):
+def print_split_nodes(leaves, tree_structure, features):
     """
     Print the tree structure that includes
     leaves and split nodes.
@@ -360,14 +375,14 @@ def print_split_nodes(leaves, treeStructure, features):
     """
 
     # Unpack the tree stucture
-    nNodes, nodeDepth, childrenLeft, childrenRight, feature, threshold = treeStructure
+    n_nodes, node_depth, children_left, children_right, feature, threshold = tree_structure
 
     # TODO:
     # Collect decision split nodes and convert them into csvfiles
-    splitNodes = list()
+    split_nodes = []
 
     # Create feature dictionary
-    featureDict = {index:feat for index, feat in enumerate(features)}
+    #feature_dict = {index:feat for index, feat in enumerate(features)}
 
     # Traverse the decision tree
     header = ['space',
@@ -377,77 +392,75 @@ def print_split_nodes(leaves, treeStructure, features):
              'threshold',
              'feature']
 
-    temp = list()
-    for i in range(nNodes):
+    temp = []
+    for i in range(n_nodes):
         if leaves[i]:
            #print("{space} node={node} is a leaf node and has"
            #      " the following tree structure:\n".format(
-           #      space=nodeDepth[i]*"\t",
+           #      space=node_depth[i]*"\t",
            #      node=i))
-           temp.append(i)
+            temp.append(i)
         else:
             #print("{space} node is a split-node: "
             #      " go to node {left} if X[:, {feature}] <= {threshold} "
             #      " else to node {right}.".format(
-            #     space=nodeDepth[i]*"\t",
+            #     space=node_depth[i]*"\t",
             #     node=i,
-            #     left=childrenLeft[i],
-            #     right=childrenRight[i],
+            #     left=children_left[i],
+            #     right=children_right[i],
             #     threshold=threshold[i],
-            #     feature=featureDict[feature[i]],
+            #     feature=feature_dict[feature[i]],
             #     ))
-
-            splitNodes.append([nodeDepth[i],
+            split_nodes.append([node_depth[i],
                                i,
-                               childrenLeft[i],
-                               childrenRight[i],
+                               children_left[i],
+                               children_right[i],
                                threshold[i],
                                feature])
 
-    return header, splitNodes
+    return header, split_nodes
 
 # Navigate the decision tree
-def find_leaves(eBestModel):
+def find_leaves(e_best_model):
     """
     Navigate decision tree to find
     leaves
     """
-
     # Tree structure
-    nNodes = eBestModel.tree_.node_count
-    childrenLeft = eBestModel.tree_.children_left
-    childrenRight = eBestModel.tree_.children_right
-    feature = eBestModel.tree_.feature
-    threshold = eBestModel.tree_.threshold
+    n_nodes = e_best_model.tree_.node_count
+    children_left = e_best_model.tree_.children_left
+    children_right = e_best_model.tree_.children_right
+    feature = e_best_model.tree_.feature
+    threshold = e_best_model.tree_.threshold
 
     # Initialize
-    nodeDepth = np.zeros(shape=nNodes, dtype=np.int64)
-    leaves = np.zeros(shape=nNodes, dtype=bool)
+    node_depth = np.zeros(shape=n_nodes, dtype=np.int64)
+    leaves = np.zeros(shape=n_nodes, dtype=bool)
 
     # Start with the root node
     stack = [[0, 0]] # [[nodeId, depth]]
     while len(stack) > 0:
         # `pop` ensures each node is only visited once
-        nodeId, depth = stack.pop()
-        nodeDepth[nodeId] = depth
+        node_id, depth = stack.pop()
+        node_depth[node_id] = depth
 
         # If the left and right child of a node is not the same we have a split
-        isSplitNode = childrenLeft[nodeId] != childrenRight[nodeId]
+        is_split_node = children_left[node_id] != children_right[node_id]
         # If a split node, append left and right children and depth to the 'stack'
-        if isSplitNode:
-            stack.append((childrenLeft[nodeId], depth + 1))
-            stack.append((childrenRight[nodeId], depth + 1))
+        if is_split_node:
+            stack.append((children_left[node_id], depth + 1))
+            stack.append((children_right[node_id], depth + 1))
         else:
-            leaves[nodeId] = True
+            leaves[node_id] = True
 
-    treeStructure = (nNodes,
-                     nodeDepth,
-                     childrenLeft,
-                     childrenRight,
+    tree_structure = (n_nodes,
+                     node_depth,
+                     children_left,
+                     children_right,
                      feature,
                      threshold)
 
-    return leaves, treeStructure
+    return leaves, tree_structure
 
 def print_decision_paths(clf, label, X_test, feature):
     """
@@ -469,12 +482,12 @@ def print_decision_paths(clf, label, X_test, feature):
 
     oStdout = sys.stdout
     fileName = label + '_' +'paths.txt'
-    nodeList = list()
-    sampleIdList = list()
-    featureIdList = list()
-    valueList = list()
-    inequalityList = list()
-    thresholdList = list()
+    nodeList = []
+    sampleIdList = []
+    featureIdList = []
+    valueList = []
+    inequalityList = []
+    thresholdList = []
 
     with open(fileName, 'w') as f:
         sys.stdout = f
@@ -650,9 +663,9 @@ def performance_summarizer(eKappaDict, gKappaDict,
 
     return (eBestKappa, gBestKappa), (eBestAcc, gBestAcc), (efi, gfi), (eBestModel, gBestModel)
 
-def tree_utility(trainX, trainy,
-                 testX, testy, cols,
-                 criteria='gini', maxDepth=7):
+def tree_utility(train_x, trainy,
+                 test_x, testy, cols,
+                 criteria='gini', max_depth=7):
     """
     Description:
         Performs the modeling and returns performance metrics
@@ -670,18 +683,18 @@ def tree_utility(trainX, trainy,
         kappa: Kappa Value
         model: Decision Tree Model
     """
-    model = DecisionTreeClassifier(criterion=criteria, max_depth=maxDepth)
+    model = DecisionTreeClassifier(criterion=criteria, max_depth=max_depth)
     #model = HistGradientBoostingClassifier(categorical_features=[], max_depth=maxDepth)
-    model.fit(trainX, trainy)
-    prediction = model.predict(testX)
+    model.fit(train_x, trainy)
+    prediction = model.predict(test_x)
     acc = accuracy_score(testy, prediction)
-    cm = confusion_matrix(testy, prediction)
-    cr = classification_report(testy, prediction, zero_division=0)
-    fi = dict(zip(cols, model.feature_importances_))
+    _cm = confusion_matrix(testy, prediction)
+    _cr = classification_report(testy, prediction, zero_division=0)
+    _fi = dict(zip(cols, model.feature_importances_))
     #rocAuc = roc_auc_score(testy, prediction, multi_class='ovr')
     kappa = cohen_kappa_score(prediction, testy,
                               weights='quadratic')
-    return acc, cm, cr, kappa, model, fi # rocAuc, model
+    return acc, _cm, _cr, kappa, model, _fi # rocAuc, model
 
 # Decision Tree
 def decision_tree(X, y, features, label, nFold=5):
@@ -698,24 +711,24 @@ def decision_tree(X, y, features, label, nFold=5):
     kfold = KFold(nFold, shuffle=True, random_state=1)
 
     # For storing Confusion Matrix
-    confusionMatrixsEntropy = list()
-    confusionMatrixsGini = list()
+    confusionMatrixsEntropy = []
+    confusionMatrixsGini = []
 
     # For storing Classification Report
-    classReportsEntropy = list()
-    classReportsGini = list()
+    classReportsEntropy = []
+    classReportsGini = []
 
     # Scores
-    scoresGini = list()
-    scoresEntropy = list()
+    scoresGini = []
+    scoresEntropy = []
 
     # ROC AUC 
-    eRocs = list()
-    gRocs = list()
+    eRocs = []
+    gRocs = []
 
     # Kappa values
-    gKappaValues = list()
-    eKappaValues = list()
+    gKappaValues = []
+    eKappaValues = []
 
     # Converting them to array
     cols = X.columns
@@ -723,16 +736,16 @@ def decision_tree(X, y, features, label, nFold=5):
     y = np.array(y)
 
     # Store models:
-    eModels = list()
-    gModels = list()
+    eModels = []
+    gModels = []
 
     # Feature importance
-    eFeatures = list()
-    gFeatures = list()
+    eFeatures = []
+    gFeatures = []
 
     for depth in tqdm(range(1, 31), desc='\n Modeling DT'):
-        tempG = list()
-        tempE = list()
+        tempG = []
+        tempE = []
         for foldTrainX, foldTestX in kfold.split(X):
             trainX, trainy, testX, testy = X[foldTrainX], y[foldTrainX], \
                                           X[foldTestX], y[foldTestX]
@@ -741,14 +754,14 @@ def decision_tree(X, y, features, label, nFold=5):
             gacc, gcm, gcr, gkappa, gmodel, gfi = tree_utility(trainX, trainy,
                                                  testX, testy, cols,
                                                  criteria='gini',
-                                                 maxDepth=depth
+                                                 max_depth=depth
                                                  )
 
             # Entropy
             eacc, ecm, ecr, ekappa, emodel, efi = tree_utility(trainX, trainy,
                                                   testX, testy, cols,
                                                   criteria='entropy',
-                                                  maxDepth=depth )
+                                                  max_depth=depth )
             tempG.append(gacc)
             tempE.append(eacc)
 
@@ -826,7 +839,7 @@ def decision_tree(X, y, features, label, nFold=5):
     #splitNodes = print_split_nodes(leaves, eBestModel, features)
     return kappaVals, accVals, featImps, models
 
-def plot_centroids(states, centroidDf, metricName):
+def plot_centroids(states, centroid_df, metric_name):
     """
     Description:
 
@@ -838,10 +851,9 @@ def plot_centroids(states, centroidDf, metricName):
     Returns:
         saves a 3d scatter plot
     """
-    filename = metricName + ".html"
+    filename = metric_name + ".html"
     title = "3D representation of centroids for the midwestern states"
-
-    fig = px.scatter_3d(centroidDf,
+    fig = px.scatter_3d(centroid_df,
                       x='subNumInt',
                       y='supNumInt',
                       z='deckNumInt',
@@ -852,7 +864,7 @@ def plot_centroids(states, centroidDf, metricName):
     plotly.offline.plot(fig, filename=filename)
 
 
-def plot_overall_performance(states, listOfMetricValues, metricName, state):
+def plot_overall_performance(states, list_of_metric_values, metric_name, state):
     """
     Description:
         plots a barchart of all states and their metrics values
@@ -863,25 +875,25 @@ def plot_overall_performance(states, listOfMetricValues, metricName, state):
     Returns:
         saves a barchart
     """
-    filename = metricName + '.png'
+    filename = metric_name + '.png'
 
     # Values
-    eMetricValues = list()
-    gMetricValues = list()
-    for metricVal in listOfMetricValues:
-        eMetric, gMetric = metricVal
-        eMetricValues.append(eMetric)
-        gMetricValues.append(gMetric)
+    e_metric_values = []
+    g_metric_values = []
+    for metric_val in list_of_metric_values:
+        e_metric, g_metric = metric_val
+        e_metric_values.append(e_metric)
+        g_metric_values.append(g_metric)
 
     height = np.array(range(0, len(states)))
 
     # Make the plot
     plt.figure(figsize=(10, 8))
     plt.title("Overall Performance")
-    plt.bar(height, eMetricValues,
+    plt.bar(height, e_metric_values,
             color='#7f6d5f', width=0.25, label='gini')
     plt.bar(height + 0.25,
-            gMetricValues,color='#557f2d',
+            g_metric_values, color='#557f2d',
             width=0.25, label='entropy')
     plt.xticks(height, states, rotation=45)
     plt.legend()
@@ -894,12 +906,99 @@ def plot_overall_performance(states, listOfMetricValues, metricName, state):
     dataFrame['entropy'] = eMetricValues
     print(dataFrame)
 
-def to_csv(listOfDataFrames):
+def to_csv(list_of_dataframes):
     """
     Description:
         Convert the dataframe into csv files
     Args:
         listOfDataFrames: (list of dataframe)
     """
-    concatDf = pd.concat(listOfDataFrames)
-    concatDf.to_csv('allFiles.csv', sep=',', index=False)
+    concat_df = pd.concat(list_of_dataframes)
+    concat_df.to_csv('allFiles.csv', sep=',', index=False)
+
+def read_csv(csv_file):
+    """
+    reads csvfile using pandas
+    """
+    _df = pd.read_csv(csv_file)
+    return _df
+
+def read_geo_coordinates(_df):
+    """
+    return latitude and longitude
+    """
+    latitude = _df['latitude']
+    longitude = _df['longitude']
+    geo_coordinates = list(zip(latitude, longitude))
+    return geo_coordinates
+
+def plot_histogram(list_longitude, list_latitude):
+    """
+    return a historgram
+    """
+    fig = go.Figure()
+    fig.add_trace(go.Histogram(
+    x=list_longitude,
+    histnorm='percent',
+    name='control', # name used in legend and hover labels
+    xbins=dict( # bins used for histogram
+        start=-4.0,
+        end=3.0,
+        size=0.5
+    ),
+    marker_color='#EB89B5',
+    opacity=0.75
+    ))
+
+    fig.add_trace(go.Histogram(
+    x=list_latitude,
+    histnorm='percent',
+    name='experimental',
+    xbins=dict(
+        start=-3.0,
+        end=4,
+        size=0.5
+    ),
+    marker_color='#330C73',
+    opacity=0.75
+    ))
+
+    fig.update_layout(
+    title_text='Sampled Results', # title of plot
+    xaxis_title_text='Value', # xaxis label
+    yaxis_title_text='Count', # yaxis label
+    bargap=0.2, # gap between bars of adjacent location coordinates
+    bargroupgap=0.1 # gap between bars of the same location coordinates
+    )
+
+    fig.show()
+
+#def main():
+#    """
+#    Driving function
+#    """
+#    #latitude, longitude = '42283880', '10252195'
+#    #longitude, latitude = '081055065', '35271855'
+#    #converted_long, converted_lat = geo_coor_utility(longitude, latitude)
+#    #print(converted_lat,',',converted_long)
+#    csvfile = "nebraska_deep.csv"
+#    _df = read_csv(csvfile)
+#    geo_coordinates = read_geo_coordinates(_df)
+#    list_latitude = []
+#    list_longitude = []
+#
+#    conv_latitude = []
+#    conv_longitude = []
+#    for coor in geo_coordinates:
+#        latitude, longitude = coor
+#        list_longitude.append(longitude)
+#        list_latitude.append(latitude)
+#        converted_long, converted_lat = geo_coor_utility(longitude, latitude)
+#        print(converted_lat,', ',converted_long)
+#        conv_longitude.append(converted_long)
+#        conv_latitude.append(converted_lat)
+#    plot_histogram(list_longitude, list_latitude)
+#    plot_histogram(conv_longitude, conv_latitude)
+
+
+#main()

@@ -17,7 +17,7 @@ mapDict['material'] = {
 
 mapDict['toll'] = {
                     1:'TollBridge',
-                    2:'OnTollBridge',
+                    2:'OnTollRoad',
                     3:'OnFreeRoad',
                     4:'OnInterstateToll',
                     5:'TollBridgeSegementUnder',

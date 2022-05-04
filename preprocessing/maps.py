@@ -96,15 +96,15 @@ deck_protection = {
 # key: Structure type code according to the NBI
 # Value: Name of the type of structure
 structure_type = {
-                    1:'Slab',
-                    2:'Stringer/Multi-beam or Girder',
-                    3:'Girder and Floorbeam System',
-                    4:'Tee Beam',
-                    5:'Box Beam or Girders - Multiple',
-                    6:'Box Beam or Girders - Single or Spread',
-                    7:'Frame (except frame culverts)',
-                    8:'Orthotropic',
-                    9:'Truss - Deck',
+                    1: 'Slab',
+                    2: 'Stringer/Multi-beam or Girder',
+                    3: 'Girder and Floorbeam System',
+                    4: 'Tee Beam',
+                    5: 'Box Beam or Girders - Multiple',
+                    6: 'Box Beam or Girders - Single or Spread',
+                    7: 'Frame (except frame culverts)',
+                    8: 'Orthotropic',
+                    9: 'Truss - Deck',
                     10:'Truss - Thru',
                     11:'Arch - Deck',
                     12:'Arch - Thru',
@@ -118,7 +118,7 @@ structure_type = {
                     20:'Mixed types',
                     21:'Segmental Box Girder',
                     22:'Channel Beam',
-                    0:'Other'
+                    0: 'Other'
                  }
 
 # Global Dictionary
@@ -182,6 +182,7 @@ design_load = {
                 8: 'Railroad',
                 9: 'HS 25'
              }
+
 # Global Dictionary
 # key: Type of wearing surface
 # Value: Name of the type of wearing surface
@@ -249,13 +250,16 @@ from_to_matrix = {
 
 """
 Note:
- - All the one condition improvement are inspection variance.   Expect, a condition improvement from 2 to 3.
+ - All the one condition improvement are inspection
+ variance. Expect, a condition improvement from 2 to 3.
 
  - All improvement in condition from condition 1 to
    any other condition rating is not applicable.
 
  - Kent Miller's version contains "Not applicable"
-   and "Inspection variance" in addition to Repair, Replace,    and Rehab. Also, Kent Miller's removes ambiguity between other types of interventions.
+   and "Inspection variance" in addition to Repair, Replace,
+   and Rehab. Also, Kent Miller's removes ambiguity between
+   other types of interventions.
 """
 
 # Kent Miller's version:
