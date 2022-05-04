@@ -1,4 +1,9 @@
-# Maps for columns
+"""
+This file contains maps for attributes
+in the NBI survey data. Each map contains
+textual description to the codes described
+in the NBI coding guide.
+"""
 from collections import defaultdict
 
 mapDict = defaultdict()
@@ -6,9 +11,9 @@ mapDict['material'] = {
                          1:'Concrete',
                          2:'ConcreteContinuous',
                          3:'Steel',
-                         4:'SteelConitnuous',
-                         5:'PrestreesedConcrete',
-                         6:'PrestreesedConcreteContinuous',
+                         4:'SteelContinuous',
+                         5:'PrestressedConcrete',
+                         6:'PrestressedConcreteContinuous',
                          7:'Wood',
                          8:'Masonry',
                          9:'Aluminum',
@@ -85,7 +90,7 @@ listOfColumns = ['yearBuilt',
                  'numberOfSpansInMainUnit',
                  'lengthOfMaximumSpan',
                  'structureLength',
-                 'bridgeRoadwayWithCurbToCurb',
+                 'bridgeRoadwayWidthCurbToCurb',
                  'operatingRating',
                  'scourCriticalBridges',
                  'lanesOnStructure',
