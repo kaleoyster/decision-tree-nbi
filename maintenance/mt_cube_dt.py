@@ -547,7 +547,7 @@ def main():
     newlistofaccvalues = []
     newlistoflabels = []
     newlistofstates = []
-    newlistoffeatimps = []
+    newlistoffeatimp = []
 
     # TODO: Refactor the series of for loops
     for valuesperstate in listOfKappaValues:
