@@ -1,7 +1,6 @@
 """--------------------------------------------
 Descriptions:
     Data preprocessing file for decision tree
-
 Author: Akshay Kale
 Date: May 11th, 2021
 
@@ -17,7 +16,7 @@ TODO:
 -----------------------------------------------"""
 
 import sys
-import csv
+#import csv
 
 # Data structures
 from collections import Counter
@@ -56,47 +55,37 @@ def geo_coor_utility(longitude, latitude):
     """
     Function for converting longitude and latitude
     args:
-        df: Dataframe
-        columns: all the column
+        longitude: NBI format
+        latitude: NBI format
 
     return:
-        df: dataframe with one hot encoding
+        long, lat: return converted longitude and latitude
     """
     if latitude > 0 and longitude > 0:
         lat = str(latitude)
 
         lat_degree = Decimal(lat[:2])
-        print("printing degree:", lat_degree)
         lat_min = Decimal(lat[2:4])
         lat_min = (lat_min/60)
-        print("printing min:", lat_min)
         lat_sec = Decimal(lat[4:8])
         lat_sec = (lat_sec/360000)
-        print("printing sec:", lat_sec)
         lat_decimal = lat_degree + lat_min + lat_sec
 
         long = str(longitude)
         if len(long) <= 9:
             long  = long.zfill(9)
         long_degree = Decimal(long[:3])
-        print("printing degree:", long_degree)
         long_min = Decimal(long[3:5])
         long_min = (long_min/60)
-        print("printing min:", long_min)
         long_sec = Decimal(long[5:9])
         long_sec = (long_sec/360000)
-        print("printing sec:", long_sec)
         long_decimal = - (long_degree + long_min + long_sec)
-        print("-----------------------")
         long_decimal =  format(long_decimal, '.6f')
         lat_decimal =  format(lat_decimal, '.6f')
         return long_decimal, lat_decimal
-    else:
-        return 0.00, 0.00
-    #except:
-    #    return 0.00, 0.00
+    return 0.00, 0.00
 
-def convert_geo_coordinates(df, columns):
+def convert_geo_coordinates(_df, columns):
     """
     Function for converting longitude and latitude
     args:
@@ -106,23 +95,23 @@ def convert_geo_coordinates(df, columns):
     return:
         df: dataframe with decimal longitude and latitude
     """
-    longitudes = df['longitude']
-    latitudes = df['latitude']
+    longitudes = _df['longitude']
+    latitudes = _df['latitude']
 
-    transLongitudes = list()
-    transLatitudes = list()
+    trans_longitudes = []
+    trans_latitudes =[]
 
     for longitude, latitude in zip(longitudes, latitudes):
-        tLongitude, tLatitude = geo_coor_utility(longitude,
+        t_longitude, t_latitude = geo_coor_utility(longitude,
                                                 latitude)
-        transLongitudes.append(tLongitude)
-        transLatitudes.append(tLatitude)
+        trans_longitudes.append(t_longitude)
+        trans_latitudes.append(t_latitude)
 
-    df['longitude'] = transLongitudes
-    df['latitude'] = transLatitudes
-    return df
+    _df['longitude'] = trans_longitudes
+    _df['latitude'] = trans_latitudes
+    return _df
 
-def one_hot(df, columns):
+def one_hot(_df, columns):
     """
     Function for one-hot-encoding
     args:
@@ -134,9 +123,10 @@ def one_hot(df, columns):
         columns: columns with one hot encoding
     """
     print("\n Printing columns, one hot encoding:")
+    map_dict = mapDict
     for column in columns:
-        colMap = mapDict[column]
-        data = df[column].map(colMap)
+        col_map = map_dict[column]
+        data = _df[column].map(col_map)
         values = array(data)
 
         # integer encode
@@ -149,53 +139,53 @@ def one_hot(df, columns):
         onehot_encoded = onehot_encoder.fit_transform(integer_encoded)
 
         # define a new dictionary
-        dictCol = defaultdict(list)
+        dict_col = defaultdict(list)
         for row in onehot_encoded:
             for index, value in zip(label_encoder.classes_, row):
                 index = column + str(index)
-                dictCol[index].append(value)
-        for key in dictCol.keys():
-            df[key] = dictCol[key]
+                dict_col[index].append(value)
+        for key in dict_col.keys():
+            _df[key] = dict_col[key]
 
         #TODO: Next, we have to figure out how do we scale these to other material
-        # One-hot encoding categorial variable with high cardinality 
-        # Cause inefficieny in tree-based ensembles. 
+        # One-hot encoding categorial variable with high cardinality
+        # Cause inefficieny in tree-based ensembles.
         # Continuous variables will be given more importance 
-        # than the dummy variables by the algorithm 
-        # which will obscure the order of feature 
+        # than the dummy variables by the algorithm
+        # which will obscure the order of feature
         # importance resulting in poorer performance.
         # Further, we need to look at feature hasher and how it can help
         # Categorical variables: Material
-    return df
+    return _df
 
 # Function for normalizing
-def normalize(df, columns):
+def normalize(_df, columns):
     """
     Function for normalizing the data
     """
     print("Accessed the feature!")
     for feature in columns:
         print("printing the feature", feature)
-        df[feature] = df[feature].astype(int)
-        maxValue = df[feature].max()
-        minValue = df[feature].min()
-        df[feature] = (df[feature] - minValue) / (maxValue - minValue)
-    return df
+        _df[feature] = _df[feature].astype(int)
+        max_value = _df[feature].max()
+        min_value = _df[feature].min()
+        _df[feature] = (_df[feature] - min_value) / (max_value - min_value)
+    return _df
 
 # Summarize features
-def summarize_features(df, columns):
+def summarize_features(_df, columns):
     """
     return df
     """
     for feature in columns:
         print("Feature :", feature)
-        values = df[feature].astype(int)
+        values = _df[feature].astype(int)
         print_box_plot(values, filename=feature, col=feature)
         if feature == 'deteriorationScore':
-            print("\n ",  Counter(df[feature]))
+            print("\n ",  Counter(_df[feature]))
 
 # Function for removing duplicates
-def remove_duplicates(df, columnName='structureNumbers'):
+def remove_duplicates(_df, column_name='structureNumbers'):
     """
     Description: return a new df with duplicates removed
     Args:
@@ -204,17 +194,17 @@ def remove_duplicates(df, columnName='structureNumbers'):
     Returns:
         newdf (dataframe)
     """
-    temp = list()
-    for group in df.groupby(['structureNumber']):
-        structureNumber, groupedDf = group
-        groupedDf = groupedDf.drop_duplicates(subset=['structureNumber'],
+    temp = []
+    for group in _df.groupby(['structureNumber']):
+        structure_number, grouped_df = group
+        grouped_df = grouped_df.drop_duplicates(subset=['structureNumber'],
                                keep='last'
                                )
-        temp.append(groupedDf)
-    newdf = pd.concat(temp)
-    return newdf
+        temp.append(grouped_df)
+    new_df = pd.concat(temp)
+    return new_df
 
-def remove_null_values(df):
+def remove_null_values(_df):
     """
     Description: return a new df with null values removed
     Args:
@@ -222,15 +212,15 @@ def remove_null_values(df):
     Returns:
         df (dataframe): dataframe
     """
-    for feature in df:
+    for feature in _df:
         if feature != 'structureNumber':
             try:
-                df = df[~df[feature].isin([np.nan])]
+                _df = _df[~_df[feature].isin([np.nan])]
             except:
                 print("Error: ", feature)
-    return df
+    return _df
 
-def create_labels(df, label):
+def create_labels(_df, label):
     """
     Description:
         Create binary categories from
@@ -242,20 +232,18 @@ def create_labels(df, label):
         df (dataframe): a dataframe with additional
         attributes
     """
-    ## TODO: Create a new definition for positive class and negative class
+     #TODO: Create a new definition for positive class and negative class
 
-    #positiveClass = df[df['cluster'].isin([label])]
-    #negativeClass = df[~df['cluster'].isin([label, 'No intervention'])]
     print('Using this function')
     label = 'All intervention'
     label2 = 'No intervention'
-    positiveClass = df[df['cluster'].isin([label])]
-    negativeClass = df[df['cluster'].isin([label2])]
+    positive_class = _df[_df['cluster'].isin([label])]
+    negative_class = _df[_df['cluster'].isin([label2])]
 
-    positiveClass['label'] = ['positive']*len(positiveClass)
-    negativeClass['label'] = ['negative']*len(negativeClass)
-    df = pd.concat([positiveClass, negativeClass])
-    return df
+    positive_class['label'] = ['positive']*len(positive_class)
+    negative_class['label'] = ['negative']*len(negative_class)
+    _df = pd.concat([positive_class, negative_class])
+    return _df
 
 def categorize_attribute(df, fieldname, category=2):
     """
@@ -927,10 +915,32 @@ def read_geo_coordinates(_df):
     """
     return latitude and longitude
     """
+    structure_number = _df['structureNumber']
     latitude = _df['latitude']
     longitude = _df['longitude']
-    geo_coordinates = list(zip(latitude, longitude))
+    geo_coordinates = list(zip(structure_number,
+                               latitude,
+                               longitude))
     return geo_coordinates
+
+def plot_geo_coordinates(list_names, list_latitude, list_longitude):
+    """
+    returns a plotly graph map object
+    """
+    fig = go.Figure(
+        data = go.Scattergeo(
+            lon = list_longitude,
+            lat = list_latitude,
+            text = list_names,
+            mode = 'markers'
+        )
+    )
+
+    fig.update_layout(
+        title='Bridges in US',
+        geo_scope='usa')
+    fig.show()
+
 
 def plot_histogram(list_longitude, list_latitude):
     """
@@ -973,32 +983,33 @@ def plot_histogram(list_longitude, list_latitude):
 
     fig.show()
 
-#def main():
-#    """
-#    Driving function
-#    """
-#    #latitude, longitude = '42283880', '10252195'
-#    #longitude, latitude = '081055065', '35271855'
-#    #converted_long, converted_lat = geo_coor_utility(longitude, latitude)
-#    #print(converted_lat,',',converted_long)
-#    csvfile = "nebraska_deep.csv"
-#    _df = read_csv(csvfile)
-#    geo_coordinates = read_geo_coordinates(_df)
-#    list_latitude = []
-#    list_longitude = []
-#
-#    conv_latitude = []
-#    conv_longitude = []
-#    for coor in geo_coordinates:
-#        latitude, longitude = coor
-#        list_longitude.append(longitude)
-#        list_latitude.append(latitude)
-#        converted_long, converted_lat = geo_coor_utility(longitude, latitude)
-#        print(converted_lat,', ',converted_long)
-#        conv_longitude.append(converted_long)
-#        conv_latitude.append(converted_lat)
-#    plot_histogram(list_longitude, list_latitude)
-#    plot_histogram(conv_longitude, conv_latitude)
+def validation_geo_coor(run_type='file'):
+    """
+    validation function takes run_type as arg
+    """
 
+    if run_type != 'file':
+        latitude, longitude = '42283880', '10252195'
+        converted_long, converted_lat = geo_coor_utility(longitude, latitude)
+        print(converted_lat,',',converted_long)
 
-#main()
+    csvfile = "nebraska_deep.csv"
+    _df = read_csv(csvfile)
+    geo_coordinates = read_geo_coordinates(_df)
+    list_latitude = []
+    list_longitude = []
+
+    structure_numbers = []
+    conv_latitude = []
+    conv_longitude = []
+    for coor in geo_coordinates:
+        structure_no, latitude, longitude = coor
+        structure_numbers.append(structure_no)
+        list_longitude.append(longitude)
+        list_latitude.append(latitude)
+        converted_long, converted_lat = geo_coor_utility(longitude, latitude)
+        conv_longitude.append(converted_long)
+        conv_latitude.append(converted_lat)
+    plot_geo_coordinates(structure_numbers, conv_latitude, conv_longitude)
+    plot_histogram(list_longitude, list_latitude)
+    plot_histogram(conv_longitude, conv_latitude)

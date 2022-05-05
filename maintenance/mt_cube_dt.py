@@ -124,9 +124,9 @@ def generate_sankey_data(listOfStates, listOfClusters, listOfFeatures):
     Returns:
         dataframe (a pandas dataframe)
     """
-    sources = list()
-    targets = list()
-    values = list()
+    sources = []
+    targets = []
+    values = []
     uniques = set()
 
     for states, features, clusters in zip (listOfStates, listOfFeatures, listOfClusters):
@@ -492,8 +492,8 @@ def main():
                 "minnesota"
                 ]
 
-    modelName = 'modelNebraska'
-    csvfiles = ['nebraska']
+    modelName = 'modelMinnesota'
+    csvfiles = ['minnesota']
 
     listOfKappaValues = []
     listOfAccValues = []
