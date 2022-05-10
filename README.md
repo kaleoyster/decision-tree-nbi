@@ -5,11 +5,12 @@ This project is a part of the Bridging Big Data Group and SMARTI at University o
 Project Status
 
 # Description
-The purpose of this project is...
+The purpose of this project is develop prediction model to identify future bridge deterioration and maintenance using the existing National Bridge Inventory (NBI) dataset.
 
-## Partner
+## Partners
 * University of Nebraska at Omaha
 * University of Nebraska at Lincoln
+* Nebraska Department of Transportation
 
 ## Methods
 * Inferential Statistics
@@ -23,7 +24,15 @@ The purpose of this project is...
 * MongoDB
 
 # Project Description
-Datasource
+The project contains several models which are broadly specified under two categories:
+1. Deterioration models
+    In general, deterioration models predict the future deterioration of bridge conditions.
+
+2. Maintenance models
+    In general, maintenance model predict the future maintenance of bridge conditions. There are three main components for which maintenance models can make predicitons:
+        1. Substructure
+        2. Superstructure
+        3. Deck
 
 # Getting started
 1. Clone this repository
