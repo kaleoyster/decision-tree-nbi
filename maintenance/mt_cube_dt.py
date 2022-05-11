@@ -20,8 +20,6 @@ import sys
 import pandas as pd
 import numpy as np
 
-# System Libraries
-
 # ML
 from imblearn.over_sampling import SMOTE
 #from sklearn import preprocessing
@@ -304,13 +302,16 @@ def maintenance_pipeline(state):
     dataScaled = df[columnsFinal]
     dataScaled = dataScaled[columnsFinal]
 
-    # TODO: Do one hot encoding here
-    columnsHotEncoded = ['material',
-                         "toll",
-                         "designLoad",
-                         "deckStructureType",
-                         "typeOfDesign"]
 
+    # TODO: Do one hot encoding here,
+    tempColumnsHotEncoded = {'material': 'CatMaterial',
+                         "toll": 'CatToll',
+                         "designLoad": 'CatDesignLoad' ,
+                         "deckStructureType": 'CatDeckStructureType',
+                         "typeOfDesign":'CatTypeOfDesign'}
+
+    dataScaled.rename(columns=tempColumnsHotEncoded, inplace=True)
+    columnsHotEncoded = tempColumnsHotEncoded.values()
     dataScaled = one_hot(dataScaled, columnsHotEncoded)
     #TODO: Something went wrong over here, when you apply normalize
     dataScaled = remove_null_values(dataScaled)
@@ -320,11 +321,11 @@ def maintenance_pipeline(state):
                                          'latitude'])
 
     columnsFinal = list(dataScaled.columns)
-    columnsFinal.remove('material')
-    columnsFinal.remove('toll')
-    columnsFinal.remove('designLoad')
-    columnsFinal.remove('deckStructureType')
-    columnsFinal.remove('typeOfDesign')
+    columnsFinal.remove('CatMaterial')
+    columnsFinal.remove('CatToll')
+    columnsFinal.remove('CatDesignLoad')
+    columnsFinal.remove('CatDeckStructureType')
+    columnsFinal.remove('CatTypeOfDesign')
 
     #TODO: Apply recursive feature elimination here.
     # Data Scaled
@@ -547,7 +548,7 @@ def main():
     newlistofaccvalues = []
     newlistoflabels = []
     newlistofstates = []
-    newlistoffeatimp = []
+    newlistoffeatimps = []
 
     # TODO: Refactor the series of for loops
     for valuesperstate in listOfKappaValues:

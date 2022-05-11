@@ -7,7 +7,7 @@ in the NBI coding guide.
 from collections import defaultdict
 
 mapDict = defaultdict()
-mapDict['material'] = {
+mapDict['CatMaterial'] = {
                          1:'Concrete',
                          2:'ConcreteContinuous',
                          3:'Steel',
@@ -20,7 +20,7 @@ mapDict['material'] = {
                          0:'Other',
                     }
 
-mapDict['toll'] = {
+mapDict['CatToll'] = {
                     1:'TollBridge',
                     2:'OnTollRoad',
                     3:'OnFreeRoad',
@@ -28,7 +28,7 @@ mapDict['toll'] = {
                     5:'TollBridgeSegementUnder',
                  }
 
-mapDict['designLoad'] = {
+mapDict['CatDesignLoad'] = {
                          1:'H10',
                          2:'H15',
                          3:'HS15',
@@ -40,7 +40,7 @@ mapDict['designLoad'] = {
                          9:'HS25',
                        }
 
-mapDict['deckStructureType'] = {
+mapDict['CatDeckStructureType'] = {
                          1:'ConcreteCastInPlace',
                          2:'ConcretePrecastPanels',
                          3:'OpenGrating',
@@ -53,7 +53,7 @@ mapDict['deckStructureType'] = {
                         }
 
 
-mapDict['typeOfDesign'] = {
+mapDict['CatTypeOfDesign'] = {
                          1:'Slab',
                          2:'StringerMultiBeam',
                          3:'GirderAndFloor',
