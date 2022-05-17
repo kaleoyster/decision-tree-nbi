@@ -96,7 +96,7 @@ def group_records(records, fields):
     Args:
     Returns:
     """
-    # instantiate  empty encoding
+    # instantiate empty encoding
     keys = fields.keys()
     grouped_json = defaultdict()
     for record in records:
