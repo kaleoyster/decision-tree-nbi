@@ -1,5 +1,5 @@
-"""--------------------------------------------
-Descriptions:
+"""-----------------------------------------------------------
+descriptions:
     Data preprocessing file for decision tree
 
 Author: Akshay Kale
@@ -7,7 +7,7 @@ Date: May 11th, 2021
 
 TODO:
     1. Map for columns, make sure there is validity test for it.
------------------------------------------------"""
+--------------------------------------------------------------"""
 
 # Data structures
 from collections import defaultdict
@@ -42,7 +42,7 @@ def main():
     #path = 'nebraska_deepOutputsTICR/No Substructure - No Deck - YesSuperstructure.txt'
     path = 'nebraska_deepOutputsTICR/path.csv'
     _df = read_csv_file(path)
-    print(_df)
+    #print(_df['featureId'].unique())
     #column_map = create_map(list_of_columns)
     #df['featureName'] = df['featureId'].map(column_map)
 
