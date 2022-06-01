@@ -42,7 +42,9 @@ def main():
     #path = 'nebraska_deepOutputsTICR/No Substructure - No Deck - YesSuperstructure.txt'
     path = 'nebraska_deepOutputsTICR/path.csv'
     _df = read_csv_file(path)
-    #print(_df['featureId'].unique())
+    #for index, row in _df.iterrows():
+    #    print(row)
+    print(_df['featureId'].size)
     #column_map = create_map(list_of_columns)
     #df['featureName'] = df['featureId'].map(column_map)
 

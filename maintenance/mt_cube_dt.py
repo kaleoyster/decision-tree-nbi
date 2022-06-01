@@ -24,7 +24,6 @@ import numpy as np
 from imblearn.over_sampling import SMOTE
 #from sklearn import preprocessing
 
-# Custom files
 from decision_tree import *
 from kmeans import *
 from gplot import *
@@ -493,8 +492,8 @@ def main():
                 "minnesota"
                 ]
 
-    modelName = 'modelMinnesota'
-    csvfiles = ['minnesota']
+    modelName = 'modelNebraska'
+    csvfiles = ['nebraska']
 
     listOfKappaValues = []
     listOfAccValues = []

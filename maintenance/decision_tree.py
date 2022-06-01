@@ -450,11 +450,16 @@ def find_leaves(e_best_model):
 
     return leaves, tree_structure
 
-def print_decision_paths(clf, label, X_test, feature):
+def print_decision_paths(clf, label, X_test, attributes):
     """
     Description:
+        Returns a csv file consisting of classification paths
+        take by each sample
     Args:
-    Returns:
+        clf (classification model)
+        label (ground truth)
+        X_test (test set)
+        attributes (all attributes, index object)
     """
     n_nodes = clf.tree_.node_count
     feature = clf.tree_.feature
@@ -477,39 +482,44 @@ def print_decision_paths(clf, label, X_test, feature):
     inequalityList = []
     thresholdList = []
 
+    attributes = list(attributes)
+
     with open(fileName, 'w') as f:
         sys.stdout = f
         #print("Rules used to predict sample {id}:\n".format(id=sample_id))
         for record in X_test:
+            print("printing record", record)
             for node_id in node_index:
-                # continue to the next node if it is a leaf node
+                # Continue to the next node if it is a leaf node
                 if leaf_id[sample_id] == node_id:
                     continue
-                # check if value of the split feature for sample 0 is below threshold
+                # Check if value of the split feature for sample 0 is below threshold
                 if X_test[sample_id, feature[node_id]] <= threshold[node_id]:
                     threshold_sign = "<="
                 else:
                     threshold_sign = ">"
-               # print(
-               #         "decision node {node} : (X_test[{sample}, {feature}] = {value}) "
-               #         "{inequality} {threshold})".format(
-               #         node=node_id,
-               #         sample=sample_id,
-               #         feature=feature[node_id],
-               #         value=X_test[sample_id, feature[node_id]],
-               #         inequality=threshold_sign,
-               #         threshold=threshold[node_id],
-               #         )
-               #     )
+                    print(
+                        "decision node {node} : (X_test[{sample}, {feature}] = {value}) "
+                        "{inequality} {threshold})".format(
+                        node=node_id,
+                        sample=sample_id,
+                        feature=attributes[feature[node_id]],
+                        value=X_test[sample_id, feature[node_id]],
+                        inequality=threshold_sign,
+                        threshold=threshold[node_id],
+                        )
+                    )
                     nodeList.append(node_id)
                     sampleIdList.append(sample_id)
-                    featureIdList.append(feature[node_id])
+                    featureIdList.append(attributes[feature[node_id]])
                     valueList.append(X_test[sample_id, feature[node_id]])
                     inequalityList.append(threshold_sign)
                     thresholdList.append(threshold[node_id])
         sys.stdout = oStdout
 
-        sample_ids = [0, 1, 2]
+        #TODO: sample_ids = [index for index in X_test]
+        sample_ids = [0]
+
         # boolean array indicating the nodes both samples go through
         common_nodes = node_indicator.toarray()[sample_ids].sum(axis=0) == len(sample_ids)
         # obtain node ids using position in array
