@@ -487,8 +487,7 @@ def print_decision_paths(clf, label, X_test, attributes):
     with open(fileName, 'w') as f:
         sys.stdout = f
         #print("Rules used to predict sample {id}:\n".format(id=sample_id))
-        for record in X_test:
-            print("printing record", record)
+        for sample_id, record in enumerate(X_test):
             for node_id in node_index:
                 # Continue to the next node if it is a leaf node
                 if leaf_id[sample_id] == node_id:
