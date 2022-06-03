@@ -3,10 +3,6 @@ Description: Maintenance Model
     This maintenance model only takes into account
     bridges all bridges in midwest.
 
-Notes:
-    This whole idea of the decision tree??
-    1. Use gradia as gr, package for the feature importance
-
 Author: Akshay Kale
 Date: August 9th, 2021
 <------------------------------------------------"""

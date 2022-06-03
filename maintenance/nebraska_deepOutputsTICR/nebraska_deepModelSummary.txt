@@ -102,58 +102,58 @@ Index and length of the rows
             
 
 
- Best Kappa Values:  0.9119585575290066
+ Best Kappa Values:  0.9049403261285671
 
- Best Accuracy:  0.9535211267605634
+ Best Accuracy:  0.9530281690140846
 
- Best Depth:  19
+ Best Depth:  14
 
  Classification Report: 
                precision    recall  f1-score   support
 
-    negative       0.95      0.96      0.96      1401
-    positive       0.96      0.96      0.96      1439
+    negative       0.94      0.96      0.95      1401
+    positive       0.96      0.94      0.95      1439
 
-    accuracy                           0.96      2840
-   macro avg       0.96      0.96      0.96      2840
-weighted avg       0.96      0.96      0.96      2840
+    accuracy                           0.95      2840
+   macro avg       0.95      0.95      0.95      2840
+weighted avg       0.95      0.95      0.95      2840
 
 
  Confusion Matrix: 
- [[1340   61]
- [  64 1375]]
+ [[1349   52]
+ [  83 1356]]
 
  Feature Importance: 
- {'snowfall': 0.0, 'freezethaw': 0.0, 'CatMaterialPrestressedConcreteContinuous': 0.0, 'CatTollTollBridge': 0.0, 'CatDesignLoadH10': 0.0, 'CatDesignLoadHS15': 0.0, 'CatDesignLoadHS25': 0.0, 'CatDeckStructureTypenan': 0.0, 'CatTypeOfDesignArchDeck': 0.0, 'CatTypeOfDesignArchThru': 0.0, 'CatTypeOfDesignBoxBeamSingle': 0.0, 'CatTypeOfDesignChannelBeam': 0.0, 'CatTypeOfDesignFrame': 0.0, 'CatTypeOfDesignOther': 0.0, 'CatTypeOfDesignSegmentalBoxGirder': 0.0, 'CatTypeOfDesignTrussDeck': 0.0, 'CatTypeOfDesignnan': 0.0, 'CatMaterialWood': 0.00035222743935436744, 'CatTollOnFreeRoad': 0.0005225672160742278, 'CatMaterialSteelContinuous': 0.0007760370919058368, 'CatDesignLoadH20': 0.001444428945527844, 'designatedInspectionFrequency': 0.0015351156685085197, 'CatTypeOfDesignBoxBeamMultiple': 0.0017880542041641136, 'CatMaterialPrestressedConcrete': 0.002178500440245332, 'CatTypeOfDesignTeeBeam': 0.0022414090487024706, 'CatMaterialConcrete': 0.0026107030303178748, 'CatDesignLoadHS20': 0.0037302325379957118, 'CatDesignLoadHS20Mod': 0.005265931280709744, 'numberOfSpansInMainUnit': 0.005310283559354887, 'skew': 0.005560367333960392, 'CatMaterialConcreteContinuous': 0.007730680720098754, 'CatTypeOfDesignTrussThru': 0.008586605562766206, 'CatTypeOfDesignSlab': 0.009881578995257968, 'lanesOnStructure': 0.012515397398107258, 'avgDailyTruckTraffic': 0.014863328804499084, 'CatTypeOfDesignGirderAndFloor': 0.015377151279349547, 'CatDesignLoadnan': 0.016591441371203337, 'CatDesignLoadH15': 0.021909999928318664, 'lengthOfMaximumSpan': 0.02466136708514755, 'structureLength': 0.027799530622258192, 'latitude': 0.02929761924762253, 'bridgeRoadwayWithCurbToCurb': 0.04558199151503063, 'longitude': 0.04597883034010036, 'CatTypeOfDesignStringerMultiBeam': 0.0538943814869071, 'operatingRating': 0.06174123783229591, 'averageDailyTraffic': 0.06285215867951142, 'CatMaterialSteel': 0.06300639287809008, 'scourCriticalBridges': 0.19097806094385444, 'yearBuilt': 0.2534363875127597}
+ {'snowfall': 0.0, 'freezethaw': 0.0, 'CatMaterialPrestressedConcreteContinuous': 0.0, 'CatTollOnFreeRoad': 0.0, 'CatTollTollBridge': 0.0, 'CatDesignLoadHS15': 0.0, 'CatDesignLoadHS20Mod': 0.0, 'CatDesignLoadHS25': 0.0, 'CatDeckStructureTypenan': 0.0, 'CatTypeOfDesignArchDeck': 0.0, 'CatTypeOfDesignArchThru': 0.0, 'CatTypeOfDesignBoxBeamMultiple': 0.0, 'CatTypeOfDesignBoxBeamSingle': 0.0, 'CatTypeOfDesignChannelBeam': 0.0, 'CatTypeOfDesignFrame': 0.0, 'CatTypeOfDesignOther': 0.0, 'CatTypeOfDesignSegmentalBoxGirder': 0.0, 'CatTypeOfDesignTrussDeck': 0.0, 'CatTypeOfDesignnan': 0.0, 'CatDesignLoadH10': 0.0007399896746198704, 'designatedInspectionFrequency': 0.0012567871569290248, 'CatTypeOfDesignSlab': 0.0019687522909359783, 'CatMaterialSteelContinuous': 0.0027367751402474906, 'CatDesignLoadHS20': 0.0031915577002931956, 'CatMaterialConcrete': 0.0033442260054922287, 'CatDesignLoadH20': 0.003651343905282605, 'CatMaterialSteel': 0.004665854455670664, 'CatTypeOfDesignTrussThru': 0.0053641690912326016, 'CatTypeOfDesignTeeBeam': 0.005497864694953103, 'skew': 0.005602999308402619, 'avgDailyTruckTraffic': 0.005950217925031113, 'lanesOnStructure': 0.006257394274665694, 'CatTypeOfDesignGirderAndFloor': 0.007850689502366792, 'CatDesignLoadnan': 0.011479894299103515, 'CatMaterialPrestressedConcrete': 0.014912306964905538, 'numberOfSpansInMainUnit': 0.016438348042674005, 'CatMaterialConcreteContinuous': 0.018402966258521752, 'lengthOfMaximumSpan': 0.023244602487081854, 'CatMaterialWood': 0.024416733144509383, 'CatDesignLoadH15': 0.026799608020790056, 'latitude': 0.02734743392756263, 'longitude': 0.02865808900811003, 'structureLength': 0.03002125350192682, 'bridgeRoadwayWithCurbToCurb': 0.04745362512132576, 'averageDailyTraffic': 0.061415862182038004, 'operatingRating': 0.06967986984789416, 'CatTypeOfDesignStringerMultiBeam': 0.0795724136525942, 'scourCriticalBridges': 0.20110143385955734, 'yearBuilt': 0.260976938555282}
 
 
              ----------- Performance with GiniIndex ------------
              
 
 
- Best Kappa Values:  0.914062643392214
+ Best Kappa Values:  0.8922210228039401
 
- Best Accuracy:  0.9538028169014086
+ Best Accuracy:  0.9494366197183097
 
- Best Depth:  27
+ Best Depth:  15
 
  Classification Report: 
                precision    recall  f1-score   support
 
-    negative       0.96      0.95      0.96      1401
-    positive       0.96      0.96      0.96      1439
+    negative       0.95      0.94      0.95      1401
+    positive       0.94      0.95      0.95      1439
 
-    accuracy                           0.96      2840
-   macro avg       0.96      0.96      0.96      2840
-weighted avg       0.96      0.96      0.96      2840
+    accuracy                           0.95      2840
+   macro avg       0.95      0.95      0.95      2840
+weighted avg       0.95      0.95      0.95      2840
 
 
  Confusion Matrix: 
- [[1336   65]
- [  57 1382]]
+ [[1318   83]
+ [  70 1369]]
 
  Feature Importance: 
- {'snowfall': 0.0, 'freezethaw': 0.0, 'CatMaterialPrestressedConcreteContinuous': 0.0, 'CatTollTollBridge': 0.0, 'CatDesignLoadH10': 0.0, 'CatDesignLoadHS15': 0.0, 'CatDesignLoadHS25': 0.0, 'CatDeckStructureTypenan': 0.0, 'CatTypeOfDesignArchDeck': 0.0, 'CatTypeOfDesignArchThru': 0.0, 'CatTypeOfDesignBoxBeamSingle': 0.0, 'CatTypeOfDesignChannelBeam': 0.0, 'CatTypeOfDesignFrame': 0.0, 'CatTypeOfDesignOther': 0.0, 'CatTypeOfDesignSegmentalBoxGirder': 0.0, 'CatTypeOfDesignTrussDeck': 0.0, 'CatTypeOfDesignnan': 0.0, 'CatMaterialWood': 0.00035222743935436744, 'CatTollOnFreeRoad': 0.0005225672160742278, 'CatMaterialSteelContinuous': 0.0007760370919058368, 'CatDesignLoadH20': 0.001444428945527844, 'designatedInspectionFrequency': 0.0015351156685085197, 'CatTypeOfDesignBoxBeamMultiple': 0.0017880542041641136, 'CatMaterialPrestressedConcrete': 0.002178500440245332, 'CatTypeOfDesignTeeBeam': 0.0022414090487024706, 'CatMaterialConcrete': 0.0026107030303178748, 'CatDesignLoadHS20': 0.0037302325379957118, 'CatDesignLoadHS20Mod': 0.005265931280709744, 'numberOfSpansInMainUnit': 0.005310283559354887, 'skew': 0.005560367333960392, 'CatMaterialConcreteContinuous': 0.007730680720098754, 'CatTypeOfDesignTrussThru': 0.008586605562766206, 'CatTypeOfDesignSlab': 0.009881578995257968, 'lanesOnStructure': 0.012515397398107258, 'avgDailyTruckTraffic': 0.014863328804499084, 'CatTypeOfDesignGirderAndFloor': 0.015377151279349547, 'CatDesignLoadnan': 0.016591441371203337, 'CatDesignLoadH15': 0.021909999928318664, 'lengthOfMaximumSpan': 0.02466136708514755, 'structureLength': 0.027799530622258192, 'latitude': 0.02929761924762253, 'bridgeRoadwayWithCurbToCurb': 0.04558199151503063, 'longitude': 0.04597883034010036, 'CatTypeOfDesignStringerMultiBeam': 0.0538943814869071, 'operatingRating': 0.06174123783229591, 'averageDailyTraffic': 0.06285215867951142, 'CatMaterialSteel': 0.06300639287809008, 'scourCriticalBridges': 0.19097806094385444, 'yearBuilt': 0.2534363875127597}
+ {'snowfall': 0.0, 'freezethaw': 0.0, 'CatMaterialPrestressedConcreteContinuous': 0.0, 'CatTollOnFreeRoad': 0.0, 'CatTollTollBridge': 0.0, 'CatDesignLoadHS15': 0.0, 'CatDesignLoadHS20Mod': 0.0, 'CatDesignLoadHS25': 0.0, 'CatDeckStructureTypenan': 0.0, 'CatTypeOfDesignArchDeck': 0.0, 'CatTypeOfDesignArchThru': 0.0, 'CatTypeOfDesignBoxBeamMultiple': 0.0, 'CatTypeOfDesignBoxBeamSingle': 0.0, 'CatTypeOfDesignChannelBeam': 0.0, 'CatTypeOfDesignFrame': 0.0, 'CatTypeOfDesignOther': 0.0, 'CatTypeOfDesignSegmentalBoxGirder': 0.0, 'CatTypeOfDesignTrussDeck': 0.0, 'CatTypeOfDesignnan': 0.0, 'CatDesignLoadH10': 0.0007399896746198704, 'designatedInspectionFrequency': 0.0012567871569290248, 'CatTypeOfDesignSlab': 0.0019687522909359783, 'CatMaterialSteelContinuous': 0.0027367751402474906, 'CatDesignLoadHS20': 0.0031915577002931956, 'CatMaterialConcrete': 0.0033442260054922287, 'CatDesignLoadH20': 0.003651343905282605, 'CatMaterialSteel': 0.004665854455670664, 'CatTypeOfDesignTrussThru': 0.0053641690912326016, 'CatTypeOfDesignTeeBeam': 0.005497864694953103, 'skew': 0.005602999308402619, 'avgDailyTruckTraffic': 0.005950217925031113, 'lanesOnStructure': 0.006257394274665694, 'CatTypeOfDesignGirderAndFloor': 0.007850689502366792, 'CatDesignLoadnan': 0.011479894299103515, 'CatMaterialPrestressedConcrete': 0.014912306964905538, 'numberOfSpansInMainUnit': 0.016438348042674005, 'CatMaterialConcreteContinuous': 0.018402966258521752, 'lengthOfMaximumSpan': 0.023244602487081854, 'CatMaterialWood': 0.024416733144509383, 'CatDesignLoadH15': 0.026799608020790056, 'latitude': 0.02734743392756263, 'longitude': 0.02865808900811003, 'structureLength': 0.03002125350192682, 'bridgeRoadwayWithCurbToCurb': 0.04745362512132576, 'averageDailyTraffic': 0.061415862182038004, 'operatingRating': 0.06967986984789416, 'CatTypeOfDesignStringerMultiBeam': 0.0795724136525942, 'scourCriticalBridges': 0.20110143385955734, 'yearBuilt': 0.260976938555282}
 
 Printing split-nodes
 
@@ -179,17 +179,46 @@ Index and length of the rows
             
 
 
- Best Kappa Values:  0.9049277857844971
+ Best Kappa Values:  0.9133492551885767
 
- Best Accuracy:  0.9530281690140845
+ Best Accuracy:  0.9523239436619718
 
- Best Depth:  30
+ Best Depth:  25
 
  Classification Report: 
                precision    recall  f1-score   support
 
-    negative       0.95      0.96      0.95      1401
-    positive       0.96      0.95      0.95      1439
+    negative       0.96      0.95      0.96      1401
+    positive       0.95      0.96      0.96      1439
+
+    accuracy                           0.96      2840
+   macro avg       0.96      0.96      0.96      2840
+weighted avg       0.96      0.96      0.96      2840
+
+
+ Confusion Matrix: 
+ [[1330   71]
+ [  52 1387]]
+
+ Feature Importance: 
+ {'snowfall': 0.0, 'freezethaw': 0.0, 'CatMaterialPrestressedConcreteContinuous': 0.0, 'CatTollOnFreeRoad': 0.0, 'CatTollTollBridge': 0.0, 'CatDesignLoadH10': 0.0, 'CatDesignLoadHS15': 0.0, 'CatDesignLoadHS25': 0.0, 'CatDeckStructureTypenan': 0.0, 'CatTypeOfDesignArchDeck': 0.0, 'CatTypeOfDesignArchThru': 0.0, 'CatTypeOfDesignBoxBeamSingle': 0.0, 'CatTypeOfDesignChannelBeam': 0.0, 'CatTypeOfDesignFrame': 0.0, 'CatTypeOfDesignOther': 0.0, 'CatTypeOfDesignSegmentalBoxGirder': 0.0, 'CatTypeOfDesignTrussDeck': 0.0, 'CatTypeOfDesignnan': 0.0, 'CatDesignLoadHS20Mod': 0.0004975368265760661, 'CatTypeOfDesignBoxBeamMultiple': 0.0006826617899024826, 'designatedInspectionFrequency': 0.0009443025041006261, 'CatTypeOfDesignTrussThru': 0.001606159117448177, 'CatTypeOfDesignSlab': 0.0017259157927978644, 'CatMaterialConcrete': 0.001753190221061004, 'CatMaterialConcreteContinuous': 0.0018749148079781352, 'CatDesignLoadHS20': 0.0020196360474216165, 'CatMaterialSteelContinuous': 0.00286907607752363, 'CatTypeOfDesignTeeBeam': 0.003870203447821853, 'avgDailyTruckTraffic': 0.004546783412700181, 'CatMaterialSteel': 0.005068131166005367, 'CatMaterialPrestressedConcrete': 0.006083620662229607, 'CatDesignLoadH20': 0.00727556958596291, 'numberOfSpansInMainUnit': 0.012338677069773827, 'skew': 0.01241115492547468, 'lanesOnStructure': 0.013103490284074504, 'CatDesignLoadH15': 0.01630543328566568, 'CatDesignLoadnan': 0.016800990751505693, 'CatTypeOfDesignGirderAndFloor': 0.019804322485581043, 'structureLength': 0.029967071378744957, 'latitude': 0.030313251104034822, 'longitude': 0.03156421782042853, 'CatMaterialWood': 0.033378886270265175, 'lengthOfMaximumSpan': 0.03441707517991776, 'bridgeRoadwayWithCurbToCurb': 0.03988579030155803, 'averageDailyTraffic': 0.05421476490975766, 'operatingRating': 0.05516888618760571, 'CatTypeOfDesignStringerMultiBeam': 0.09922986648752853, 'scourCriticalBridges': 0.20504005565263367, 'yearBuilt': 0.2552383644459204}
+
+
+             ----------- Performance with GiniIndex ------------
+             
+
+
+ Best Kappa Values:  0.8992616023288995
+
+ Best Accuracy:  0.9501408450704225
+
+ Best Depth:  27
+
+ Classification Report: 
+               precision    recall  f1-score   support
+
+    negative       0.95      0.94      0.95      1401
+    positive       0.95      0.96      0.95      1439
 
     accuracy                           0.95      2840
    macro avg       0.95      0.95      0.95      2840
@@ -197,40 +226,11 @@ weighted avg       0.95      0.95      0.95      2840
 
 
  Confusion Matrix: 
- [[1342   59]
- [  76 1363]]
-
- Feature Importance: 
- {'snowfall': 0.0, 'freezethaw': 0.0, 'CatMaterialPrestressedConcreteContinuous': 0.0, 'CatTollOnFreeRoad': 0.0, 'CatTollTollBridge': 0.0, 'CatDesignLoadH10': 0.0, 'CatDesignLoadHS15': 0.0, 'CatDesignLoadHS25': 0.0, 'CatDeckStructureTypenan': 0.0, 'CatTypeOfDesignArchDeck': 0.0, 'CatTypeOfDesignArchThru': 0.0, 'CatTypeOfDesignBoxBeamMultiple': 0.0, 'CatTypeOfDesignBoxBeamSingle': 0.0, 'CatTypeOfDesignChannelBeam': 0.0, 'CatTypeOfDesignFrame': 0.0, 'CatTypeOfDesignOther': 0.0, 'CatTypeOfDesignSegmentalBoxGirder': 0.0, 'CatTypeOfDesignSlab': 0.0, 'CatTypeOfDesignTrussDeck': 0.0, 'CatTypeOfDesignnan': 0.0, 'CatTypeOfDesignTrussThru': 0.00024250966007931458, 'CatMaterialConcrete': 0.00038921162707993505, 'CatMaterialConcreteContinuous': 0.0007042310363348539, 'CatMaterialSteelContinuous': 0.0011681931936461368, 'CatDesignLoadH15': 0.0026687579907740118, 'skew': 0.0029117404638197733, 'CatTypeOfDesignTeeBeam': 0.003574481169222073, 'CatDesignLoadnan': 0.0038356932312051083, 'numberOfSpansInMainUnit': 0.0038558510726680135, 'designatedInspectionFrequency': 0.0038992746038946043, 'CatDesignLoadHS20Mod': 0.005692272609919825, 'CatDesignLoadHS20': 0.0076539888072578695, 'avgDailyTruckTraffic': 0.008048287230475926, 'CatMaterialPrestressedConcrete': 0.008898093021374884, 'CatMaterialSteel': 0.009745381089502047, 'CatDesignLoadH20': 0.016353096425114382, 'lanesOnStructure': 0.019785813912817713, 'lengthOfMaximumSpan': 0.026813263931977714, 'CatMaterialWood': 0.034401430369829074, 'latitude': 0.03487538382321492, 'CatTypeOfDesignGirderAndFloor': 0.03506090742868759, 'structureLength': 0.037707403893622635, 'longitude': 0.039457974911521754, 'operatingRating': 0.0430751947116694, 'averageDailyTraffic': 0.046628023199767644, 'bridgeRoadwayWithCurbToCurb': 0.05083081102249279, 'CatTypeOfDesignStringerMultiBeam': 0.07726785373448544, 'scourCriticalBridges': 0.23014913033134332, 'yearBuilt': 0.24430574549620124}
-
-
-             ----------- Performance with GiniIndex ------------
-             
-
-
- Best Kappa Values:  0.878162125809533
-
- Best Accuracy:  0.9472535211267605
-
- Best Depth:  24
-
- Classification Report: 
-               precision    recall  f1-score   support
-
-    negative       0.93      0.94      0.94      1401
-    positive       0.94      0.94      0.94      1439
-
-    accuracy                           0.94      2840
-   macro avg       0.94      0.94      0.94      2840
-weighted avg       0.94      0.94      0.94      2840
-
-
- Confusion Matrix: 
  [[1321   80]
- [  93 1346]]
+ [  63 1376]]
 
  Feature Importance: 
- {'snowfall': 0.0, 'freezethaw': 0.0, 'CatMaterialPrestressedConcreteContinuous': 0.0, 'CatTollOnFreeRoad': 0.0, 'CatTollTollBridge': 0.0, 'CatDesignLoadH10': 0.0, 'CatDesignLoadHS15': 0.0, 'CatDesignLoadHS25': 0.0, 'CatDeckStructureTypenan': 0.0, 'CatTypeOfDesignArchDeck': 0.0, 'CatTypeOfDesignArchThru': 0.0, 'CatTypeOfDesignBoxBeamMultiple': 0.0, 'CatTypeOfDesignBoxBeamSingle': 0.0, 'CatTypeOfDesignChannelBeam': 0.0, 'CatTypeOfDesignFrame': 0.0, 'CatTypeOfDesignOther': 0.0, 'CatTypeOfDesignSegmentalBoxGirder': 0.0, 'CatTypeOfDesignSlab': 0.0, 'CatTypeOfDesignTrussDeck': 0.0, 'CatTypeOfDesignnan': 0.0, 'CatTypeOfDesignTrussThru': 0.00024250966007931458, 'CatMaterialConcrete': 0.00038921162707993505, 'CatMaterialConcreteContinuous': 0.0007042310363348539, 'CatMaterialSteelContinuous': 0.0011681931936461368, 'CatDesignLoadH15': 0.0026687579907740118, 'skew': 0.0029117404638197733, 'CatTypeOfDesignTeeBeam': 0.003574481169222073, 'CatDesignLoadnan': 0.0038356932312051083, 'numberOfSpansInMainUnit': 0.0038558510726680135, 'designatedInspectionFrequency': 0.0038992746038946043, 'CatDesignLoadHS20Mod': 0.005692272609919825, 'CatDesignLoadHS20': 0.0076539888072578695, 'avgDailyTruckTraffic': 0.008048287230475926, 'CatMaterialPrestressedConcrete': 0.008898093021374884, 'CatMaterialSteel': 0.009745381089502047, 'CatDesignLoadH20': 0.016353096425114382, 'lanesOnStructure': 0.019785813912817713, 'lengthOfMaximumSpan': 0.026813263931977714, 'CatMaterialWood': 0.034401430369829074, 'latitude': 0.03487538382321492, 'CatTypeOfDesignGirderAndFloor': 0.03506090742868759, 'structureLength': 0.037707403893622635, 'longitude': 0.039457974911521754, 'operatingRating': 0.0430751947116694, 'averageDailyTraffic': 0.046628023199767644, 'bridgeRoadwayWithCurbToCurb': 0.05083081102249279, 'CatTypeOfDesignStringerMultiBeam': 0.07726785373448544, 'scourCriticalBridges': 0.23014913033134332, 'yearBuilt': 0.24430574549620124}
+ {'snowfall': 0.0, 'freezethaw': 0.0, 'CatMaterialPrestressedConcreteContinuous': 0.0, 'CatTollOnFreeRoad': 0.0, 'CatTollTollBridge': 0.0, 'CatDesignLoadH10': 0.0, 'CatDesignLoadHS15': 0.0, 'CatDesignLoadHS25': 0.0, 'CatDeckStructureTypenan': 0.0, 'CatTypeOfDesignArchDeck': 0.0, 'CatTypeOfDesignArchThru': 0.0, 'CatTypeOfDesignBoxBeamSingle': 0.0, 'CatTypeOfDesignChannelBeam': 0.0, 'CatTypeOfDesignFrame': 0.0, 'CatTypeOfDesignOther': 0.0, 'CatTypeOfDesignSegmentalBoxGirder': 0.0, 'CatTypeOfDesignTrussDeck': 0.0, 'CatTypeOfDesignnan': 0.0, 'CatDesignLoadHS20Mod': 0.0004975368265760661, 'CatTypeOfDesignBoxBeamMultiple': 0.0006826617899024826, 'designatedInspectionFrequency': 0.0009443025041006261, 'CatTypeOfDesignTrussThru': 0.001606159117448177, 'CatTypeOfDesignSlab': 0.0017259157927978644, 'CatMaterialConcrete': 0.001753190221061004, 'CatMaterialConcreteContinuous': 0.0018749148079781352, 'CatDesignLoadHS20': 0.0020196360474216165, 'CatMaterialSteelContinuous': 0.00286907607752363, 'CatTypeOfDesignTeeBeam': 0.003870203447821853, 'avgDailyTruckTraffic': 0.004546783412700181, 'CatMaterialSteel': 0.005068131166005367, 'CatMaterialPrestressedConcrete': 0.006083620662229607, 'CatDesignLoadH20': 0.00727556958596291, 'numberOfSpansInMainUnit': 0.012338677069773827, 'skew': 0.01241115492547468, 'lanesOnStructure': 0.013103490284074504, 'CatDesignLoadH15': 0.01630543328566568, 'CatDesignLoadnan': 0.016800990751505693, 'CatTypeOfDesignGirderAndFloor': 0.019804322485581043, 'structureLength': 0.029967071378744957, 'latitude': 0.030313251104034822, 'longitude': 0.03156421782042853, 'CatMaterialWood': 0.033378886270265175, 'lengthOfMaximumSpan': 0.03441707517991776, 'bridgeRoadwayWithCurbToCurb': 0.03988579030155803, 'averageDailyTraffic': 0.05421476490975766, 'operatingRating': 0.05516888618760571, 'CatTypeOfDesignStringerMultiBeam': 0.09922986648752853, 'scourCriticalBridges': 0.20504005565263367, 'yearBuilt': 0.2552383644459204}
 
 Printing split-nodes
 
@@ -256,11 +256,11 @@ Index and length of the rows
             
 
 
- Best Kappa Values:  0.9006929964308601
+ Best Kappa Values:  0.8992710969658307
 
- Best Accuracy:  0.953169014084507
+ Best Accuracy:  0.9515492957746478
 
- Best Depth:  30
+ Best Depth:  24
 
  Classification Report: 
                precision    recall  f1-score   support
@@ -274,28 +274,28 @@ weighted avg       0.95      0.95      0.95      2840
 
 
  Confusion Matrix: 
- [[1334   67]
- [  74 1365]]
+ [[1326   75]
+ [  68 1371]]
 
  Feature Importance: 
- {'snowfall': 0.0, 'freezethaw': 0.0, 'CatMaterialPrestressedConcreteContinuous': 0.0, 'CatTollOnFreeRoad': 0.0, 'CatTollTollBridge': 0.0, 'CatDesignLoadH10': 0.0, 'CatDesignLoadHS15': 0.0, 'CatDesignLoadHS25': 0.0, 'CatDeckStructureTypenan': 0.0, 'CatTypeOfDesignArchDeck': 0.0, 'CatTypeOfDesignArchThru': 0.0, 'CatTypeOfDesignBoxBeamSingle': 0.0, 'CatTypeOfDesignChannelBeam': 0.0, 'CatTypeOfDesignFrame': 0.0, 'CatTypeOfDesignOther': 0.0, 'CatTypeOfDesignSegmentalBoxGirder': 0.0, 'CatTypeOfDesignTrussDeck': 0.0, 'CatTypeOfDesignnan': 0.0, 'CatTypeOfDesignSlab': 0.0008627067045411809, 'CatMaterialSteelContinuous': 0.0008924123960305624, 'CatMaterialConcreteContinuous': 0.0017926667675508211, 'CatDesignLoadHS20Mod': 0.0024483296154446266, 'designatedInspectionFrequency': 0.002826012660412906, 'CatDesignLoadHS20': 0.003825714147504625, 'CatMaterialConcrete': 0.0038959207858232908, 'CatTypeOfDesignBoxBeamMultiple': 0.0039055580675910035, 'CatMaterialPrestressedConcrete': 0.004116970674802031, 'CatDesignLoadH15': 0.005046814276789447, 'avgDailyTruckTraffic': 0.005226612710426496, 'numberOfSpansInMainUnit': 0.0053246524725601985, 'CatTypeOfDesignTeeBeam': 0.007766786646731576, 'CatDesignLoadH20': 0.0079098003200622, 'CatDesignLoadnan': 0.008447845294254047, 'skew': 0.009928524251412543, 'CatTypeOfDesignTrussThru': 0.010616834259227007, 'lanesOnStructure': 0.011295663243653354, 'CatTypeOfDesignGirderAndFloor': 0.016540247497099713, 'CatMaterialWood': 0.01791037230287616, 'CatMaterialSteel': 0.0239340344164722, 'structureLength': 0.028503730933119992, 'lengthOfMaximumSpan': 0.03102683829859955, 'latitude': 0.041258620021733534, 'bridgeRoadwayWithCurbToCurb': 0.04166266816438247, 'longitude': 0.042232638526801376, 'averageDailyTraffic': 0.05918662937895065, 'operatingRating': 0.06592125121532227, 'CatTypeOfDesignStringerMultiBeam': 0.1026070942868168, 'scourCriticalBridges': 0.18409686013813517, 'yearBuilt': 0.24898918952487212}
+ {'snowfall': 0.0, 'freezethaw': 0.0, 'CatMaterialPrestressedConcreteContinuous': 0.0, 'CatTollOnFreeRoad': 0.0, 'CatTollTollBridge': 0.0, 'CatDesignLoadH10': 0.0, 'CatDesignLoadHS15': 0.0, 'CatDesignLoadHS20Mod': 0.0, 'CatDesignLoadHS25': 0.0, 'CatDeckStructureTypenan': 0.0, 'CatTypeOfDesignArchDeck': 0.0, 'CatTypeOfDesignArchThru': 0.0, 'CatTypeOfDesignBoxBeamSingle': 0.0, 'CatTypeOfDesignChannelBeam': 0.0, 'CatTypeOfDesignFrame': 0.0, 'CatTypeOfDesignOther': 0.0, 'CatTypeOfDesignSegmentalBoxGirder': 0.0, 'CatTypeOfDesignTrussDeck': 0.0, 'CatTypeOfDesignnan': 0.0, 'CatTypeOfDesignBoxBeamMultiple': 0.0002990025072345897, 'CatMaterialSteelContinuous': 0.0011364404496682894, 'CatMaterialConcreteContinuous': 0.0013198185862629797, 'designatedInspectionFrequency': 0.002016039808622282, 'CatMaterialConcrete': 0.0026135972605304775, 'CatMaterialSteel': 0.0037680918676866247, 'CatTypeOfDesignTeeBeam': 0.003953579619756912, 'CatMaterialPrestressedConcrete': 0.004049633610306986, 'CatDesignLoadH20': 0.004963979517239432, 'CatTypeOfDesignSlab': 0.005463548229017935, 'skew': 0.006373719944043675, 'numberOfSpansInMainUnit': 0.006827191554246345, 'CatDesignLoadnan': 0.0091100792871992, 'avgDailyTruckTraffic': 0.00925310402565371, 'CatTypeOfDesignTrussThru': 0.009815660311709298, 'CatDesignLoadHS20': 0.01213758667297694, 'lanesOnStructure': 0.01682918875216395, 'CatDesignLoadH15': 0.018291682252750106, 'latitude': 0.021728503694322956, 'CatTypeOfDesignGirderAndFloor': 0.025269649801635582, 'structureLength': 0.02563999355791579, 'lengthOfMaximumSpan': 0.027635139878074554, 'CatMaterialWood': 0.0316555709951053, 'longitude': 0.04675628912305169, 'operatingRating': 0.0475715285115177, 'bridgeRoadwayWithCurbToCurb': 0.05035323621064525, 'averageDailyTraffic': 0.05833858418654095, 'CatTypeOfDesignStringerMultiBeam': 0.08371000184688353, 'scourCriticalBridges': 0.20999186498763348, 'yearBuilt': 0.2531276929496035}
 
 
              ----------- Performance with GiniIndex ------------
              
 
 
- Best Kappa Values:  0.9056026709860175
+ Best Kappa Values:  0.897147239887741
 
- Best Accuracy:  0.9516901408450703
+ Best Accuracy:  0.947887323943662
 
- Best Depth:  28
+ Best Depth:  29
 
  Classification Report: 
                precision    recall  f1-score   support
 
-    negative       0.96      0.95      0.95      1401
-    positive       0.95      0.96      0.95      1439
+    negative       0.95      0.94      0.95      1401
+    positive       0.94      0.96      0.95      1439
 
     accuracy                           0.95      2840
    macro avg       0.95      0.95      0.95      2840
@@ -303,11 +303,11 @@ weighted avg       0.95      0.95      0.95      2840
 
 
  Confusion Matrix: 
- [[1326   75]
- [  59 1380]]
+ [[1319   82]
+ [  64 1375]]
 
  Feature Importance: 
- {'snowfall': 0.0, 'freezethaw': 0.0, 'CatMaterialPrestressedConcreteContinuous': 0.0, 'CatTollOnFreeRoad': 0.0, 'CatTollTollBridge': 0.0, 'CatDesignLoadH10': 0.0, 'CatDesignLoadHS15': 0.0, 'CatDesignLoadHS25': 0.0, 'CatDeckStructureTypenan': 0.0, 'CatTypeOfDesignArchDeck': 0.0, 'CatTypeOfDesignArchThru': 0.0, 'CatTypeOfDesignBoxBeamSingle': 0.0, 'CatTypeOfDesignChannelBeam': 0.0, 'CatTypeOfDesignFrame': 0.0, 'CatTypeOfDesignOther': 0.0, 'CatTypeOfDesignSegmentalBoxGirder': 0.0, 'CatTypeOfDesignTrussDeck': 0.0, 'CatTypeOfDesignnan': 0.0, 'CatTypeOfDesignSlab': 0.0008627067045411809, 'CatMaterialSteelContinuous': 0.0008924123960305624, 'CatMaterialConcreteContinuous': 0.0017926667675508211, 'CatDesignLoadHS20Mod': 0.0024483296154446266, 'designatedInspectionFrequency': 0.002826012660412906, 'CatDesignLoadHS20': 0.003825714147504625, 'CatMaterialConcrete': 0.0038959207858232908, 'CatTypeOfDesignBoxBeamMultiple': 0.0039055580675910035, 'CatMaterialPrestressedConcrete': 0.004116970674802031, 'CatDesignLoadH15': 0.005046814276789447, 'avgDailyTruckTraffic': 0.005226612710426496, 'numberOfSpansInMainUnit': 0.0053246524725601985, 'CatTypeOfDesignTeeBeam': 0.007766786646731576, 'CatDesignLoadH20': 0.0079098003200622, 'CatDesignLoadnan': 0.008447845294254047, 'skew': 0.009928524251412543, 'CatTypeOfDesignTrussThru': 0.010616834259227007, 'lanesOnStructure': 0.011295663243653354, 'CatTypeOfDesignGirderAndFloor': 0.016540247497099713, 'CatMaterialWood': 0.01791037230287616, 'CatMaterialSteel': 0.0239340344164722, 'structureLength': 0.028503730933119992, 'lengthOfMaximumSpan': 0.03102683829859955, 'latitude': 0.041258620021733534, 'bridgeRoadwayWithCurbToCurb': 0.04166266816438247, 'longitude': 0.042232638526801376, 'averageDailyTraffic': 0.05918662937895065, 'operatingRating': 0.06592125121532227, 'CatTypeOfDesignStringerMultiBeam': 0.1026070942868168, 'scourCriticalBridges': 0.18409686013813517, 'yearBuilt': 0.24898918952487212}
+ {'snowfall': 0.0, 'freezethaw': 0.0, 'CatMaterialPrestressedConcreteContinuous': 0.0, 'CatTollOnFreeRoad': 0.0, 'CatTollTollBridge': 0.0, 'CatDesignLoadH10': 0.0, 'CatDesignLoadHS15': 0.0, 'CatDesignLoadHS20Mod': 0.0, 'CatDesignLoadHS25': 0.0, 'CatDeckStructureTypenan': 0.0, 'CatTypeOfDesignArchDeck': 0.0, 'CatTypeOfDesignArchThru': 0.0, 'CatTypeOfDesignBoxBeamSingle': 0.0, 'CatTypeOfDesignChannelBeam': 0.0, 'CatTypeOfDesignFrame': 0.0, 'CatTypeOfDesignOther': 0.0, 'CatTypeOfDesignSegmentalBoxGirder': 0.0, 'CatTypeOfDesignTrussDeck': 0.0, 'CatTypeOfDesignnan': 0.0, 'CatTypeOfDesignBoxBeamMultiple': 0.0002990025072345897, 'CatMaterialSteelContinuous': 0.0011364404496682894, 'CatMaterialConcreteContinuous': 0.0013198185862629797, 'designatedInspectionFrequency': 0.002016039808622282, 'CatMaterialConcrete': 0.0026135972605304775, 'CatMaterialSteel': 0.0037680918676866247, 'CatTypeOfDesignTeeBeam': 0.003953579619756912, 'CatMaterialPrestressedConcrete': 0.004049633610306986, 'CatDesignLoadH20': 0.004963979517239432, 'CatTypeOfDesignSlab': 0.005463548229017935, 'skew': 0.006373719944043675, 'numberOfSpansInMainUnit': 0.006827191554246345, 'CatDesignLoadnan': 0.0091100792871992, 'avgDailyTruckTraffic': 0.00925310402565371, 'CatTypeOfDesignTrussThru': 0.009815660311709298, 'CatDesignLoadHS20': 0.01213758667297694, 'lanesOnStructure': 0.01682918875216395, 'CatDesignLoadH15': 0.018291682252750106, 'latitude': 0.021728503694322956, 'CatTypeOfDesignGirderAndFloor': 0.025269649801635582, 'structureLength': 0.02563999355791579, 'lengthOfMaximumSpan': 0.027635139878074554, 'CatMaterialWood': 0.0316555709951053, 'longitude': 0.04675628912305169, 'operatingRating': 0.0475715285115177, 'bridgeRoadwayWithCurbToCurb': 0.05035323621064525, 'averageDailyTraffic': 0.05833858418654095, 'CatTypeOfDesignStringerMultiBeam': 0.08371000184688353, 'scourCriticalBridges': 0.20999186498763348, 'yearBuilt': 0.2531276929496035}
 
 Printing split-nodes
 

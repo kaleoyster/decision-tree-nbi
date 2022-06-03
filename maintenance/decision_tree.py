@@ -472,9 +472,7 @@ def print_decision_paths(clf, label, all_data, attributes):
 
     sample_id = 0
     # obtain ids of the nodes `sample_id` goes through, i.e., row `sample_id`
-    node_index = node_indicator.indices[
-        node_indicator.indptr[sample_id] : node_indicator.indptr[sample_id + 1]
-    ]
+    
 
     oStdout = sys.stdout
     fileName = label + '_' +'paths.txt'
@@ -491,6 +489,9 @@ def print_decision_paths(clf, label, all_data, attributes):
         sys.stdout = f
         #print("Rules used to predict sample {id}:\n".format(id=sample_id))
         for sample_id, record in enumerate(X_test):
+            node_index = node_indicator.indices[
+                    node_indicator.indptr[sample_id] : node_indicator.indptr[sample_id + 1]
+                ]
             for node_id in node_index:
                 # Continue to the next node if it is a leaf node
                 if leaf_id[sample_id] == node_id:
@@ -552,7 +553,8 @@ def performance_summarizer(eKappaDict, gKappaDict,
                           eAccDict, gAccDict,
                           #eRocsDict, gRocsDict,
                           eModelsDict, gModelsDict,
-                          eFeatureDict, gFeatureDict, testX, cols, label):
+                          eFeatureDict, gFeatureDict,
+                          testX, cols, label):
 
     """
     Description:
@@ -654,7 +656,6 @@ def performance_summarizer(eKappaDict, gKappaDict,
         fout.write(gTextRepresentation)
 
     print("\n Plotting decision trees \n")
-
     plot_decision_tree(eBestModel, filename='Entropy')
     plot_decision_tree(gBestModel, filename='Gini')
 
