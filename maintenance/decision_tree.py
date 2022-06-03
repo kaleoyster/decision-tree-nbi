@@ -450,7 +450,7 @@ def find_leaves(e_best_model):
 
     return leaves, tree_structure
 
-def print_decision_paths(clf, label, X_test, attributes):
+def print_decision_paths(clf, label, all_data, attributes):
     """
     Description:
         Returns a csv file consisting of classification paths
@@ -461,9 +461,12 @@ def print_decision_paths(clf, label, X_test, attributes):
         X_test (test set)
         attributes (all attributes, index object)
     """
+    X_test = all_data
     n_nodes = clf.tree_.node_count
     feature = clf.tree_.feature
     threshold = clf.tree_.threshold
+    #attributes = ['structureNumber'] + list(attributes)
+    #X_test = X_test[attributes]
     node_indicator = clf.decision_path(X_test)
     leaf_id = clf.apply(X_test)
 
@@ -497,6 +500,7 @@ def print_decision_paths(clf, label, X_test, attributes):
                     threshold_sign = "<="
                 else:
                     threshold_sign = ">"
+                    print("Printing records:", record)
                     print(
                         "decision node {node} : (X_test[{sample}, {feature}] = {value}) "
                         "{inequality} {threshold})".format(
@@ -694,8 +698,10 @@ def tree_utility(train_x, trainy,
     return acc, _cm, _cr, kappa, model, _fi # rocAuc, model
 
 # Decision Tree
-def decision_tree(X, y, features, label, nFold=5):
+def decision_tree(X, y, features, label, all_data, nFold=5):
     """
+    #TODO: We can do things together.
+    def decision_tree(X, y, features, label, nFold=5):
     Description:
         Performs training-testing split
         Train model for various depth level
@@ -747,6 +753,7 @@ def decision_tree(X, y, features, label, nFold=5):
             trainX, trainy, testX, testy = X[foldTrainX], y[foldTrainX], \
                                           X[foldTestX], y[foldTestX]
 
+            # structure numbers
             # Gini
             gacc, gcm, gcr, gkappa, gmodel, gfi = tree_utility(trainX, trainy,
                                                  testX, testy, cols,
@@ -822,6 +829,7 @@ def decision_tree(X, y, features, label, nFold=5):
     eFeatureDict = dict(zip(depths, eFeatures))
     gFeatureDict = dict(zip(depths, gFeatures))
 
+    # Swap X_test with all_data
     kappaVals, accVals, featImps, models = performance_summarizer(eKappaDict, gKappaDict,
                                            eConfDict, gConfDict,
                                            eClassDict, gClassDict,

@@ -340,6 +340,7 @@ def maintenance_pipeline(state):
                                 name="")
     columnsFinal.remove('structureNumber')
     features.remove('structureNumber')
+    all_data = dataScaled
     dataScaled = dataScaled[columnsFinal]
 
     dataScaled['cluster'] = sLabels
@@ -370,7 +371,7 @@ def maintenance_pipeline(state):
     #          'High Substructure - No Deck - No Superstructure',
     #          'No Substructure - No Deck - High Superstructure']
 
-    #TODO: Why do I have these label writen all intervention?
+    #TODO: Why do I have these label with all interventions?
     labels = ['No Substructure - Yes Deck - No Superstructure',
               'Yes Substructure - No Deck - No Superstructure',
               'No Substructure - No Deck - Yes Superstructure']
@@ -430,9 +431,6 @@ def maintenance_pipeline(state):
             positiveDict[index] = len(row)
 
         #TODO:
-        #print(positiveDict)
-        #print(negativeDict)
-
         #plot_barchart1(positiveDict, 'barchart positive')
         #plot_barchart1(negativeDict, 'barchart negative')
 
@@ -456,13 +454,13 @@ def maintenance_pipeline(state):
         kappaValue, accValue, featImp, models = decision_tree(X,
                                                               y,
                                                               columnsFinal,
-                                                              label)
+                                                              label,
+                                                              all_data)
         print("\n List of final columns", columnsFinal)
         kappaValues.append(kappaValue)
         accValues.append(accValue)
         featImps.append(featImp)
         decisionModels.append(models)
-
 
         # TODO: working on the leaves
         # models.append(leaves) # models ->> change into leaves 
