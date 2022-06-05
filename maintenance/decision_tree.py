@@ -450,7 +450,8 @@ def find_leaves(e_best_model):
 
     return leaves, tree_structure
 
-def print_decision_paths(clf, label, all_data, attributes, all_sub_data, structure_numbers):
+def print_decision_paths(clf, label, X_test,
+                         attributes, all_data):
     """
     Description:
         Returns a csv file consisting of classification paths
@@ -464,15 +465,29 @@ def print_decision_paths(clf, label, all_data, attributes, all_sub_data, structu
     n_nodes = clf.tree_.node_count
     feature = clf.tree_.feature
     threshold = clf.tree_.threshold
-    #attributes = ['structureNumber'] + list(attributes)
-    #X_test = X_test[attributes]
-    X_test = all_sub_data
+
+    X_test_sample = all_data[attributes]
+    structure_numbers = all_data['structureNumber']
+    X_test_sample = np.array(X_test_sample)
+
+    X_test_sample_cv = []
+    for record in X_test_sample:
+        record_new = []
+        for attr in record:
+            attr = float(attr)
+            record_new.append(attr)
+        X_test_sample_cv.append(record_new)
+
+    X_test = np.array(X_test_sample_cv)
+    structure_numbers = np.array(structure_numbers)
     node_indicator = clf.decision_path(X_test)
     leaf_id = clf.apply(X_test)
 
     # obtain ids of the nodes `sample_id` goes through, i.e., row `sample_id`
-    print("the length of the structure number:", structure_numbers[0])
-    print("the length of the data :", all_sub_data[0])
+    #print("the length of the structure number:", len(structure_numbers))
+    print("the length of the all data:", len(X_test))
+    #print("the length of the all data sample:", (X_test_sample_cv[0]))
+    print("the length of the structure number - all data sample:", len(structure_numbers))
 
     oStdout = sys.stdout
     fileName = label + '_' +'paths.txt'
@@ -501,7 +516,6 @@ def print_decision_paths(clf, label, all_data, attributes, all_sub_data, structu
                     threshold_sign = "<="
                 else:
                     threshold_sign = ">"
-                    print("Printing records:", record)
                     print(
                         "decision node {node} : (X_test[{sample}, {feature}] = {value}) "
                         "{inequality} {threshold})".format(
@@ -555,7 +569,7 @@ def performance_summarizer(eKappaDict, gKappaDict,
                           eModelsDict, gModelsDict,
                           eFeatureDict, gFeatureDict,
                           testX, cols, label,
-                          all_sub_data, structure_numbers):
+                          all_data):
 
     """
     Description:
@@ -597,7 +611,6 @@ def performance_summarizer(eKappaDict, gKappaDict,
     gcm = gConfDict.get(gBestDepth)
     gfi = gFeatureDict.get(gBestDepth)
     gfi = dict(sorted(gfi.items(), key=lambda item: item[1]))
-
     print("""\n
              ----------- Performance with GiniIndex ------------
              \n""")
@@ -634,7 +647,9 @@ def performance_summarizer(eKappaDict, gKappaDict,
     print("\nPrinting split-nodes")
     leaves, treeStructure = find_leaves(eBestModel)
     splitNodes = print_split_nodes(leaves, treeStructure, cols)
-    print_decision_paths(eBestModel, label, testX, cols, all_sub_data, structure_numbers)
+    print_decision_paths(eBestModel, label,
+                         testX, cols,
+                         all_data)
 
     # Entropy
     # TODO: Save a decision tree model for every run
@@ -741,10 +756,10 @@ def decision_tree(X, y, features, label, all_data, nFold=5):
     y = np.array(y)
 
     # Converting all data into array
-    all_sub_data =  all_data[cols]
-    structure_numbers = all_data['structureNumber']
-    all_sub_data = np.array(X)
-    structure_numbers = np.array(structure_numbers)
+    #all_sub_data =  all_data[cols]
+    #structure_numbers = all_data['structureNumber']
+    #all_sub_data = np.array(X)
+    #structure_numbers = np.array(structure_numbers)
 
     # Store models:
     eModels = []
@@ -845,8 +860,7 @@ def decision_tree(X, y, features, label, all_data, nFold=5):
                                            #eRocsDict, gRocsDict,
                                            eModelsDict, gModelsDict,
                                            eFeatureDict, gFeatureDict,
-                                           testX, cols, label, all_sub_data,
-                                            structure_numbers)
+                                           testX, cols, label, all_data)
 
     # Return the average kappa value for state
     eBestModel, gBestModel = models
