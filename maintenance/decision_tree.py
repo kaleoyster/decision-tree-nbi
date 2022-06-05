@@ -450,7 +450,7 @@ def find_leaves(e_best_model):
 
     return leaves, tree_structure
 
-def print_decision_paths(clf, label, all_data, attributes):
+def print_decision_paths(clf, label, all_data, attributes, all_sub_data, structure_numbers):
     """
     Description:
         Returns a csv file consisting of classification paths
@@ -461,18 +461,18 @@ def print_decision_paths(clf, label, all_data, attributes):
         X_test (test set)
         attributes (all attributes, index object)
     """
-    X_test = all_data
     n_nodes = clf.tree_.node_count
     feature = clf.tree_.feature
     threshold = clf.tree_.threshold
     #attributes = ['structureNumber'] + list(attributes)
     #X_test = X_test[attributes]
+    X_test = all_sub_data
     node_indicator = clf.decision_path(X_test)
     leaf_id = clf.apply(X_test)
 
-    sample_id = 0
     # obtain ids of the nodes `sample_id` goes through, i.e., row `sample_id`
-    
+    print("the length of the structure number:", structure_numbers[0])
+    print("the length of the data :", all_sub_data[0])
 
     oStdout = sys.stdout
     fileName = label + '_' +'paths.txt'
@@ -554,7 +554,8 @@ def performance_summarizer(eKappaDict, gKappaDict,
                           #eRocsDict, gRocsDict,
                           eModelsDict, gModelsDict,
                           eFeatureDict, gFeatureDict,
-                          testX, cols, label):
+                          testX, cols, label,
+                          all_sub_data, structure_numbers):
 
     """
     Description:
@@ -633,7 +634,7 @@ def performance_summarizer(eKappaDict, gKappaDict,
     print("\nPrinting split-nodes")
     leaves, treeStructure = find_leaves(eBestModel)
     splitNodes = print_split_nodes(leaves, treeStructure, cols)
-    print_decision_paths(eBestModel, label, testX, cols)
+    print_decision_paths(eBestModel, label, testX, cols, all_sub_data, structure_numbers)
 
     # Entropy
     # TODO: Save a decision tree model for every run
@@ -739,6 +740,12 @@ def decision_tree(X, y, features, label, all_data, nFold=5):
     X = np.array(X)
     y = np.array(y)
 
+    # Converting all data into array
+    all_sub_data =  all_data[cols]
+    structure_numbers = all_data['structureNumber']
+    all_sub_data = np.array(X)
+    structure_numbers = np.array(structure_numbers)
+
     # Store models:
     eModels = []
     gModels = []
@@ -837,7 +844,9 @@ def decision_tree(X, y, features, label, all_data, nFold=5):
                                            eScoreDict, gScoreDict,
                                            #eRocsDict, gRocsDict,
                                            eModelsDict, gModelsDict,
-                                           eFeatureDict, gFeatureDict, testX, cols, label)
+                                           eFeatureDict, gFeatureDict,
+                                           testX, cols, label, all_sub_data,
+                                            structure_numbers)
 
     # Return the average kappa value for state
     eBestModel, gBestModel = models
