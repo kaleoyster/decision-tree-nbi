@@ -469,7 +469,6 @@ def print_decision_paths(clf, label, X_test,
     X_test_sample = all_data[attributes]
     structure_numbers = all_data['structureNumber']
     X_test_sample = np.array(X_test_sample)
-
     X_test_sample_cv = []
     for record in X_test_sample:
         record_new = []
@@ -520,15 +519,15 @@ def print_decision_paths(clf, label, X_test,
                         "decision node {node} : (X_test[{sample}, {feature}] = {value}) "
                         "{inequality} {threshold})".format(
                         node=node_id,
-                        sample=sample_id,
-                        feature=attributes[feature[node_id]],
+                        sample=X_test[sample_id],
+                        feature=X_test[feature[node_id]],
                         value=X_test[sample_id, feature[node_id]],
                         inequality=threshold_sign,
                         threshold=threshold[node_id],
                         )
                     )
                     nodeList.append(node_id)
-                    sampleIdList.append(sample_id)
+                    sampleIdList.append(structure_numbers[sample_id])
                     featureIdList.append(attributes[feature[node_id]])
                     valueList.append(X_test[sample_id, feature[node_id]])
                     inequalityList.append(threshold_sign)
