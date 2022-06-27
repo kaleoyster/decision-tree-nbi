@@ -7,7 +7,6 @@ This repository contains code for the Decision Tree Model for the prediction the
 1. Organization
 
    1. Configuration files
-   2. :wq
 
 2. Data set
    1. Data source
@@ -75,6 +74,71 @@ Current templates:
 | [General reference entry](https://github.com/thegooddocsproject/templates/blob/dev/reference/about-reference.md) | Reference | Specific details about a particular topic |
 | [Logging reference](https://github.com/thegooddocsproject/templates/blob/dev/logging/about-logging.md) | Reference | Description of log pipelines |
 
+
+
+
+``` dot
+digraph G {
+
+  subgraph cluster_0 {
+    style=filled;
+    color=lightgrey;
+    node [style=filled,color=white];
+    a0 -> a1 -> a2 -> a3;
+    label = "process #1";
+  }
+
+  subgraph cluster_1 {
+    node [style=filled];
+    b0 -> b1 -> b2 -> b3;
+    label = "process #2";
+    color=blue
+  }
+  start -> a0;
+  start -> b0;
+  a1 -> b3;
+  b2 -> a3;
+  a3 -> a0;
+  a3 -> end;
+  b3 -> end;
+
+  start [shape=Mdiamond];
+  end [shape=Msquare];
+}
+```
+
+``` chart
+{
+  "type": "pie",
+  "data": {
+    "labels": [
+      "Red",
+      "Blue",
+      "Yellow"
+    ],
+    "datasets": [
+      {
+        "data": [
+          300,
+          50,
+          100
+        ],
+        "backgroundColor": [
+          "#FF6384",
+          "#36A2EB",
+          "#FFCE56"
+        ],
+        "hoverBackgroundColor": [
+          "#FF6384",
+          "#36A2EB",
+          "#FFCE56"
+        ]
+      }
+    ]
+  },
+  "options": {}
+}
+```
 ## The cookbook ()
 
 | Recipe name | Description |Constituent templates |
