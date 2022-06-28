@@ -513,6 +513,12 @@ def print_decision_paths(clf, label, X_test,
                 # Check if value of the split feature for sample 0 is below threshold
                 if X_test[sample_id, feature[node_id]] <= threshold[node_id]:
                     threshold_sign = "<="
+                    nodeList.append(node_id)
+                    sampleIdList.append(structure_numbers[sample_id])
+                    featureIdList.append(attributes[feature[node_id]])
+                    valueList.append(X_test[sample_id, feature[node_id]])
+                    inequalityList.append(threshold_sign)
+                    thresholdList.append(threshold[node_id])
                 else:
                     threshold_sign = ">"
                     print(
