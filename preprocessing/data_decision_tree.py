@@ -97,14 +97,14 @@ def main():
             # 1. Compute deterioration
             # 2. Intervention
             # 3. Scores
-    # Change
-    groupedRecords = compute_intervention(groupedRecords,
+    # change
+    groupedrecords = compute_intervention(groupedrecords,
                                           from_to_matrix_kent)
 
-    groupedRecords = compute_intervention(groupedRecords,
+    groupedrecords = compute_intervention(groupedrecords,
                                           from_to_matrix_kent,
                                           component='substructure')
-    groupedRecords = compute_intervention(groupedRecords,
+    groupedrecords = compute_intervention(groupedrecords,
                                           from_to_matrix_kent,
                                           component='superstructure')
     #print("\n printing grouped records: ", groupedRecords)
