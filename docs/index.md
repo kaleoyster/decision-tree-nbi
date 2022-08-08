@@ -40,6 +40,5 @@ The concept documentation describes how and why the data processing or decision 
 The task documentation provides specific instruction to execute to run specific models. Tasks tend to have a specific goal and consist of a set of numbered steps that the reader can follow to achieve that goal.
 
 **Reference**:
-Contains structured information or specifications that users need to make a script work.
-Reference material is provided for fact-checking. The reference sections attempt at comprehensively cataloging data such as functions and their parameters, return codes and error messages. They are often presented as tables, bulleted lists, or sample scripts.
+Contains structured information or specifications that users need to make a script work. Reference material is provided for fact-checking. The reference sections attempt at comprehensively cataloging data such as functions and their parameters, return codes and error messages. They are often presented as tables, bulleted lists, or sample scripts.
 
