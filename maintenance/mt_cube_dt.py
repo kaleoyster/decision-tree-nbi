@@ -414,6 +414,8 @@ def maintenance_pipeline(state):
         # print(dataScaled.columns())
         neg = dataScaled[dataScaled['label'] == 'negative']
         pos = dataScaled[dataScaled['label'] == 'positive']
+        print('prnting negative')
+        print(neg[:5])
 
         # Create a dictionary:
         negativeDict = defaultdict()
