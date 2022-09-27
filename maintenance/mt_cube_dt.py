@@ -332,14 +332,18 @@ def maintenance_pipeline(state):
     print("\nPrinting the labels")
     #TODO: Clean data up until here:
     # print(dataScaled.head())
+
     sLabels = semantic_labeling(dataScaled[features],
                                 name="")
     columnsFinal.remove('structureNumber')
     features.remove('structureNumber')
+    structureNumber = dataScaled['structureNumber']
+    # We cannot take the X and y values after the oversampling
     all_data = dataScaled
+    structure_number = dataScaled['structureNumber']
     dataScaled = dataScaled[columnsFinal]
-
     dataScaled['cluster'] = sLabels
+
     newFeatures = features + ['cluster']
     plot_scatterplot(dataScaled[newFeatures], name="cluster")
 
@@ -406,6 +410,8 @@ def maintenance_pipeline(state):
 
         # Summarize distribution before:
         print("\n Distribution of the clusters before oversampling: ", Counter(y))
+        all_data = dataScaled
+        all_data['structureNumber'] = structureNumber
 
         # Oversampling:
         oversample = SMOTE()
@@ -414,8 +420,7 @@ def maintenance_pipeline(state):
         # print(dataScaled.columns())
         neg = dataScaled[dataScaled['label'] == 'negative']
         pos = dataScaled[dataScaled['label'] == 'positive']
-        print('prnting negative')
-        print(neg[:5])
+        #all_data =  dataScaled
 
         # Create a dictionary:
         negativeDict = defaultdict()
@@ -449,6 +454,7 @@ def maintenance_pipeline(state):
         # Return to home directory:
             # Overhere, if the model is passed here then we can print the trees
             # in the following main function
+        print("\n Test, length of X and y : ", len(X), len(y))
         kappaValue, accValue, featImp, models = decision_tree(X,
                                                               y,
                                                               columnsFinal,
@@ -460,12 +466,6 @@ def maintenance_pipeline(state):
         featImps.append(featImp)
         decisionModels.append(models)
 
-        # TODO: working on the leaves
-        # models.append(leaves) # models ->> change into leaves 
-        # list of model is being is used to save models from decision tree
-        # Find leaves first
-
-    #print(dataScaled.head())
     sys.stdout.close()
     os.chdir(currentDir)
 

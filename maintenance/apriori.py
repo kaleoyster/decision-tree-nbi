@@ -20,6 +20,7 @@ import pandas as pd
 def read_csv_file(path):
     """
     Description:
+        Reads a csv file and returns a dataframe
     """
     _df = pd.read_csv(path, index_col=None)
     return _df
@@ -27,6 +28,7 @@ def read_csv_file(path):
 def create_map(list_of_columns):
     """
     Description:
+        Return a column map
     """
     column_map = defaultdict()
     for index, column in enumerate(list_of_columns):

@@ -468,9 +468,15 @@ def print_decision_paths(clf, label, X_test,
 
     X_test_sample = all_data[attributes]
     structure_numbers = all_data['structureNumber']
+    labels =  all_data['label']
+    print("Apple bottom jeans:", labels[:5])
+    print("Apple bottom jeans:", X_test_sample[:5])
+
+
     X_test_sample = np.array(X_test_sample)
     X_test_sample_cv = []
-    for record in X_test_sample:
+    for record, label in zip(X_test_sample, labels):
+    #for record in X_test_sample:
         record_new = []
         for attr in record:
             attr = float(attr)
@@ -483,7 +489,6 @@ def print_decision_paths(clf, label, X_test,
     leaf_id = clf.apply(X_test)
 
     # obtain ids of the nodes `sample_id` goes through, i.e., row `sample_id`
-    #print("the length of the structure number:", len(structure_numbers))
     print("the length of the all data:", len(X_test))
     #print("the length of the all data sample:", (X_test_sample_cv[0]))
     print("the length of the structure number - all data sample:", len(structure_numbers))
@@ -494,6 +499,7 @@ def print_decision_paths(clf, label, X_test,
     sampleIdList = []
     featureIdList = []
     valueList = []
+    labelList = []
     inequalityList = []
     thresholdList = []
 
@@ -871,6 +877,7 @@ def decision_tree(X, y, features, label, all_data, nFold=5):
     eBestModel, gBestModel = models
     #leaves = find_leaves(eBestModel)
     #splitNodes = print_split_nodes(leaves, eBestModel, features)
+
     return kappaVals, accVals, featImps, models
 
 def plot_centroids(states, centroid_df, metric_name):
