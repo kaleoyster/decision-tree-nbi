@@ -52,7 +52,7 @@ def main():
             }
 
     # select states:
-    states = ['29'] # Missouri 
+    states = ['31'] # Nebraska 
 
     # years:
     years = [year for year in range(1992, 2020)]

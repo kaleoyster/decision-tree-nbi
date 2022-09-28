@@ -448,6 +448,8 @@ def maintenance_pipeline(state):
         #print("\n Oversampling (SMOTE) ...")
         X, y = oversample.fit_resample(X, y)
 
+        # TODO: Undersampling
+
         # Summarize distribution:
         print("\n Distribution of the clusters after oversampling: ", Counter(y))
 
