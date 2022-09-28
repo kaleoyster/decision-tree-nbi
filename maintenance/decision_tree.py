@@ -469,12 +469,11 @@ def print_decision_paths(clf, label, X_test,
     X_test_sample = all_data[attributes]
     structure_numbers = all_data['structureNumber']
     labels =  all_data['label']
-    print("Apple bottom jeans:", labels[:5])
-    print("Apple bottom jeans:", X_test_sample[:5])
-
 
     X_test_sample = np.array(X_test_sample)
     X_test_sample_cv = []
+
+    # TODO: no need for labels in zip function
     for record, label in zip(X_test_sample, labels):
     #for record in X_test_sample:
         record_new = []
@@ -485,13 +484,15 @@ def print_decision_paths(clf, label, X_test,
 
     X_test = np.array(X_test_sample_cv)
     structure_numbers = np.array(structure_numbers)
+    labels = np.array(labels)
     node_indicator = clf.decision_path(X_test)
     leaf_id = clf.apply(X_test)
 
     # obtain ids of the nodes `sample_id` goes through, i.e., row `sample_id`
-    print("the length of the all data:", len(X_test))
+    print("The length of the all data:", len(X_test))
     #print("the length of the all data sample:", (X_test_sample_cv[0]))
-    print("the length of the structure number - all data sample:", len(structure_numbers))
+    print("The length of the structure number - all data sample:", len(structure_numbers))
+    print("The length of the labels - all data sample:", len(labels))
 
     oStdout = sys.stdout
     fileName = label + '_' +'paths.txt'
@@ -504,7 +505,6 @@ def print_decision_paths(clf, label, X_test,
     thresholdList = []
 
     attributes = list(attributes)
-
     with open(fileName, 'w') as f:
         sys.stdout = f
         #print("Rules used to predict sample {id}:\n".format(id=sample_id))
@@ -521,6 +521,7 @@ def print_decision_paths(clf, label, X_test,
                     threshold_sign = "<="
                     nodeList.append(node_id)
                     sampleIdList.append(structure_numbers[sample_id])
+                    labelList.append(labels[sample_id])
                     featureIdList.append(attributes[feature[node_id]])
                     valueList.append(X_test[sample_id, feature[node_id]])
                     inequalityList.append(threshold_sign)
@@ -540,6 +541,7 @@ def print_decision_paths(clf, label, X_test,
                     )
                     nodeList.append(node_id)
                     sampleIdList.append(structure_numbers[sample_id])
+                    labelList.append(labels[sample_id])
                     featureIdList.append(attributes[feature[node_id]])
                     valueList.append(X_test[sample_id, feature[node_id]])
                     inequalityList.append(threshold_sign)
@@ -566,7 +568,8 @@ def print_decision_paths(clf, label, X_test,
                      'featureId': featureIdList,
                      'valueId': valueList,
                      'inequality': inequalityList,
-                     'threshold': thresholdList
+                     'threshold': thresholdList,
+                     'class': labelList
                     })
 
         data.to_csv("path.csv")
@@ -585,6 +588,7 @@ def performance_summarizer(eKappaDict, gKappaDict,
     """
     Description:
         Summarize the prformance of the decision
+
     Args:
         Kappa Values (list):
         Confusion Matrix (list):
