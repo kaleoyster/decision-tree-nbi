@@ -58,7 +58,7 @@ def main():
     years = [year for year in range(1992, 2020)]
 
     # process precipitation data
-    structBdsMap, structPrecipMap = process_precipitation()
+    #structBdsMap, structPrecipMap = process_precipitation()
 
     # process snowfall and freezethaw data
     #structSnowMap, structFreezeMap = process_snowfall()
@@ -68,16 +68,16 @@ def main():
     #individualRecords = sample_records()
 
     # group records
-    groupedRecords = group_records(individualRecords, fields)
+    groupedrecords = group_records(individualRecords, fields)
 
     # integrate baseline difference score, precipitation, freezethaw, and snowfall
 
-    individualRecords = integrate_ext_dataset_list(structBdsMap,
-                                                   individualRecords,
-                                                   'baseDifferenceScore')
-    individualRecords = integrate_ext_dataset_list(structPrecipMap,
-                                                   individualRecords,
-                                                   'precipitation')
+    #individualRecords = integrate_ext_dataset_list(structBdsMap,
+    #                                               individualRecords,
+    #                                               'baseDifferenceScore')
+    #individualRecords = integrate_ext_dataset_list(structPrecipMap,
+    #                                               individualRecords,
+    #                                               'precipitation')
     #individualRecords = integrate_ext_dataset_list(structSnowMap,
     #                                               individualRecords,
     #                                               'snowfall')
@@ -86,7 +86,7 @@ def main():
     #                                               'freezethaw')
 
     # Divide grouped records (works only for grouped records)
-    groupedRecords = divide_grouped_records(groupedRecords, fields, 2010, 2020)
+    groupedrecords = divide_grouped_records(groupedrecords, fields, 2010, 2020)
 
     # Remove records from specific years (works only for individual records)
     individualRecords = remove_records(individualRecords, 2010, 2019)
@@ -110,6 +110,7 @@ def main():
     #print("\n printing grouped records: ", groupedRecords)
 
     # Compute deterioration
+    groupedRecords = groupedrecords
     groupedRecords = compute_deterioration_slope(groupedRecords,
                                                  component='deck')
     groupedRecords = compute_deterioration_slope(groupedRecords,
