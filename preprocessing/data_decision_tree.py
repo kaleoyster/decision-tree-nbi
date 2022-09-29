@@ -172,7 +172,7 @@ def main():
                                                    'supNumberIntervention')
 
     # save to the file
-    csvFile = 'missouri.csv'
+    csvFile = 'nebraska.csv'
     tocsv_list(individualRecords, csvFile)
 
 if __name__=='__main__':
