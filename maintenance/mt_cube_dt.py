@@ -19,6 +19,8 @@ import numpy as np
 # ML
 from imblearn.over_sampling import SMOTE
 from imblearn.under_sampling import RandomUnderSampler
+from imblearn.over_sampling import SMOTENC
+from imblearn.over_sampling import SMOTEN
 #from sklearn import preprocessing
 
 from decision_tree import *
@@ -377,10 +379,6 @@ def maintenance_pipeline(state):
               'Yes Substructure - No Deck - No Superstructure',
               'No Substructure - No Deck - Yes Superstructure']
 
-    #labels = ['All intervention',
-    #          'All intervention',
-    #          'All intervention']
-
     kappaValues = list()
     accValues = list()
     featImps = list()
@@ -398,10 +396,6 @@ def maintenance_pipeline(state):
             if numOfMembers < 15:
                 listOfClusters.append(cluster)
         dataScaled = dataScaled[~dataScaled['label'].isin(listOfClusters)]
-        # Divide these the dataset into two categories:
-            # Negative and Positive
-            # Negative: Show YearBuilt
-            # Show YearBuilt for negative and positive classes 
 
         # State column:
         dataScaled['state'] = [state]*len(dataScaled)
@@ -414,11 +408,16 @@ def maintenance_pipeline(state):
         all_data = dataScaled
         all_data['structureNumber'] = structureNumber
 
-        # Oversampling:
+        # Oversampling techniques:
         oversample = SMOTE()
+        oversample = SMOTEN(random_state=0)
+        #oversample = SMOTNC()
 
         # Undersampling:
-        undersample = RandomUnderSampler(sampling_strategy='auto')
+        #undersample = RandomUnderSampler(sampling_strategy='auto')
+
+        # SMOTENC
+
         # TODO: Run a independent test / Bayesian test: 
             # What is the probability of getting a year built given the cluster is 0 or 1?
         # print(dataScaled.columns())
@@ -451,8 +450,8 @@ def maintenance_pipeline(state):
 
         print("\n Oversampling (SMOTE) ...")
         #temp_X, temp_y = undersample(X, y)
-        #X, y = oversample.fit_resample(X, y)
-        X, y = undersample.fit_resample(X, y)
+        X, y = oversample.fit_resample(X, y)
+        #X, y = undersample.fit_resample(X, y)
 
         # TODO: Undersampling
 
