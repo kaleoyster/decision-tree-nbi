@@ -18,6 +18,7 @@ import numpy as np
 
 # ML
 from imblearn.over_sampling import SMOTE
+from imblearn.under_sampling import RandomUnderSampler
 #from sklearn import preprocessing
 
 from decision_tree import *
@@ -415,6 +416,9 @@ def maintenance_pipeline(state):
 
         # Oversampling:
         oversample = SMOTE()
+
+        # Undersampling:
+        undersample = RandomUnderSampler(sampling_strategy='auto')
         # TODO: Run a independent test / Bayesian test: 
             # What is the probability of getting a year built given the cluster is 0 or 1?
         # print(dataScaled.columns())
@@ -445,8 +449,10 @@ def maintenance_pipeline(state):
         #              'label',
         #              'barchart1')
 
-        #print("\n Oversampling (SMOTE) ...")
-        X, y = oversample.fit_resample(X, y)
+        print("\n Oversampling (SMOTE) ...")
+        #temp_X, temp_y = undersample(X, y)
+        #X, y = oversample.fit_resample(X, y)
+        X, y = undersample.fit_resample(X, y)
 
         # TODO: Undersampling
 

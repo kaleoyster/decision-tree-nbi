@@ -111,6 +111,27 @@ def convert_geo_coordinates(_df, columns):
     _df['latitude'] = trans_latitudes
     return _df
 
+def undersample(X, y):
+    """
+    Function perform undersampling to represent balance of X and y for the binary class
+    Args:
+        X: Dataframe that contains features
+        y: Dataframe that contains labels
+
+    Returns:
+        new X: A list of undersampled feature data
+        new y: A list of undersample label
+    """
+    X['label'] = y
+    np.random.seed(1)
+    X = pd.DataFrame(
+                 {
+                     'a':  range(100),
+                     'label': np.random.choice(range(2), size=100, p=[0.9, 0.1])
+                })
+
+    return new_X, new_y
+
 def one_hot(_df, columns):
     """
     Function for one-hot-encoding
