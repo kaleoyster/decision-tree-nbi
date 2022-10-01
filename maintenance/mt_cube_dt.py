@@ -449,7 +449,6 @@ def maintenance_pipeline(state):
         #              'barchart1')
 
         print("\n Oversampling (SMOTE) ...")
-        #temp_X, temp_y = undersample(X, y)
         X, y = oversample.fit_resample(X, y)
         #X, y = undersample.fit_resample(X, y)
 
