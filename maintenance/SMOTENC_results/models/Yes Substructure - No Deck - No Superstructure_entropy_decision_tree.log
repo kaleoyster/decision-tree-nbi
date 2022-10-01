@@ -1,0 +1,757 @@
+|--- feature_0 <= 1973.50
+|   |--- feature_13 <= 8.00
+|   |   |--- feature_13 <= 5.00
+|   |   |   |--- feature_13 <= 5.00
+|   |   |   |   |--- feature_13 <= 4.00
+|   |   |   |   |   |--- feature_14 <= 1.50
+|   |   |   |   |   |   |--- feature_11 <= 4.80
+|   |   |   |   |   |   |   |--- feature_13 <= 2.01
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |--- feature_13 >  2.01
+|   |   |   |   |   |   |   |   |--- feature_11 <= 4.80
+|   |   |   |   |   |   |   |   |   |--- feature_11 <= 4.70
+|   |   |   |   |   |   |   |   |   |   |--- feature_11 <= 4.70
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 9
+|   |   |   |   |   |   |   |   |   |   |--- feature_11 >  4.70
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 7
+|   |   |   |   |   |   |   |   |   |--- feature_11 >  4.70
+|   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |--- feature_11 >  4.80
+|   |   |   |   |   |   |   |   |   |--- feature_13 <= 3.01
+|   |   |   |   |   |   |   |   |   |   |--- feature_13 <= 2.81
+|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |   |   |--- feature_13 >  2.81
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 7
+|   |   |   |   |   |   |   |   |   |--- feature_13 >  3.01
+|   |   |   |   |   |   |   |   |   |   |--- feature_13 <= 3.98
+|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |   |   |--- feature_13 >  3.98
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 6
+|   |   |   |   |   |   |--- feature_11 >  4.80
+|   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |--- feature_14 >  1.50
+|   |   |   |   |   |   |--- feature_13 <= 4.00
+|   |   |   |   |   |   |   |--- feature_13 <= 3.00
+|   |   |   |   |   |   |   |   |--- feature_9 <= 7.94
+|   |   |   |   |   |   |   |   |   |--- feature_5 <= 40.02
+|   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |   |--- feature_5 >  40.02
+|   |   |   |   |   |   |   |   |   |   |--- feature_0 <= 1961.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |   |--- feature_0 >  1961.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |--- feature_9 >  7.94
+|   |   |   |   |   |   |   |   |   |--- feature_13 <= 3.00
+|   |   |   |   |   |   |   |   |   |   |--- feature_13 <= 2.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 5
+|   |   |   |   |   |   |   |   |   |   |--- feature_13 >  2.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |   |--- feature_13 >  3.00
+|   |   |   |   |   |   |   |   |   |   |--- feature_11 <= 6.10
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 17
+|   |   |   |   |   |   |   |   |   |   |--- feature_11 >  6.10
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 9
+|   |   |   |   |   |   |   |--- feature_13 >  3.00
+|   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |--- feature_13 >  4.00
+|   |   |   |   |   |   |   |--- feature_0 <= 1961.50
+|   |   |   |   |   |   |   |   |--- feature_5 <= 40.67
+|   |   |   |   |   |   |   |   |   |--- feature_11 <= 6.15
+|   |   |   |   |   |   |   |   |   |   |--- feature_10 <= 30.95
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 6
+|   |   |   |   |   |   |   |   |   |   |--- feature_10 >  30.95
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |--- feature_11 >  6.15
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |--- feature_5 >  40.67
+|   |   |   |   |   |   |   |   |   |--- feature_10 <= 37.15
+|   |   |   |   |   |   |   |   |   |   |--- feature_9 <= 12.24
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 8
+|   |   |   |   |   |   |   |   |   |   |--- feature_9 >  12.24
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 8
+|   |   |   |   |   |   |   |   |   |--- feature_10 >  37.15
+|   |   |   |   |   |   |   |   |   |   |--- feature_1 <= 526.50
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- feature_1 >  526.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |--- feature_0 >  1961.50
+|   |   |   |   |   |   |   |   |--- feature_10 <= 58.50
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |--- feature_10 >  58.50
+|   |   |   |   |   |   |   |   |   |--- feature_11 <= 8.73
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |--- feature_11 >  8.73
+|   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |--- feature_13 >  4.00
+|   |   |   |   |   |--- class: positive
+|   |   |   |--- feature_13 >  5.00
+|   |   |   |   |--- feature_10 <= 30.87
+|   |   |   |   |   |--- feature_12 <= 7.98
+|   |   |   |   |   |   |--- feature_1 <= 95.00
+|   |   |   |   |   |   |   |--- feature_5 <= 40.56
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |--- feature_5 >  40.56
+|   |   |   |   |   |   |   |   |--- feature_9 <= 9.41
+|   |   |   |   |   |   |   |   |   |--- feature_11 <= 4.85
+|   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |   |--- feature_11 >  4.85
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |--- feature_9 >  9.41
+|   |   |   |   |   |   |   |   |   |--- feature_47 <= 0.50
+|   |   |   |   |   |   |   |   |   |   |--- feature_40 <= 0.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |   |   |--- feature_40 >  0.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |--- feature_47 >  0.50
+|   |   |   |   |   |   |   |   |   |   |--- feature_10 <= 13.70
+|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |   |   |--- feature_10 >  13.70
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |--- feature_1 >  95.00
+|   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |--- feature_12 >  7.98
+|   |   |   |   |   |   |--- feature_0 <= 1950.50
+|   |   |   |   |   |   |   |--- feature_8 <= 3.50
+|   |   |   |   |   |   |   |   |--- feature_11 <= 10.72
+|   |   |   |   |   |   |   |   |   |--- feature_11 <= 6.65
+|   |   |   |   |   |   |   |   |   |   |--- feature_1 <= 22.50
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 4
+|   |   |   |   |   |   |   |   |   |   |--- feature_1 >  22.50
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 7
+|   |   |   |   |   |   |   |   |   |--- feature_11 >  6.65
+|   |   |   |   |   |   |   |   |   |   |--- feature_10 <= 28.95
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |   |--- feature_10 >  28.95
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |--- feature_11 >  10.72
+|   |   |   |   |   |   |   |   |   |--- feature_1 <= 1394.50
+|   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |   |--- feature_1 >  1394.50
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |--- feature_8 >  3.50
+|   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |--- feature_0 >  1950.50
+|   |   |   |   |   |   |   |--- feature_40 <= 0.50
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |--- feature_40 >  0.50
+|   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |--- feature_10 >  30.87
+|   |   |   |   |   |--- feature_12 <= 49.43
+|   |   |   |   |   |   |--- feature_1 <= 355.00
+|   |   |   |   |   |   |   |--- feature_0 <= 1915.50
+|   |   |   |   |   |   |   |   |--- feature_12 <= 9.35
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |--- feature_12 >  9.35
+|   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |--- feature_0 >  1915.50
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |--- feature_1 >  355.00
+|   |   |   |   |   |   |   |--- feature_1 <= 1857.50
+|   |   |   |   |   |   |   |   |--- feature_0 <= 1954.00
+|   |   |   |   |   |   |   |   |   |--- feature_0 <= 1930.00
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |--- feature_0 >  1930.00
+|   |   |   |   |   |   |   |   |   |   |--- feature_12 <= 34.06
+|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |   |   |--- feature_12 >  34.06
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |--- feature_0 >  1954.00
+|   |   |   |   |   |   |   |   |   |--- feature_8 <= 3.50
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |--- feature_8 >  3.50
+|   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |--- feature_1 >  1857.50
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |--- feature_12 >  49.43
+|   |   |   |   |   |   |--- feature_6 <= -100.75
+|   |   |   |   |   |   |   |--- feature_21 <= 0.50
+|   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |--- feature_21 >  0.50
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |--- feature_6 >  -100.75
+|   |   |   |   |   |   |   |--- class: negative
+|   |   |--- feature_13 >  5.00
+|   |   |   |--- feature_12 <= 22.47
+|   |   |   |   |--- feature_5 <= 42.12
+|   |   |   |   |   |--- feature_16 <= 0.50
+|   |   |   |   |   |   |--- feature_9 <= 24.58
+|   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |--- feature_9 >  24.58
+|   |   |   |   |   |   |   |--- feature_40 <= 0.50
+|   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |--- feature_40 >  0.50
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |--- feature_16 >  0.50
+|   |   |   |   |   |   |--- feature_13 <= 5.90
+|   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |--- feature_13 >  5.90
+|   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |--- feature_5 >  42.12
+|   |   |   |   |   |--- feature_13 <= 6.02
+|   |   |   |   |   |   |--- feature_13 <= 6.00
+|   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |--- feature_13 >  6.00
+|   |   |   |   |   |   |   |--- feature_9 <= 7.45
+|   |   |   |   |   |   |   |   |--- feature_12 <= 9.90
+|   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |--- feature_12 >  9.90
+|   |   |   |   |   |   |   |   |   |--- feature_9 <= 7.15
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |--- feature_9 >  7.15
+|   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |--- feature_9 >  7.45
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |--- feature_13 >  6.02
+|   |   |   |   |   |   |--- class: positive
+|   |   |   |--- feature_12 >  22.47
+|   |   |   |   |--- feature_13 <= 6.00
+|   |   |   |   |   |--- class: positive
+|   |   |   |   |--- feature_13 >  6.00
+|   |   |   |   |   |--- feature_13 <= 6.00
+|   |   |   |   |   |   |--- feature_12 <= 66.60
+|   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |--- feature_12 >  66.60
+|   |   |   |   |   |   |   |--- feature_18 <= 0.50
+|   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |--- feature_18 >  0.50
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |--- feature_13 >  6.00
+|   |   |   |   |   |   |--- feature_7 <= 29.50
+|   |   |   |   |   |   |   |--- feature_13 <= 7.00
+|   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |--- feature_13 >  7.00
+|   |   |   |   |   |   |   |   |--- feature_13 <= 7.00
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |--- feature_13 >  7.00
+|   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |--- feature_7 >  29.50
+|   |   |   |   |   |   |   |--- feature_0 <= 1960.50
+|   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |--- feature_0 >  1960.50
+|   |   |   |   |   |   |   |   |--- feature_13 <= 7.49
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |--- feature_13 >  7.49
+|   |   |   |   |   |   |   |   |   |--- class: positive
+|   |--- feature_13 >  8.00
+|   |   |--- feature_1 <= 17031.50
+|   |   |   |--- feature_12 <= 36.83
+|   |   |   |   |--- feature_10 <= 12.82
+|   |   |   |   |   |--- feature_14 <= 1.50
+|   |   |   |   |   |   |--- feature_11 <= 4.81
+|   |   |   |   |   |   |   |--- feature_1 <= 11.50
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |--- feature_1 >  11.50
+|   |   |   |   |   |   |   |   |--- feature_1 <= 19.00
+|   |   |   |   |   |   |   |   |   |--- feature_9 <= 6.85
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |--- feature_9 >  6.85
+|   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |--- feature_1 >  19.00
+|   |   |   |   |   |   |   |   |   |--- feature_5 <= 41.70
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |--- feature_5 >  41.70
+|   |   |   |   |   |   |   |   |   |   |--- feature_5 <= 42.08
+|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |   |   |--- feature_5 >  42.08
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |--- feature_11 >  4.81
+|   |   |   |   |   |   |   |--- feature_15 <= 23.50
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |--- feature_15 >  23.50
+|   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |--- feature_14 >  1.50
+|   |   |   |   |   |   |--- feature_11 <= 7.20
+|   |   |   |   |   |   |   |--- feature_5 <= 40.44
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |--- feature_5 >  40.44
+|   |   |   |   |   |   |   |   |--- feature_11 <= 6.70
+|   |   |   |   |   |   |   |   |   |--- feature_10 <= 9.81
+|   |   |   |   |   |   |   |   |   |   |--- feature_6 <= -97.20
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 7
+|   |   |   |   |   |   |   |   |   |   |--- feature_6 >  -97.20
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 4
+|   |   |   |   |   |   |   |   |   |--- feature_10 >  9.81
+|   |   |   |   |   |   |   |   |   |   |--- feature_12 <= 22.98
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 10
+|   |   |   |   |   |   |   |   |   |   |--- feature_12 >  22.98
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 4
+|   |   |   |   |   |   |   |   |--- feature_11 >  6.70
+|   |   |   |   |   |   |   |   |   |--- feature_6 <= -96.50
+|   |   |   |   |   |   |   |   |   |   |--- feature_7 <= 14.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 6
+|   |   |   |   |   |   |   |   |   |   |--- feature_7 >  14.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |--- feature_6 >  -96.50
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |--- feature_11 >  7.20
+|   |   |   |   |   |   |   |--- feature_0 <= 1932.50
+|   |   |   |   |   |   |   |   |--- feature_44 <= 0.50
+|   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |--- feature_44 >  0.50
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |--- feature_0 >  1932.50
+|   |   |   |   |   |   |   |   |--- feature_6 <= -96.10
+|   |   |   |   |   |   |   |   |   |--- feature_10 <= 9.51
+|   |   |   |   |   |   |   |   |   |   |--- feature_6 <= -96.42
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |   |--- feature_6 >  -96.42
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |--- feature_10 >  9.51
+|   |   |   |   |   |   |   |   |   |   |--- feature_10 <= 12.16
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 5
+|   |   |   |   |   |   |   |   |   |   |--- feature_10 >  12.16
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |--- feature_6 >  -96.10
+|   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |--- feature_10 >  12.82
+|   |   |   |   |   |--- feature_17 <= 0.50
+|   |   |   |   |   |   |--- feature_1 <= 1245.50
+|   |   |   |   |   |   |   |--- feature_12 <= 17.86
+|   |   |   |   |   |   |   |   |--- feature_5 <= 40.41
+|   |   |   |   |   |   |   |   |   |--- feature_7 <= 2.00
+|   |   |   |   |   |   |   |   |   |   |--- feature_0 <= 1932.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- feature_0 >  1932.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |--- feature_7 >  2.00
+|   |   |   |   |   |   |   |   |   |   |--- feature_1 <= 36.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |   |--- feature_1 >  36.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |--- feature_5 >  40.41
+|   |   |   |   |   |   |   |   |   |--- feature_12 <= 14.41
+|   |   |   |   |   |   |   |   |   |   |--- feature_7 <= 17.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 11
+|   |   |   |   |   |   |   |   |   |   |--- feature_7 >  17.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |--- feature_12 >  14.41
+|   |   |   |   |   |   |   |   |   |   |--- feature_6 <= -98.08
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- feature_6 >  -98.08
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 4
+|   |   |   |   |   |   |   |--- feature_12 >  17.86
+|   |   |   |   |   |   |   |   |--- feature_8 <= 2.50
+|   |   |   |   |   |   |   |   |   |--- feature_0 <= 1951.00
+|   |   |   |   |   |   |   |   |   |   |--- feature_10 <= 20.62
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |   |--- feature_10 >  20.62
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 5
+|   |   |   |   |   |   |   |   |   |--- feature_0 >  1951.00
+|   |   |   |   |   |   |   |   |   |   |--- feature_11 <= 6.18
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |   |--- feature_11 >  6.18
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 8
+|   |   |   |   |   |   |   |   |--- feature_8 >  2.50
+|   |   |   |   |   |   |   |   |   |--- feature_12 <= 34.30
+|   |   |   |   |   |   |   |   |   |   |--- feature_2 <= 3.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |   |--- feature_2 >  3.50
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |--- feature_12 >  34.30
+|   |   |   |   |   |   |   |   |   |   |--- feature_1 <= 130.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |   |--- feature_1 >  130.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |--- feature_1 >  1245.50
+|   |   |   |   |   |   |   |--- feature_1 <= 1352.50
+|   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |--- feature_1 >  1352.50
+|   |   |   |   |   |   |   |   |--- feature_6 <= -97.19
+|   |   |   |   |   |   |   |   |   |--- feature_0 <= 1966.00
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |--- feature_0 >  1966.00
+|   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |--- feature_6 >  -97.19
+|   |   |   |   |   |   |   |   |   |--- feature_12 <= 27.45
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |--- feature_12 >  27.45
+|   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |--- feature_17 >  0.50
+|   |   |   |   |   |   |--- feature_5 <= 41.94
+|   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |--- feature_5 >  41.94
+|   |   |   |   |   |   |   |--- feature_5 <= 41.99
+|   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |--- feature_5 >  41.99
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |--- feature_12 >  36.83
+|   |   |   |   |--- feature_10 <= 37.55
+|   |   |   |   |   |--- feature_6 <= -98.20
+|   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |--- feature_6 >  -98.20
+|   |   |   |   |   |   |--- feature_5 <= 41.00
+|   |   |   |   |   |   |   |--- feature_11 <= 8.26
+|   |   |   |   |   |   |   |   |--- feature_9 <= 9.15
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |--- feature_9 >  9.15
+|   |   |   |   |   |   |   |   |   |--- feature_12 <= 59.12
+|   |   |   |   |   |   |   |   |   |   |--- feature_12 <= 46.04
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- feature_12 >  46.04
+|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |   |--- feature_12 >  59.12
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |--- feature_11 >  8.26
+|   |   |   |   |   |   |   |   |--- feature_8 <= 3.50
+|   |   |   |   |   |   |   |   |   |--- feature_1 <= 15497.50
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |--- feature_1 >  15497.50
+|   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |--- feature_8 >  3.50
+|   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |--- feature_5 >  41.00
+|   |   |   |   |   |   |   |--- feature_10 <= 25.60
+|   |   |   |   |   |   |   |   |--- feature_1 <= 48.50
+|   |   |   |   |   |   |   |   |   |--- feature_1 <= 46.00
+|   |   |   |   |   |   |   |   |   |   |--- feature_5 <= 41.21
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- feature_5 >  41.21
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |--- feature_1 >  46.00
+|   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |--- feature_1 >  48.50
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |--- feature_10 >  25.60
+|   |   |   |   |   |   |   |   |--- feature_2 <= 8.00
+|   |   |   |   |   |   |   |   |   |--- feature_1 <= 858.00
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |--- feature_1 >  858.00
+|   |   |   |   |   |   |   |   |   |   |--- feature_11 <= 11.66
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- feature_11 >  11.66
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |--- feature_2 >  8.00
+|   |   |   |   |   |   |   |   |   |--- feature_5 <= 42.62
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |--- feature_5 >  42.62
+|   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |--- feature_10 >  37.55
+|   |   |   |   |   |--- feature_2 <= 8.50
+|   |   |   |   |   |   |--- feature_21 <= 0.50
+|   |   |   |   |   |   |   |--- feature_0 <= 1940.50
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |--- feature_0 >  1940.50
+|   |   |   |   |   |   |   |   |--- feature_6 <= -98.03
+|   |   |   |   |   |   |   |   |   |--- feature_5 <= 40.20
+|   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |   |--- feature_5 >  40.20
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |--- feature_6 >  -98.03
+|   |   |   |   |   |   |   |   |   |--- feature_2 <= 1.50
+|   |   |   |   |   |   |   |   |   |   |--- feature_26 <= 0.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |   |--- feature_26 >  0.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |   |--- feature_2 >  1.50
+|   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |--- feature_21 >  0.50
+|   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |--- feature_2 >  8.50
+|   |   |   |   |   |   |--- feature_1 <= 7293.00
+|   |   |   |   |   |   |   |--- feature_0 <= 1939.00
+|   |   |   |   |   |   |   |   |--- feature_6 <= -97.37
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |--- feature_6 >  -97.37
+|   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |--- feature_0 >  1939.00
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |--- feature_1 >  7293.00
+|   |   |   |   |   |   |   |--- feature_11 <= 12.67
+|   |   |   |   |   |   |   |   |--- feature_2 <= 9.50
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |--- feature_2 >  9.50
+|   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |--- feature_11 >  12.67
+|   |   |   |   |   |   |   |   |--- feature_1 <= 7376.00
+|   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |--- feature_1 >  7376.00
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |--- feature_1 >  17031.50
+|   |   |   |--- feature_11 <= 12.90
+|   |   |   |   |--- feature_12 <= 40.69
+|   |   |   |   |   |--- feature_10 <= 27.75
+|   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |--- feature_10 >  27.75
+|   |   |   |   |   |   |--- class: positive
+|   |   |   |   |--- feature_12 >  40.69
+|   |   |   |   |   |--- class: positive
+|   |   |   |--- feature_11 >  12.90
+|   |   |   |   |--- class: negative
+|--- feature_0 >  1973.50
+|   |--- feature_0 <= 1986.50
+|   |   |--- feature_27 <= 0.50
+|   |   |   |--- feature_1 <= 35.50
+|   |   |   |   |--- feature_11 <= 7.68
+|   |   |   |   |   |--- feature_6 <= -98.54
+|   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |--- feature_6 >  -98.54
+|   |   |   |   |   |   |--- feature_2 <= 0.50
+|   |   |   |   |   |   |   |--- feature_1 <= 26.00
+|   |   |   |   |   |   |   |   |--- feature_13 <= 4.74
+|   |   |   |   |   |   |   |   |   |--- feature_12 <= 47.13
+|   |   |   |   |   |   |   |   |   |   |--- feature_6 <= -96.76
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- feature_6 >  -96.76
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |--- feature_12 >  47.13
+|   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |--- feature_13 >  4.74
+|   |   |   |   |   |   |   |   |   |--- feature_1 <= 22.00
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |--- feature_1 >  22.00
+|   |   |   |   |   |   |   |   |   |   |--- feature_1 <= 24.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |   |   |--- feature_1 >  24.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |--- feature_1 >  26.00
+|   |   |   |   |   |   |   |   |--- feature_6 <= -97.64
+|   |   |   |   |   |   |   |   |   |--- feature_13 <= 5.01
+|   |   |   |   |   |   |   |   |   |   |--- feature_6 <= -97.69
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |   |--- feature_6 >  -97.69
+|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |   |--- feature_13 >  5.01
+|   |   |   |   |   |   |   |   |   |   |--- feature_12 <= 63.10
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- feature_12 >  63.10
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |--- feature_6 >  -97.64
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |--- feature_2 >  0.50
+|   |   |   |   |   |   |   |--- feature_11 <= 6.03
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |--- feature_11 >  6.03
+|   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |--- feature_11 >  7.68
+|   |   |   |   |   |--- class: negative
+|   |   |   |--- feature_1 >  35.50
+|   |   |   |   |--- feature_12 <= 26.98
+|   |   |   |   |   |--- feature_10 <= 17.37
+|   |   |   |   |   |   |--- feature_5 <= 40.86
+|   |   |   |   |   |   |   |--- feature_10 <= 16.57
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |--- feature_10 >  16.57
+|   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |--- feature_5 >  40.86
+|   |   |   |   |   |   |   |--- feature_5 <= 42.24
+|   |   |   |   |   |   |   |   |--- feature_13 <= 5.01
+|   |   |   |   |   |   |   |   |   |--- feature_6 <= -98.63
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |--- feature_6 >  -98.63
+|   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |--- feature_13 >  5.01
+|   |   |   |   |   |   |   |   |   |--- feature_12 <= 3.77
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |--- feature_12 >  3.77
+|   |   |   |   |   |   |   |   |   |   |--- feature_10 <= 9.42
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- feature_10 >  9.42
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |--- feature_5 >  42.24
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |--- feature_10 >  17.37
+|   |   |   |   |   |   |--- class: negative
+|   |   |   |   |--- feature_12 >  26.98
+|   |   |   |   |   |--- feature_7 <= 0.50
+|   |   |   |   |   |   |--- feature_2 <= 9.50
+|   |   |   |   |   |   |   |--- feature_1 <= 81.00
+|   |   |   |   |   |   |   |   |--- feature_44 <= 0.50
+|   |   |   |   |   |   |   |   |   |--- feature_11 <= 8.38
+|   |   |   |   |   |   |   |   |   |   |--- feature_11 <= 7.27
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |   |--- feature_11 >  7.27
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |--- feature_11 >  8.38
+|   |   |   |   |   |   |   |   |   |   |--- feature_6 <= -96.63
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |   |--- feature_6 >  -96.63
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |--- feature_44 >  0.50
+|   |   |   |   |   |   |   |   |   |--- feature_12 <= 29.69
+|   |   |   |   |   |   |   |   |   |   |--- feature_1 <= 39.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |   |   |--- feature_1 >  39.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |--- feature_12 >  29.69
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |--- feature_1 >  81.00
+|   |   |   |   |   |   |   |   |--- feature_45 <= 0.50
+|   |   |   |   |   |   |   |   |   |--- feature_5 <= 40.60
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |--- feature_5 >  40.60
+|   |   |   |   |   |   |   |   |   |   |--- feature_1 <= 192.50
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 6
+|   |   |   |   |   |   |   |   |   |   |--- feature_1 >  192.50
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 10
+|   |   |   |   |   |   |   |   |--- feature_45 >  0.50
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |--- feature_2 >  9.50
+|   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |--- feature_7 >  0.50
+|   |   |   |   |   |   |--- feature_1 <= 942.50
+|   |   |   |   |   |   |   |--- feature_7 <= 14.50
+|   |   |   |   |   |   |   |   |--- feature_6 <= -97.54
+|   |   |   |   |   |   |   |   |   |--- feature_12 <= 55.15
+|   |   |   |   |   |   |   |   |   |   |--- feature_12 <= 38.22
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |   |--- feature_12 >  38.22
+|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |   |--- feature_12 >  55.15
+|   |   |   |   |   |   |   |   |   |   |--- feature_0 <= 1976.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |   |   |--- feature_0 >  1976.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |--- feature_6 >  -97.54
+|   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |--- feature_7 >  14.50
+|   |   |   |   |   |   |   |   |--- feature_9 <= 16.02
+|   |   |   |   |   |   |   |   |   |--- feature_9 <= 8.94
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |--- feature_9 >  8.94
+|   |   |   |   |   |   |   |   |   |   |--- feature_45 <= 0.50
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 5
+|   |   |   |   |   |   |   |   |   |   |--- feature_45 >  0.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |--- feature_9 >  16.02
+|   |   |   |   |   |   |   |   |   |--- feature_7 <= 18.00
+|   |   |   |   |   |   |   |   |   |   |--- feature_1 <= 177.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |   |--- feature_1 >  177.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |--- feature_7 >  18.00
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |--- feature_1 >  942.50
+|   |   |   |   |   |   |   |--- class: negative
+|   |   |--- feature_27 >  0.50
+|   |   |   |--- feature_6 <= -97.33
+|   |   |   |   |--- class: negative
+|   |   |   |--- feature_6 >  -97.33
+|   |   |   |   |--- feature_6 <= -97.29
+|   |   |   |   |   |--- feature_9 <= 13.10
+|   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |--- feature_9 >  13.10
+|   |   |   |   |   |   |--- class: positive
+|   |   |   |   |--- feature_6 >  -97.29
+|   |   |   |   |   |--- feature_1 <= 445.00
+|   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |--- feature_1 >  445.00
+|   |   |   |   |   |   |--- feature_5 <= 40.64
+|   |   |   |   |   |   |   |--- feature_9 <= 17.95
+|   |   |   |   |   |   |   |   |--- feature_6 <= -96.32
+|   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |--- feature_6 >  -96.32
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |--- feature_9 >  17.95
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |--- feature_5 >  40.64
+|   |   |   |   |   |   |   |--- class: negative
+|   |--- feature_0 >  1986.50
+|   |   |--- feature_11 <= 8.50
+|   |   |   |--- feature_20 <= 0.50
+|   |   |   |   |--- feature_9 <= 9.81
+|   |   |   |   |   |--- feature_26 <= 0.50
+|   |   |   |   |   |   |--- feature_1 <= 75.50
+|   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |--- feature_1 >  75.50
+|   |   |   |   |   |   |   |--- feature_9 <= 9.13
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |--- feature_9 >  9.13
+|   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |--- feature_26 >  0.50
+|   |   |   |   |   |   |--- class: positive
+|   |   |   |   |--- feature_9 >  9.81
+|   |   |   |   |   |--- feature_11 <= 7.34
+|   |   |   |   |   |   |--- feature_5 <= 42.68
+|   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |--- feature_5 >  42.68
+|   |   |   |   |   |   |   |--- feature_9 <= 13.33
+|   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |--- feature_9 >  13.33
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |--- feature_11 >  7.34
+|   |   |   |   |   |   |--- feature_18 <= 0.50
+|   |   |   |   |   |   |   |--- feature_12 <= 40.02
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |--- feature_12 >  40.02
+|   |   |   |   |   |   |   |   |--- feature_12 <= 82.02
+|   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |--- feature_12 >  82.02
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |--- feature_18 >  0.50
+|   |   |   |   |   |   |   |--- class: negative
+|   |   |   |--- feature_20 >  0.50
+|   |   |   |   |--- feature_2 <= 0.50
+|   |   |   |   |   |--- feature_10 <= 38.39
+|   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |--- feature_10 >  38.39
+|   |   |   |   |   |   |--- feature_11 <= 8.19
+|   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |--- feature_11 >  8.19
+|   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |--- feature_2 >  0.50
+|   |   |   |   |   |--- feature_0 <= 1989.50
+|   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |--- feature_0 >  1989.50
+|   |   |   |   |   |   |--- class: negative
+|   |   |--- feature_11 >  8.50
+|   |   |   |--- feature_10 <= 30.95
+|   |   |   |   |--- feature_12 <= 19.35
+|   |   |   |   |   |--- feature_12 <= 18.00
+|   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |--- feature_12 >  18.00
+|   |   |   |   |   |   |--- class: positive
+|   |   |   |   |--- feature_12 >  19.35
+|   |   |   |   |   |--- class: negative
+|   |   |   |--- feature_10 >  30.95
+|   |   |   |   |--- feature_2 <= 3.50
+|   |   |   |   |   |--- feature_5 <= 41.75
+|   |   |   |   |   |   |--- feature_0 <= 1989.50
+|   |   |   |   |   |   |   |--- feature_10 <= 37.03
+|   |   |   |   |   |   |   |   |--- feature_1 <= 320.50
+|   |   |   |   |   |   |   |   |   |--- feature_6 <= -97.00
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |--- feature_6 >  -97.00
+|   |   |   |   |   |   |   |   |   |   |--- feature_6 <= -96.58
+|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |   |   |--- feature_6 >  -96.58
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |--- feature_1 >  320.50
+|   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |--- feature_10 >  37.03
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |--- feature_0 >  1989.50
+|   |   |   |   |   |   |   |--- feature_5 <= 41.37
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |--- feature_5 >  41.37
+|   |   |   |   |   |   |   |   |--- feature_5 <= 41.38
+|   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |--- feature_5 >  41.38
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |--- feature_5 >  41.75
+|   |   |   |   |   |   |--- feature_11 <= 8.51
+|   |   |   |   |   |   |   |--- feature_7 <= 32.50
+|   |   |   |   |   |   |   |   |--- feature_5 <= 42.77
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |--- feature_5 >  42.77
+|   |   |   |   |   |   |   |   |   |--- feature_1 <= 22.50
+|   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |   |--- feature_1 >  22.50
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |--- feature_7 >  32.50
+|   |   |   |   |   |   |   |   |--- feature_6 <= -97.09
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |--- feature_6 >  -97.09
+|   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |--- feature_11 >  8.51
+|   |   |   |   |   |   |   |--- feature_9 <= 16.92
+|   |   |   |   |   |   |   |   |--- feature_6 <= -96.97
+|   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |--- feature_6 >  -96.97
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |--- feature_9 >  16.92
+|   |   |   |   |   |   |   |   |--- feature_13 <= 7.36
+|   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |--- feature_13 >  7.36
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |--- feature_2 >  3.50
+|   |   |   |   |   |--- class: negative

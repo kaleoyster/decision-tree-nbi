@@ -303,9 +303,9 @@ def maintenance_pipeline(state):
 
     # TODO: Do one hot encoding here,
     tempColumnsHotEncoded = {'material': 'CatMaterial',
-                         "toll": 'CatToll',
-                         "designLoad": 'CatDesignLoad' ,
-                         "deckStructureType": 'CatDeckStructureType',
+                              "toll": 'CatToll',
+                              "designLoad": 'CatDesignLoad' ,
+                              "deckStructureType": 'CatDeckStructureType',
                          "typeOfDesign":'CatTypeOfDesign'}
 
     dataScaled.rename(columns=tempColumnsHotEncoded, inplace=True)
@@ -370,10 +370,6 @@ def maintenance_pipeline(state):
     columnsFinal.remove('subNumberIntervention')
     columnsFinal.remove('deckNumberIntervention')
 
-    #labels = ['No Substructure - High Deck - No Superstructure',
-    #          'High Substructure - No Deck - No Superstructure',
-    #          'No Substructure - No Deck - High Superstructure']
-
     #TODO: Why do I have these label with all interventions?
     labels = ['No Substructure - Yes Deck - No Superstructure',
               'Yes Substructure - No Deck - No Superstructure',
@@ -408,16 +404,6 @@ def maintenance_pipeline(state):
         all_data = dataScaled
         all_data['structureNumber'] = structureNumber
 
-        # Oversampling techniques:
-        oversample = SMOTE()
-        oversample = SMOTEN(random_state=0)
-        #oversample = SMOTNC()
-
-        # Undersampling:
-        #undersample = RandomUnderSampler(sampling_strategy='auto')
-
-        # SMOTENC
-
         # TODO: Run a independent test / Bayesian test: 
             # What is the probability of getting a year built given the cluster is 0 or 1?
         # print(dataScaled.columns())
@@ -448,11 +434,52 @@ def maintenance_pipeline(state):
         #              'label',
         #              'barchart1')
 
+        categorical_col = [
+                            16,
+                            17,
+                            18,
+                            19,
+                            20,
+                            21,
+                            22,
+                            23,
+                            24,
+                            25,
+                            26,
+                            27,
+                            28,
+                            29,
+                            30,
+                            31,
+                            32,
+                            33,
+                            34,
+                            35,
+                            36,
+                            37,
+                            38,
+                            39,
+                            40,
+                            41,
+                            42,
+                            43,
+                            44,
+                            45,
+                            46,
+                            47,
+                            48
+        ]
         print("\n Oversampling (SMOTE) ...")
-        X, y = oversample.fit_resample(X, y)
-        #X, y = undersample.fit_resample(X, y)
-
-        # TODO: Undersampling
+        # Oversampling techniques:
+        #oversample = SMOTE()
+        #oversample = SMOTEN(random_state=0)
+        #oversample = SMOTENC(random_state=42,
+        #                     categorical_features=categorical_col)
+        # Undersampling:
+        undersample = RandomUnderSampler(sampling_strategy='auto')
+        column_list = list(X.columns)
+        #X, y = oversample.fit_resample(X, y)
+        X, y = undersample.fit_resample(X, y)
 
         # Summarize distribution:
         print("\n Distribution of the clusters after oversampling: ", Counter(y))
