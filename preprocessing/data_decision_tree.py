@@ -23,6 +23,94 @@ __email__ = "akale@unomaha.edu"
 
 from nbi_data_chef import *
 
+def categorize_by_adt(adt):
+    """
+    """
+    if adt < 50:
+        category = 'Ultra Light'
+    elif 51 < adt <= 100:
+        category = "Very Light"
+    elif 101 < adt <= 1000:
+        category = "Light"
+    elif 1001 < adt <= 5000:
+        category = "Moderate"
+    elif adt > 5000:
+        category = "High"
+    else:
+        category = None
+    return category
+
+
+def compute_deck_age(records):
+    """
+    description: returns the computed deck age
+    by computing the difference between the year
+    reported and the greater between year reconstructed
+    or year built.
+    args: records (list of dictionaries)
+    return: newRecords (list of new records)
+    """
+    newRecords = []
+    for record in records:
+        tempDictionary = {}
+        for key, value in zip(record.keys(), record.values()):
+            tempDictionary[key] = value
+            if key == "yearReconstructed":
+                year_built = record['yearBuilt']
+                year = record['year']
+                if year_built < value:
+                    tempDictionary['deckAge'] = year - value
+                else:
+                    tempDictionary['deckAge'] = year - year_built
+        newRecords.append(tempDictionary)
+    return newRecords
+
+def compute_age_1(records):
+    """
+    Description: returns the computed deck age
+    by computing the difference between the year
+    reported and the greater between year reconstructed
+    or year built.
+
+    Args: records (list of dictionaries)
+
+    Return: newRecords (list of new records)
+    """
+    newRecords = []
+    for record in records:
+        tempDictionary = {}
+        for key, value in zip(record.keys(), record.values()):
+            tempDictionary[key] = value
+            if key == "yearBuilt":
+                year_built = record['yearBuilt']
+                year = record['year']
+                tempDictionary['age'] = year - year_built
+        newRecords.append(tempDictionary)
+    return newRecords
+
+def compute_adt_cat(individual_records):
+    new_individual_records = []
+    for record in individual_records:
+        adt = record['averageDailyTraffic']
+        cat = categorize_by_adt(adt)
+        record['adtCategory'] = cat
+        new_individual_records.append(record)
+
+def filter_gravel_paved(individual_records):
+    paved = []
+    gravel = []
+    not_state_owned = [2, 4]
+    for record in individual_records:
+        if record['material'] != 7 and record['wearingSurface'] == '1':
+            if record['owner'] == 1 and record['adtCategory'] == 'High':
+                paved.append(record)
+            elif record['owner'] in not_state_owned and record['adtCategory'] == 'Ultra Light':
+                gravel.append(record)
+            else:
+                pass
+    return paved, gravel
+
+
 # Driver function
 def main():
     nbiDB = get_db()
@@ -66,12 +154,16 @@ def main():
     # query
     individualRecords = query(fields, states, years, collection)
     #individualRecords = sample_records()
+    individualRecords = compute_deck_age(individualRecords)
+    individualRecords = compute_age_1(individualRecords)
+    individualRecords = compute_adt_cat(individualRecords)
+    paved_ind_rec, gravel_ind_rec = filter_gravel_paved(individualRecords)
 
+    individualRecords = paved_ind_rec
     # group records
     groupedrecords = group_records(individualRecords, fields)
 
-    # integrate baseline difference score, precipitation, freezethaw, and snowfall
-
+    # Integrate baseline difference score, precipitation, freezethaw, and snowfall
     #individualRecords = integrate_ext_dataset_list(structBdsMap,
     #                                               individualRecords,
     #                                               'baseDifferenceScore')
