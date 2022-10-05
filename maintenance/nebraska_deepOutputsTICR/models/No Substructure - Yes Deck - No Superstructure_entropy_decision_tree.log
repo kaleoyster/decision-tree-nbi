@@ -1,0 +1,22 @@
+|--- feature_10 <= 18.00
+|   |--- class: positive
+|--- feature_10 >  18.00
+|   |--- feature_10 <= 64.80
+|   |   |--- feature_3 <= 41.61
+|   |   |   |--- feature_9 <= 8.10
+|   |   |   |   |--- feature_4 <= -98.20
+|   |   |   |   |   |--- class: positive
+|   |   |   |   |--- feature_4 >  -98.20
+|   |   |   |   |   |--- feature_4 <= -96.68
+|   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |--- feature_4 >  -96.68
+|   |   |   |   |   |   |--- feature_6 <= 2.00
+|   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |--- feature_6 >  2.00
+|   |   |   |   |   |   |   |--- class: negative
+|   |   |   |--- feature_9 >  8.10
+|   |   |   |   |--- class: negative
+|   |   |--- feature_3 >  41.61
+|   |   |   |--- class: positive
+|   |--- feature_10 >  64.80
+|   |   |--- class: negative

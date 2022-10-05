@@ -1,0 +1,16 @@
+|--- feature_0 <= 1983.50
+|   |--- feature_9 <= 5.55
+|   |   |--- feature_8 <= 13.85
+|   |   |   |--- class: negative
+|   |   |--- feature_8 >  13.85
+|   |   |   |--- class: positive
+|   |--- feature_9 >  5.55
+|   |   |--- class: positive
+|--- feature_0 >  1983.50
+|   |--- feature_8 <= 42.20
+|   |   |--- class: negative
+|   |--- feature_8 >  42.20
+|   |   |--- feature_0 <= 1995.00
+|   |   |   |--- class: negative
+|   |   |--- feature_0 >  1995.00
+|   |   |   |--- class: positive

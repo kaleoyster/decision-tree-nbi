@@ -1,2 +1,341 @@
 
  state:  nebraska_deep
+
+ Printing columns, one hot encoding:
+
+Printing the labels
+
+
+['No intervention' 'No Substructure - Yes Deck - Yes Superstructure'
+ 'Yes Substructure - Yes Deck - No Superstructure'
+ 'Yes Substructure - No Deck - No Superstructure'
+ 'No Substructure - No Deck - Yes Superstructure'
+ 'No Substructure - Yes Deck - No Superstructure' 'All intervention'
+ 'Yes Substructure - No Deck - Yes Superstructure'
+ 'Yes Substructure - Yes Deck - Yes Superstructure']
+
+
+Cluster:  No intervention
+Mean Median Maximums Minimums StdDev  
+=====================================
+0.00 0.00   0.00     0.00     0.00
+0.00 0.00   0.00     0.00     0.00
+0.00 0.00   0.00     0.00     0.00
+
+
+Cluster:  No Substructure - Yes Deck - Yes Superstructure
+Mean Median Maximums Minimums StdDev  
+=====================================
+1.00 1.00   1.00     1.00     1.00
+0.00 0.00   0.00     0.00     0.00
+1.06 1.00   2.00     1.00     1.06
+
+
+Cluster:  Yes Substructure - Yes Deck - No Superstructure
+Mean Median Maximums Minimums StdDev  
+=====================================
+0.00 0.00   0.00     0.00     0.00
+1.17 1.00   3.00     1.00     1.17
+1.03 1.00   2.00     1.00     1.03
+
+
+Cluster:  Yes Substructure - No Deck - No Superstructure
+Mean Median Maximums Minimums StdDev  
+=====================================
+0.00 0.00   0.00     0.00     0.00
+1.16 1.00   3.00     1.00     1.16
+0.00 0.00   0.00     0.00     0.00
+
+
+Cluster:  No Substructure - No Deck - Yes Superstructure
+Mean Median Maximums Minimums StdDev  
+=====================================
+1.02 1.00   2.00     1.00     1.02
+0.00 0.00   0.00     0.00     0.00
+0.00 0.00   0.00     0.00     0.00
+
+
+Cluster:  No Substructure - Yes Deck - No Superstructure
+Mean Median Maximums Minimums StdDev  
+=====================================
+0.00 0.00   0.00     0.00     0.00
+0.00 0.00   0.00     0.00     0.00
+1.08 1.00   2.00     1.00     1.08
+
+
+Cluster:  All intervention
+Mean Median Maximums Minimums StdDev  
+=====================================
+1.00 1.00   1.00     1.00     1.00
+1.00 1.00   1.00     1.00     1.00
+1.00 1.00   1.00     1.00     1.00
+
+
+Cluster:  Yes Substructure - No Deck - Yes Superstructure
+Mean Median Maximums Minimums StdDev  
+=====================================
+1.00 1.00   1.00     1.00     1.00
+1.26 1.00   2.00     1.00     1.26
+0.00 0.00   0.00     0.00     0.00
+
+
+Cluster:  Yes Substructure - Yes Deck - Yes Superstructure
+Mean Median Maximums Minimums StdDev  
+=====================================
+1.20 1.00   2.00     1.00     1.20
+1.50 1.50   2.00     1.00     1.50
+1.30 1.00   2.00     1.00     1.30
+
+
+
+Category (Positive Class):  No Substructure - Yes Deck - No Superstructure
+--------------------------------------------------
+Using this function
+
+ Distribution of the clusters before oversampling:  Counter({'negative': 1717, 'positive': 24})
+Index and length of the rows
+
+ Oversampling (SMOTE) ...
+
+ Distribution of the clusters after oversampling:  Counter({'negative': 24, 'positive': 24})
+
+ Test, length of X and y :  48 48
+
+
+            -------------- Performance of Entropy ---------------
+            
+
+
+ Best Kappa Values:  0.052631578947368474
+
+ Best Accuracy:  0.7911111111111111
+
+ Best Depth:  30
+
+ Classification Report: 
+               precision    recall  f1-score   support
+
+    negative       0.80      0.57      0.67         7
+    positive       0.25      0.50      0.33         2
+
+    accuracy                           0.56         9
+   macro avg       0.53      0.54      0.50         9
+weighted avg       0.68      0.56      0.59         9
+
+
+ Confusion Matrix: 
+ [[4 3]
+ [1 1]]
+
+ Feature Importance: 
+ {'yearBuilt': 0.0, 'averageDailyTraffic': 0.0, 'avgDailyTruckTraffic': 0.0, 'skew': 0.0, 'lengthOfMaximumSpan': 0.0, 'structureLength': 0.0, 'scourCriticalBridges': 0.0, 'lanesOnStructure': 0.0, 'designatedInspectionFrequency': 0.0, 'CatMaterialConcrete': 0.0, 'CatMaterialConcreteContinuous': 0.0, 'CatMaterialPrestressedConcrete': 0.0, 'CatMaterialPrestressedConcreteContinuous': 0.0, 'CatMaterialSteel': 0.0, 'CatMaterialSteelContinuous': 0.0, 'CatDesignLoadH10': 0.0, 'CatDesignLoadH15': 0.0, 'CatDesignLoadH20': 0.0, 'CatDesignLoadHS15': 0.0, 'CatDesignLoadHS20': 0.0, 'CatDesignLoadHS20Mod': 0.0, 'CatDesignLoadHS25': 0.0, 'CatDesignLoadnan': 0.0, 'CatDeckStructureTypenan': 0.0, 'numberOfSpansInMainUnit': 0.07148807448541122, 'bridgeRoadwayWidthCurbToCurb': 0.08210444603734655, 'longitude': 0.15997367202040585, 'latitude': 0.20542468769619424, 'operatingRating': 0.4810091197606421}
+
+
+             ----------- Performance with GiniIndex ------------
+             
+
+
+ Best Kappa Values:  0.7272727272727273
+
+ Best Accuracy:  0.8155555555555555
+
+ Best Depth:  29
+
+ Classification Report: 
+               precision    recall  f1-score   support
+
+    negative       1.00      0.86      0.92         7
+    positive       0.67      1.00      0.80         2
+
+    accuracy                           0.89         9
+   macro avg       0.83      0.93      0.86         9
+weighted avg       0.93      0.89      0.90         9
+
+
+ Confusion Matrix: 
+ [[6 1]
+ [0 2]]
+
+ Feature Importance: 
+ {'yearBuilt': 0.0, 'averageDailyTraffic': 0.0, 'avgDailyTruckTraffic': 0.0, 'skew': 0.0, 'lengthOfMaximumSpan': 0.0, 'structureLength': 0.0, 'scourCriticalBridges': 0.0, 'lanesOnStructure': 0.0, 'designatedInspectionFrequency': 0.0, 'CatMaterialConcrete': 0.0, 'CatMaterialConcreteContinuous': 0.0, 'CatMaterialPrestressedConcrete': 0.0, 'CatMaterialPrestressedConcreteContinuous': 0.0, 'CatMaterialSteel': 0.0, 'CatMaterialSteelContinuous': 0.0, 'CatDesignLoadH10': 0.0, 'CatDesignLoadH15': 0.0, 'CatDesignLoadH20': 0.0, 'CatDesignLoadHS15': 0.0, 'CatDesignLoadHS20': 0.0, 'CatDesignLoadHS20Mod': 0.0, 'CatDesignLoadHS25': 0.0, 'CatDesignLoadnan': 0.0, 'CatDeckStructureTypenan': 0.0, 'numberOfSpansInMainUnit': 0.07148807448541122, 'bridgeRoadwayWidthCurbToCurb': 0.08210444603734655, 'longitude': 0.15997367202040585, 'latitude': 0.20542468769619424, 'operatingRating': 0.4810091197606421}
+
+Printing split-nodes
+The length of the all data: 1741
+The length of the structure number - all data sample: 1741
+The length of the labels - all data sample: 1741
+
+ Saving decision trees 
+
+
+ Plotting decision trees 
+
+
+ List of final columns ['yearBuilt', 'averageDailyTraffic', 'avgDailyTruckTraffic', 'latitude', 'longitude', 'skew', 'numberOfSpansInMainUnit', 'lengthOfMaximumSpan', 'structureLength', 'bridgeRoadwayWidthCurbToCurb', 'operatingRating', 'scourCriticalBridges', 'lanesOnStructure', 'designatedInspectionFrequency', 'CatMaterialConcrete', 'CatMaterialConcreteContinuous', 'CatMaterialPrestressedConcrete', 'CatMaterialPrestressedConcreteContinuous', 'CatMaterialSteel', 'CatMaterialSteelContinuous', 'CatDesignLoadH10', 'CatDesignLoadH15', 'CatDesignLoadH20', 'CatDesignLoadHS15', 'CatDesignLoadHS20', 'CatDesignLoadHS20Mod', 'CatDesignLoadHS25', 'CatDesignLoadnan', 'CatDeckStructureTypenan']
+
+Category (Positive Class):  Yes Substructure - No Deck - No Superstructure
+--------------------------------------------------
+Using this function
+
+ Distribution of the clusters before oversampling:  Counter({'negative': 1717, 'positive': 24})
+Index and length of the rows
+
+ Oversampling (SMOTE) ...
+
+ Distribution of the clusters after oversampling:  Counter({'negative': 24, 'positive': 24})
+
+ Test, length of X and y :  48 48
+
+
+            -------------- Performance of Entropy ---------------
+            
+
+
+ Best Kappa Values:  1.0
+
+ Best Accuracy:  0.9
+
+ Best Depth:  1
+
+ Classification Report: 
+               precision    recall  f1-score   support
+
+    negative       1.00      1.00      1.00         7
+    positive       1.00      1.00      1.00         2
+
+    accuracy                           1.00         9
+   macro avg       1.00      1.00      1.00         9
+weighted avg       1.00      1.00      1.00         9
+
+
+ Confusion Matrix: 
+ [[7 0]
+ [0 2]]
+
+ Feature Importance: 
+ {'averageDailyTraffic': 0.0, 'avgDailyTruckTraffic': 0.0, 'latitude': 0.0, 'longitude': 0.0, 'skew': 0.0, 'numberOfSpansInMainUnit': 0.0, 'lengthOfMaximumSpan': 0.0, 'structureLength': 0.0, 'bridgeRoadwayWidthCurbToCurb': 0.0, 'operatingRating': 0.0, 'scourCriticalBridges': 0.0, 'lanesOnStructure': 0.0, 'designatedInspectionFrequency': 0.0, 'CatMaterialConcrete': 0.0, 'CatMaterialConcreteContinuous': 0.0, 'CatMaterialPrestressedConcrete': 0.0, 'CatMaterialPrestressedConcreteContinuous': 0.0, 'CatMaterialSteel': 0.0, 'CatMaterialSteelContinuous': 0.0, 'CatDesignLoadH10': 0.0, 'CatDesignLoadH15': 0.0, 'CatDesignLoadH20': 0.0, 'CatDesignLoadHS15': 0.0, 'CatDesignLoadHS20': 0.0, 'CatDesignLoadHS20Mod': 0.0, 'CatDesignLoadHS25': 0.0, 'CatDesignLoadnan': 0.0, 'CatDeckStructureTypenan': 0.0, 'yearBuilt': 1.0}
+
+
+             ----------- Performance with GiniIndex ------------
+             
+
+
+ Best Kappa Values:  1.0
+
+ Best Accuracy:  0.9
+
+ Best Depth:  1
+
+ Classification Report: 
+               precision    recall  f1-score   support
+
+    negative       1.00      1.00      1.00         7
+    positive       1.00      1.00      1.00         2
+
+    accuracy                           1.00         9
+   macro avg       1.00      1.00      1.00         9
+weighted avg       1.00      1.00      1.00         9
+
+
+ Confusion Matrix: 
+ [[7 0]
+ [0 2]]
+
+ Feature Importance: 
+ {'averageDailyTraffic': 0.0, 'avgDailyTruckTraffic': 0.0, 'latitude': 0.0, 'longitude': 0.0, 'skew': 0.0, 'numberOfSpansInMainUnit': 0.0, 'lengthOfMaximumSpan': 0.0, 'structureLength': 0.0, 'bridgeRoadwayWidthCurbToCurb': 0.0, 'operatingRating': 0.0, 'scourCriticalBridges': 0.0, 'lanesOnStructure': 0.0, 'designatedInspectionFrequency': 0.0, 'CatMaterialConcrete': 0.0, 'CatMaterialConcreteContinuous': 0.0, 'CatMaterialPrestressedConcrete': 0.0, 'CatMaterialPrestressedConcreteContinuous': 0.0, 'CatMaterialSteel': 0.0, 'CatMaterialSteelContinuous': 0.0, 'CatDesignLoadH10': 0.0, 'CatDesignLoadH15': 0.0, 'CatDesignLoadH20': 0.0, 'CatDesignLoadHS15': 0.0, 'CatDesignLoadHS20': 0.0, 'CatDesignLoadHS20Mod': 0.0, 'CatDesignLoadHS25': 0.0, 'CatDesignLoadnan': 0.0, 'CatDeckStructureTypenan': 0.0, 'yearBuilt': 1.0}
+
+Printing split-nodes
+The length of the all data: 1741
+The length of the structure number - all data sample: 1741
+The length of the labels - all data sample: 1741
+
+ Saving decision trees 
+
+
+ Plotting decision trees 
+
+
+ List of final columns ['yearBuilt', 'averageDailyTraffic', 'avgDailyTruckTraffic', 'latitude', 'longitude', 'skew', 'numberOfSpansInMainUnit', 'lengthOfMaximumSpan', 'structureLength', 'bridgeRoadwayWidthCurbToCurb', 'operatingRating', 'scourCriticalBridges', 'lanesOnStructure', 'designatedInspectionFrequency', 'CatMaterialConcrete', 'CatMaterialConcreteContinuous', 'CatMaterialPrestressedConcrete', 'CatMaterialPrestressedConcreteContinuous', 'CatMaterialSteel', 'CatMaterialSteelContinuous', 'CatDesignLoadH10', 'CatDesignLoadH15', 'CatDesignLoadH20', 'CatDesignLoadHS15', 'CatDesignLoadHS20', 'CatDesignLoadHS20Mod', 'CatDesignLoadHS25', 'CatDesignLoadnan', 'CatDeckStructureTypenan']
+
+Category (Positive Class):  No Substructure - No Deck - Yes Superstructure
+--------------------------------------------------
+Using this function
+
+ Distribution of the clusters before oversampling:  Counter({'negative': 1717, 'positive': 24})
+Index and length of the rows
+
+ Oversampling (SMOTE) ...
+
+ Distribution of the clusters after oversampling:  Counter({'negative': 24, 'positive': 24})
+
+ Test, length of X and y :  48 48
+
+
+            -------------- Performance of Entropy ---------------
+            
+
+
+ Best Kappa Values:  0.37209302325581395
+
+ Best Accuracy:  0.8511111111111112
+
+ Best Depth:  30
+
+ Classification Report: 
+               precision    recall  f1-score   support
+
+    negative       1.00      0.57      0.73         7
+    positive       0.40      1.00      0.57         2
+
+    accuracy                           0.67         9
+   macro avg       0.70      0.79      0.65         9
+weighted avg       0.87      0.67      0.69         9
+
+
+ Confusion Matrix: 
+ [[4 3]
+ [0 2]]
+
+ Feature Importance: 
+ {'averageDailyTraffic': 0.0, 'avgDailyTruckTraffic': 0.0, 'latitude': 0.0, 'longitude': 0.0, 'skew': 0.0, 'numberOfSpansInMainUnit': 0.0, 'lengthOfMaximumSpan': 0.0, 'operatingRating': 0.0, 'scourCriticalBridges': 0.0, 'lanesOnStructure': 0.0, 'designatedInspectionFrequency': 0.0, 'CatMaterialConcrete': 0.0, 'CatMaterialConcreteContinuous': 0.0, 'CatMaterialPrestressedConcrete': 0.0, 'CatMaterialPrestressedConcreteContinuous': 0.0, 'CatMaterialSteel': 0.0, 'CatMaterialSteelContinuous': 0.0, 'CatDesignLoadH10': 0.0, 'CatDesignLoadH15': 0.0, 'CatDesignLoadH20': 0.0, 'CatDesignLoadHS15': 0.0, 'CatDesignLoadHS20': 0.0, 'CatDesignLoadHS20Mod': 0.0, 'CatDesignLoadHS25': 0.0, 'CatDesignLoadnan': 0.0, 'CatDeckStructureTypenan': 0.0, 'bridgeRoadwayWidthCurbToCurb': 0.11141395478969011, 'structureLength': 0.23111743580253127, 'yearBuilt': 0.6574686094077786}
+
+
+             ----------- Performance with GiniIndex ------------
+             
+
+
+ Best Kappa Values:  0.37209302325581395
+
+ Best Accuracy:  0.8511111111111112
+
+ Best Depth:  30
+
+ Classification Report: 
+               precision    recall  f1-score   support
+
+    negative       1.00      0.57      0.73         7
+    positive       0.40      1.00      0.57         2
+
+    accuracy                           0.67         9
+   macro avg       0.70      0.79      0.65         9
+weighted avg       0.87      0.67      0.69         9
+
+
+ Confusion Matrix: 
+ [[4 3]
+ [0 2]]
+
+ Feature Importance: 
+ {'averageDailyTraffic': 0.0, 'avgDailyTruckTraffic': 0.0, 'latitude': 0.0, 'longitude': 0.0, 'skew': 0.0, 'numberOfSpansInMainUnit': 0.0, 'lengthOfMaximumSpan': 0.0, 'operatingRating': 0.0, 'scourCriticalBridges': 0.0, 'lanesOnStructure': 0.0, 'designatedInspectionFrequency': 0.0, 'CatMaterialConcrete': 0.0, 'CatMaterialConcreteContinuous': 0.0, 'CatMaterialPrestressedConcrete': 0.0, 'CatMaterialPrestressedConcreteContinuous': 0.0, 'CatMaterialSteel': 0.0, 'CatMaterialSteelContinuous': 0.0, 'CatDesignLoadH10': 0.0, 'CatDesignLoadH15': 0.0, 'CatDesignLoadH20': 0.0, 'CatDesignLoadHS15': 0.0, 'CatDesignLoadHS20': 0.0, 'CatDesignLoadHS20Mod': 0.0, 'CatDesignLoadHS25': 0.0, 'CatDesignLoadnan': 0.0, 'CatDeckStructureTypenan': 0.0, 'bridgeRoadwayWidthCurbToCurb': 0.11141395478969011, 'structureLength': 0.23111743580253127, 'yearBuilt': 0.6574686094077786}
+
+Printing split-nodes
+The length of the all data: 1741
+The length of the structure number - all data sample: 1741
+The length of the labels - all data sample: 1741
+
+ Saving decision trees 
+
+
+ Plotting decision trees 
+
+
+ List of final columns ['yearBuilt', 'averageDailyTraffic', 'avgDailyTruckTraffic', 'latitude', 'longitude', 'skew', 'numberOfSpansInMainUnit', 'lengthOfMaximumSpan', 'structureLength', 'bridgeRoadwayWidthCurbToCurb', 'operatingRating', 'scourCriticalBridges', 'lanesOnStructure', 'designatedInspectionFrequency', 'CatMaterialConcrete', 'CatMaterialConcreteContinuous', 'CatMaterialPrestressedConcrete', 'CatMaterialPrestressedConcreteContinuous', 'CatMaterialSteel', 'CatMaterialSteelContinuous', 'CatDesignLoadH10', 'CatDesignLoadH15', 'CatDesignLoadH20', 'CatDesignLoadHS15', 'CatDesignLoadHS20', 'CatDesignLoadHS20Mod', 'CatDesignLoadHS25', 'CatDesignLoadnan', 'CatDeckStructureTypenan']

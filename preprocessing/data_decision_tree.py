@@ -95,6 +95,7 @@ def compute_adt_cat(individual_records):
         cat = categorize_by_adt(adt)
         record['adtCategory'] = cat
         new_individual_records.append(record)
+    return new_individual_records
 
 def filter_gravel_paved(individual_records):
     paved = []
@@ -135,8 +136,16 @@ def main():
                 "structureLength":1,
                 "numberOfSpansInMainUnit":1,
                 "scourCriticalBridges":1,
+                "deckStructureType":1,
                 "material":"$structureTypeMain.kindOfMaterialDesign",
-                "wearingSurface":"$structureTypeMain.kindOfDesignConstruction",
+                "wearingSurface":"$wearingSurface/ProtectiveSystem.typeOfWearingSurface",
+                "latitude":1,
+                "longitude":1,
+                "skew":1,
+                "lengthOfMaximumSpan":1,
+                "bridgeRoadwayWidthCurbToCurb":1,
+                "lanesOnStructure":"$lanesOnUnderStructure.lanesOnStructure",
+                "designatedInspectionFrequency":1,
             }
 
     # select states:
@@ -144,6 +153,7 @@ def main():
 
     # years:
     years = [year for year in range(1992, 2020)]
+    #years = [year for year in range(1992, 1994)]
 
     # process precipitation data
     #structBdsMap, structPrecipMap = process_precipitation()
@@ -155,11 +165,17 @@ def main():
     individualRecords = query(fields, states, years, collection)
     #individualRecords = sample_records()
     individualRecords = compute_deck_age(individualRecords)
+    print("length after compute deck age: ", len(individualRecords))
+
     individualRecords = compute_age_1(individualRecords)
+    print("length after compute age 1: ", len(individualRecords))
+
     individualRecords = compute_adt_cat(individualRecords)
+    print("length after compute adt cat: ", len(individualRecords))
+
     paved_ind_rec, gravel_ind_rec = filter_gravel_paved(individualRecords)
 
-    individualRecords = paved_ind_rec
+    individualRecords = gravel_ind_rec
     # group records
     groupedrecords = group_records(individualRecords, fields)
 
@@ -264,7 +280,7 @@ def main():
                                                    'supNumberIntervention')
 
     # save to the file
-    csvFile = 'nebraska.csv'
+    csvFile = 'nebraska_gravel.csv'
     tocsv_list(individualRecords, csvFile)
 
 if __name__=='__main__':
