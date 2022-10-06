@@ -1,4 +1,10 @@
-|--- feature_0 <= 1965.50
-|   |--- class: positive
-|--- feature_0 >  1965.50
-|   |--- class: negative
+|--- feature_0 <= 1982.00
+|   |--- feature_1 <= 27.50
+|   |   |--- class: negative
+|   |--- feature_1 >  27.50
+|   |   |--- class: positive
+|--- feature_0 >  1982.00
+|   |--- feature_3 <= 42.55
+|   |   |--- class: negative
+|   |--- feature_3 >  42.55
+|   |   |--- class: positive

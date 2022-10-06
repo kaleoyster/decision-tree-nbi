@@ -220,13 +220,13 @@ def maintenance_pipeline(state):
     df = df[~df['deckStructureType'].isin(['N', 'U'])]
 
     # Fill the null values with -1:
-    df.snowfall.fillna(value=-1, inplace=True)
-    df.precipitation.fillna(value=-1, inplace=True)
-    df.freezethaw.fillna(value=-1, inplace=True)
-    df.toll.fillna(value=-1, inplace=True)
+    #df.snowfall.fillna(value=-1, inplace=True)
+    #df.precipitation.fillna(value=-1, inplace=True)
+    #df.freezethaw.fillna(value=-1, inplace=True)
+    #df.toll.fillna(value=-1, inplace=True)
     df.designatedInspectionFrequency.fillna(value=-1, inplace=True)
     df.deckStructureType.fillna(value=-1, inplace=True)
-    df.typeOfDesign.fillna(value=-1, inplace=True)
+    #df.typeOfDesign.fillna(value=-1, inplace=True)
 
     # Normalize features:
     columnsNormalize = [
@@ -246,15 +246,11 @@ def maintenance_pipeline(state):
                         "numberOfSpansInMainUnit",
                         "lengthOfMaximumSpan",
                         "structureLength",
-                        "bridgeRoadwayWithCurbToCurb",
+                        #"bridgeRoadwayWidthCurbToCurb",
                         "operatingRating",
                         "scourCriticalBridges",
                         "lanesOnStructure",
-
-                        "freezethaw",
-                        "snowfall",
                         "designatedInspectionFrequency",
-
                         "deckDeteriorationScore",
                         "subDeteriorationScore",
                         "supDeteriorationScore"
@@ -271,8 +267,8 @@ def maintenance_pipeline(state):
                     "avgDailyTruckTraffic",
                     "material",
                     "designLoad",
-                    "snowfall",
-                    "freezethaw",
+                    #"snowfall",
+                    #"freezethaw",
                     "supNumberIntervention",
                     "subNumberIntervention",
                     "deckNumberIntervention",
@@ -282,14 +278,14 @@ def maintenance_pipeline(state):
                     "numberOfSpansInMainUnit",
                     "lengthOfMaximumSpan",
                     "structureLength",
-                    "bridgeRoadwayWithCurbToCurb",
+                    #"bridgeRoadwayWidthCurbToCurb",
                     "operatingRating",
                     "scourCriticalBridges",
                     "lanesOnStructure",
-                    "toll",
+                    #"toll",
                     "designatedInspectionFrequency",
                     "deckStructureType",
-                    "typeOfDesign",
+                    #"typeOfDesign",
     #               "deckDeteriorationScore",
     #               "subDeteriorationScore",
     #               "supDeteriorationScore"
@@ -303,10 +299,11 @@ def maintenance_pipeline(state):
 
     # TODO: Do one hot encoding here,
     tempColumnsHotEncoded = {'material': 'CatMaterial',
-                              "toll": 'CatToll',
+                              #"toll": 'CatToll',
                               "designLoad": 'CatDesignLoad' ,
                               "deckStructureType": 'CatDeckStructureType',
-                         "typeOfDesign":'CatTypeOfDesign'}
+                         #"typeOfDesign":'CatTypeOfDesign'
+                            }
 
     dataScaled.rename(columns=tempColumnsHotEncoded, inplace=True)
     columnsHotEncoded = tempColumnsHotEncoded.values()
@@ -320,10 +317,10 @@ def maintenance_pipeline(state):
 
     columnsFinal = list(dataScaled.columns)
     columnsFinal.remove('CatMaterial')
-    columnsFinal.remove('CatToll')
+    #columnsFinal.remove('CatToll')
     columnsFinal.remove('CatDesignLoad')
     columnsFinal.remove('CatDeckStructureType')
-    columnsFinal.remove('CatTypeOfDesign')
+    #columnsFinal.remove('CatTypeOfDesign')
 
     #TODO: Apply recursive feature elimination here.
     # Data Scaled
