@@ -1,22 +1,22 @@
-|--- feature_0 <= 1985.00
-|   |--- feature_1 <= 12.50
-|   |   |--- feature_5 <= 9.50
-|   |   |   |--- class: negative
-|   |   |--- feature_5 >  9.50
-|   |   |   |--- class: positive
-|   |--- feature_1 >  12.50
-|   |   |--- feature_5 <= 20.00
-|   |   |   |--- class: positive
-|   |   |--- feature_5 >  20.00
-|   |   |   |--- feature_3 <= 41.50
-|   |   |   |   |--- feature_9 <= 90.90
-|   |   |   |   |   |--- class: negative
-|   |   |   |   |--- feature_9 >  90.90
-|   |   |   |   |   |--- class: positive
-|   |   |   |--- feature_3 >  41.50
+|--- feature_0 <= 1984.00
+|   |--- feature_0 <= 1969.50
+|   |   |--- feature_8 <= 11.30
+|   |   |   |--- feature_5 <= 5.00
+|   |   |   |   |--- class: negative
+|   |   |   |--- feature_5 >  5.00
 |   |   |   |   |--- class: positive
-|--- feature_0 >  1985.00
-|   |--- feature_3 <= 42.67
+|   |   |--- feature_8 >  11.30
+|   |   |   |--- class: positive
+|   |--- feature_0 >  1969.50
+|   |   |--- feature_4 <= -97.00
+|   |   |   |--- feature_3 <= 40.66
+|   |   |   |   |--- class: negative
+|   |   |   |--- feature_3 >  40.66
+|   |   |   |   |--- class: positive
+|   |   |--- feature_4 >  -97.00
+|   |   |   |--- class: negative
+|--- feature_0 >  1984.00
+|   |--- feature_3 <= 42.60
 |   |   |--- class: negative
-|   |--- feature_3 >  42.67
+|   |--- feature_3 >  42.60
 |   |   |--- class: positive
