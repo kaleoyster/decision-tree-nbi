@@ -175,7 +175,7 @@ def main():
 
     paved_ind_rec, gravel_ind_rec = filter_gravel_paved(individualRecords)
 
-    individualRecords = gravel_ind_rec
+    individualRecords =  paved_ind_rec
     # group records
     groupedrecords = group_records(individualRecords, fields)
 
@@ -280,7 +280,7 @@ def main():
                                                    'supNumberIntervention')
 
     # save to the file
-    csvFile = 'nebraska_gravel.csv'
+    csvFile = 'nebraska_paved.csv'
     tocsv_list(individualRecords, csvFile)
 
 if __name__=='__main__':
