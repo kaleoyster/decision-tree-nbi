@@ -569,7 +569,7 @@ def print_decision_paths(clf, label, X_test,
                      #'valueId': valueList,
                      'inequality': inequalityList,
                      'threshold': thresholdList,
-                     'class': labelList
+                     'label': labelList
                     })
 
         data.to_csv("path.csv")
