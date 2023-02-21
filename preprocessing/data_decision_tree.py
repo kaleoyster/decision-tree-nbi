@@ -1,12 +1,13 @@
 """
-Description: A custom script to create a dataset
-for decision tree model for:
-    1. deterioration
-    2. maintenance
+Description: A custom script to create a dataset for decision tree model for:
+    1. Deterioration
+    2. Maintenance
 
 Author: Akshay Kale
 Date: May 27th, 2020
-Last Updated: February 16th, 2022
+
+Last Updated:
+    February 16th, 2022
 
 TODO:
     1. Create for deterioration and maintenance?
@@ -279,7 +280,7 @@ def main():
                                                    individualRecords,
                                                    'supNumberIntervention')
 
-    # save to the file
+    # Save to the file
     csvFile = 'nebraska_gravel.csv'
     tocsv_list(individualRecords, csvFile)
 
